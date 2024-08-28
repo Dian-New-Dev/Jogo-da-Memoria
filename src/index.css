@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.transicaoParaAnimarClique {
+    
+
+}
+
+.animarClique {
+
+}
