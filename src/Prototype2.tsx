@@ -4,12 +4,19 @@ import React, { useState, useEffect } from 'react';
 //declarados fora do componente funcional pois contém valores fixos não
 //alteráveis por props ou states
 
-const cartas: string[] = [
-    './assets/images/prototype/advisor.png',
-    './assets/images/prototype/fortune-teller.png'        
+const cartas: object[] = [
+    {
+        srcAnonimo: './assets/images/prototype/anom.jpg',
+        srcId: './assets/images/prototype/advisor.png'    
+    },
+    {
+        srcAnonimo: './assets/images/prototype/anom.jpg',
+        srcId: './assets/images/prototype/fortune-teller.png'   
+    }
+        
 ];
 
-const Prototype: React.FC = () => {
+const Prototype2: React.FC = () => {
     //states
     const [listaDeCartas, setListaDeCartas] = useState<JSX.Element[]>([]);
     const [clickedIndex, setClickedIndex] = useState<number | null>(null);
@@ -18,20 +25,21 @@ const Prototype: React.FC = () => {
     // contém toda a lógica que transforma o array "cartas" em uma lista de componentes JSX
     useEffect(() => {
             const cartasDuplicado = [...cartas, ...cartas];
-            embaralharCartas(cartasDuplicado);  
+            embaralharCartas(cartasDuplicado)
+
     }, []);
     //"[]" garante que useEffect execute só uma vez
 
-    function embaralharCartas(cartasDuplicado: string[]) {
+    function embaralharCartas(cartasDuplicado: object[]) {
         const cartasEmbaralhadas = cartasDuplicado.sort(() => Math.random() - 0.5)
         inserirCartasNoPainel(cartasEmbaralhadas)
     }
 
-    function inserirCartasNoPainel(cartasEmbaralhadas: string[]) {
+    function inserirCartasNoPainel(cartasEmbaralhadas: object[]) {
         const cartasRenderizadas = cartasEmbaralhadas.map((item, index) => (
-            <div key={index} className={`relative ${clickedIndex === index ? 'z-30' : 'z-10'}`}>
-                <img onClick={() => processarCliqueNasCartas(item, index)} className='cartasClicaveis' src={item} alt="Carta" />
-                <div className={`absolute top-0 right-0 w-full h-full pointer-events-none ${clickedIndex === index ? 'bg-blue-500' : 'bg-red-500/25'}`}></div>
+            <div key={index} className='relative'>
+                <img onClick={() => processarCliqueNasCartas(item, index)} className='cartasClicaveis' src={item.srcId} alt="Carta" />
+                <img className={`absolute top-0 right-0 w-full h-full pointer-events-none ${clickedIndex === index ? 'hidden' : 'visible'}`} src={item.srcAnonimo} alt="Ícone de ?" />
             </div>
         ));
         setListaDeCartas(cartasRenderizadas)
@@ -43,7 +51,8 @@ const Prototype: React.FC = () => {
 
     function processarCliqueNasCartas(src:string, index:number) {
         verificarSeCartasSaoIguais(src);
-        animClique(index);
+        // animClique(index);
+        setClickedIndex(index);
     }
 
     function verificarSeCartasSaoIguais(src:string) {
@@ -60,9 +69,19 @@ const Prototype: React.FC = () => {
 
     }
 
-    function animClique(index:number) {
-        setClickedIndex(index);
-    }
+
+
+    useEffect(() => {
+        if (clickedIndex !== null) {
+          const cartasDuplicado = [...cartas, ...cartas];
+          embaralharCartas(cartasDuplicado);
+        }
+      }, [clickedIndex]);
+
+
+
+
+    
 
     return (
         <div className='mx-auto border border-gray-100 bg-gray-900 w-[800px] h-[800px]'>
@@ -74,6 +93,18 @@ const Prototype: React.FC = () => {
     );
 };
 
-export default Prototype;
+export default Prototype2;
 
 //<div className='absolute top-0 right-0 w-full h-full pointer-events-none bg-red-500 z-20'></div>
+
+
+// function animClique(index:number) {
+//     setClickedIndex(index);
+//     console.log(index)
+//     console.log(clickedIndex)
+// }
+
+// fazer um array fixo após clicar em iniciar
+// sobrepor dois componentes, um com imagens reais e outro com imagens anonimas
+// se index do componente 1 é igual index do componente 2, match
+// rerenderiza componente 2 para esconder cartaAnonima clicada, sem rerenderizar cartas reais
