@@ -15,3 +15,11 @@
 .animarClique {
 
 }
+
+.anomAnim {
+    transition: transform 0.3s ease;
+}
+
+.animarCartaAnom {
+    transform: rotateY(90deg)
+}
