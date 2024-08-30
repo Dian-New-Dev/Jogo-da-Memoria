@@ -23,3 +23,11 @@
 .animarCartaAnom {
     transform: rotateY(90deg)
 }
+
+.eliminarCartaAnim {
+
+}
+
+.eliminarCarta {
+    opacity: 0;
+}

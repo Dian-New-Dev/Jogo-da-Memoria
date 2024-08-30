@@ -48,7 +48,7 @@ const Prototype3: React.FC = () => {
                     
 
                 <div className='z-20 absolute w-full top-0'>
-                    <CartasAnom numeroDeCartas={numeroDeCartas} />
+                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} />
                 </div>
             </div>
         </div>
