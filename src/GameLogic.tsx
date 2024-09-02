@@ -7,13 +7,14 @@ const cartas: string[] = [
     './assets/images/prototype/fortune-teller.png'
 ]
 
-const Prototype3: React.FC = () => {
+const GameLogic: React.FC = () => {
     //states
     const [sumirMenu, setSumirMenu] = useState<boolean> (false)
     const [cartasEmbaralhadas, setCartasEmbaralhadas] = useState<string[]> ([])
     const [numeroDeCartas, setNumeroDeCartas] = useState <number | null> (null);
 
-    //embaralhar e passar prop de cartas
+    // duplicar e embaralhar cartas + registrar numero de cartas no jogo
+    // ambos serão passados como props
     useEffect(() => {
         const cartasDuplicado = [...cartas, ...cartas];
         embaralharCartas(cartasDuplicado)
@@ -29,7 +30,7 @@ const Prototype3: React.FC = () => {
     //criar prop de estilização única para ambos componentes children
 
 
-    //botao iniciar
+    // Se botao Iniciar for clicado, faz o Menu sumir e o painel de jogo aparecer
     function iniciarJogo() {
         setSumirMenu(true)
     }
@@ -42,6 +43,7 @@ const Prototype3: React.FC = () => {
             </div>
 
             <div className={`relative ${sumirMenu ? 'visible' : 'hidden'}`}>
+                
                 <div className='z-10 absolute w-full top-0'>
                     <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} />
                 </div>
@@ -50,10 +52,11 @@ const Prototype3: React.FC = () => {
                 <div className='z-20 absolute w-full top-0'>
                     <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} />
                 </div>
+            
             </div>
         </div>
 
     );
 };
 
-export default Prototype3;
+export default GameLogic;

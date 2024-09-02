@@ -1,20 +1,15 @@
 import React from 'react';
-// import Prototype from './Prototype';
-// import Prototype2 from './Prototype2';
-import Prototype3 from './Prototype3';
+// import GameLogic from './GameLogic';
 
 const App: React.FC = () => {
-    return (
-        <div>
-            {/* <Prototype /> */}
+    
+    
+    // return (
+    //     <div>
+    //         <GameLogic />
+    //     </div>
 
-            {/* <Prototype2 /> */}
-
-            <Prototype3 />
-
-        </div>
-
-    );
+    // );
 };
 
 export default App;
