@@ -50,7 +50,26 @@
 
 ### Narrativa
 
-1) Criar um painel inicial introduzindo a a premissa da história
+1) Criar um painel inicial introduzindo a premissa da história
+
+* Painel1
+- O Reino agoniza.
+
+- Outrora o coração pulsante de nossa civilização, hoje ele apodrece moribundo sob o olhar indiferente dos deuses.
+
+*Painel2
+- Sem água para matar a sede ou para cultivar o alimento de cada, o povo cadavérico e raquítico se aglomera em volta do palácio. Seus corpos morrem segundo após segundo, agarrando-se à esperança de que seu Faraó convencerá os deuses a lhes devolver o Nilo.
+
+*Painel3
+- Mas mesmo nos corredores do palácio, a fome e a sede correm de mãos dadas com o fantasma da morte. De morte em morte, a corte do Faraó se desintegra. Mesmo o mais forte dos generais luta para se manter de pé sobre pernas finais, e até o mais brilhante dos escribas luta em vão contra a loucura.
+
+*Painel4
+- Sem opções, nosso Faraó tenta uma vez mais. Lhe escolhendo a dedo da multidão lá embaixo, sem critério outro que a confiança nos desígnios dos deuses, o faraó lhe encarrega, a um só passo, da mais nobre missão e da mais perversa das sentenças.
+
+*Painel5
+- Dezenove outros tentaram antes de você, nenhum retornou. Mas onde eles resistiram, apavorados, você aceitou com orgulho. Escolhido pelos deuses, você desbrava o deserto em busca de água.
+
+- Você é o Vigésimo. A última esperança do Reino.
 
 2) Criar um painel ativável logo após iniciar o jogo
 - Vem após sair do menu

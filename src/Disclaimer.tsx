@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Presents from './Presents';
+import Intro from './Intro';
 
 const Disclaimer: React.FC = () => {
 
     const [clicouEmJogar, setClicouEmJogar] = useState <boolean> (false);
     const [terminarDisclaimer, setTerminarDisclaimer] = useState <boolean> (false);
     const [aparecerPresents, setAparecerPresents] = useState <boolean> (false)
+    const [aparecerIntro, setAparecerIntro] = useState <boolean> (false)
+    const [propParaIntro, setPropParaIntro] = useState <boolean> (false)
 
-        
     useEffect (() => {
         if (clicouEmJogar) {
             setTimeout(function() {
@@ -26,6 +28,23 @@ const Disclaimer: React.FC = () => {
         console.log('acabou o fade in do presents')
         
         setAparecerPresents(false);
+
+        setTimeout(function() {
+            tornarIntroVisivel()
+        }, 2000)
+    }
+
+    function tornarIntroVisivel() {
+        setAparecerIntro(true)
+        setTimeout(function() {
+
+        }, 2000)
+    }
+
+    function PassarPropParaIntro() {
+        console.log('trans over')
+        setPropParaIntro(true)
+
     }
 
     return (
@@ -45,6 +64,10 @@ const Disclaimer: React.FC = () => {
 
             <div id='presents' onTransitionEnd={tonarPresentsInvisivel} className={`absolute top-0 left-0 w-full h-screen grid place-items-center transicao-opacidade pointer-events-none ${aparecerPresents ? 'transicao-in' : 'transicao-out'}`}>
                 <Presents />
+            </div>
+
+            <div id='intro' onTransitionEnd={PassarPropParaIntro} className={`absolute top-0 left-0 w-full h-screen grid place-items-center transicao-opacidade opacity-0 pointer-events-none ${aparecerIntro ? 'transicao-in' : 'transicao-out'}`}>
+                <Intro propParaIntro={propParaIntro} />
             </div>
 
         </div>
