@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Papyrus';
+    src: url('./assets/fonts/papyrus.ttf') format('truetype');
+}
+
+.fonte-papyrus {
+    font-family: 'Papyrus';
+}
+
 * {
     min-width: 0;
     box-sizing: border-box;
@@ -43,5 +52,13 @@ html {
 
 .transicao-in {
     opacity: 1;
+}
+
+.fundo-de-pergaminho {
+    background-image: url('./assets/images/prototype/Intro/pergaminho.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
 }
 
