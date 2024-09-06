@@ -46,6 +46,10 @@ html {
     transition: opacity 2s ease-in-out;
 }
 
+.transicao-opacidade-imagens {
+    transition: opacity 4s ease-in-out;
+}
+
 .transicao-out {
     opacity: 0;
 }
@@ -55,9 +59,9 @@ html {
 }
 
 .fundo-de-pergaminho {
-    background-image: url('./assets/images/prototype/Intro/pergaminho.png');
+    background-image: url('./assets/images/prototype/Intro/pergaminho3.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 900px 300px;
     background-position: center;
 
 }
