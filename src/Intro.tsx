@@ -21,7 +21,6 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
 
     useEffect(() => {
         setComecarIntro( prevState => prevState + 1)
-        console.log('comeciou, e o valor de comecarIntro é: ' + comecarIntro)
     }, [propParaIntro]);
 
     //aparecer primeira imagem

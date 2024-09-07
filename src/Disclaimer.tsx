@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Presents from './Presents';
 import Intro from './Intro';
 
@@ -15,18 +15,15 @@ const Disclaimer: React.FC = () => {
             setTimeout(function() {
                 setTerminarDisclaimer(true)
             }, 2000);
+            playAudio();
         }
     }, [clicouEmJogar])
 
     function tonarPresentsVisivel() {
-        console.log('acabou o fade out da mensagem')
-        
         setAparecerPresents(true);
     }
 
     function tonarPresentsInvisivel() {
-        console.log('acabou o fade in do presents')
-        
         setAparecerPresents(false);
 
         setTimeout(function() {
@@ -42,10 +39,17 @@ const Disclaimer: React.FC = () => {
     }
 
     function PassarPropParaIntro() {
-        console.log('trans over')
         setPropParaIntro(true)
 
     }
+
+    //CÓDIGO PARA MANIPULAR AUDIO
+
+    const audioRef = useRef(null);
+
+    const playAudio = () => {
+        audioRef.current.play();
+    } 
 
     return (
     
@@ -70,7 +74,11 @@ const Disclaimer: React.FC = () => {
                 <Intro propParaIntro={propParaIntro} />
             </div>
 
+            <audio ref={audioRef} src={"./assets/audio/music/intro.mp3"}></audio>
+
         </div>
+
+
     
     );
 };

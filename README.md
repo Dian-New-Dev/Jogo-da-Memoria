@@ -78,5 +78,34 @@
 3) Apresentar as cartas antes de cada estágio
 - Cada carta contém um persoangem inicialmente aleatório, mas cuja relevância aparecerá eventualmente
 
+## Aprendizado
 
+* CSS: z-index não funciona em elementos que não tenham algum position delcarado (o padrão é static, o qual bloqueia o z-index)
 
+* React tem um método análogo ao transitionEnd do JS: onTransitionEnd. O efeito é o mesmo mas sem manipulação direta do DOM
+
+* Usar console.log para verificar o fluxo do código em React é confuso, pois o log registra valores antes do componente re-renderizar, mostrando sempre um valor desatualizado.
+
+## A Implementar
+
+* prop useState no pai passado para o ultimo componentr da intro avisando o pai que deve esconder a componente da intro quando esta terminar
+
+* importar o seguinte pacote
+
+https://www.npmjs.com/package/react-type-animation
+
+para animação de máquina de escrever nas caixas de diálogo
+
+## Audio
+
+* Intro: https://www.youtube.com/watch?v=tyFvpDLqRiA&list=PLfP6i5T0-DkK9jisqW81AF4N8pljQLagE&index=2
+
+* Estágios inicias: https://www.youtube.com/watch?v=ikicj6xzvPM&list=PLfP6i5T0-DkK9jisqW81AF4N8pljQLagE
+
+* Estágios intermediários (a partir dos 4 min): https://www.youtube.com/watch?v=tyFvpDLqRiA&list=PLfP6i5T0-DkK9jisqW81AF4N8pljQLagE&index=2
+
+* Estágios misteriosos: https://www.youtube.com/watch?v=S7k5ev7pJ9k&list=PLfP6i5T0-DkK9jisqW81AF4N8pljQLagE&index=9
+
+* Estágios mais frenéticos: https://www.youtube.com/watch?v=cxVXdnzX57o&list=PLfP6i5T0-DkK9jisqW81AF4N8pljQLagE&index=10
+
+* Chefões: https://www.youtube.com/watch?v=KBfo1OW_wZA&list=PLfP6i5T0-DkK9jisqW81AF4N8pljQLagE&index=12
