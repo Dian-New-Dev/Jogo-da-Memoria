@@ -88,7 +88,6 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
     function textoFinal() {
         setTimeout(() => {
             setTextoIndex(6)
-            terminarIntroePassarAoMenu();
         }, 4000)
     }
 
@@ -104,7 +103,12 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
         <div id='paineis-container' className='w-full h-screen relative fonte-papyrus text-gray-800 text-lg font-bold'>
 
                 <div className='z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px]'>
-                    <p className={`w-[600px] text-center transicao-opacidade ${textoIndex !== 0 ? '' : ''}`}>{textoIntro[textoIndex]}</p>
+                    <p 
+                    className={`w-[600px] text-center transicao-opacidade ${textoIndex !== 0 ? '' : ''}`}>
+                        
+                        
+                        {textoIntro[textoIndex]}
+                        </p>
                 </div>
                 
 
