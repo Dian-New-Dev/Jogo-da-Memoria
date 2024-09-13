@@ -1,14 +1,18 @@
 import React from 'react';
 import Disclaimer from './Disclaimer';
 
-const IntroSequence: React.FC = () => {
+interface setMostrarIntroSequenceProp {
+    setMostrarIntroSequence: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const IntroSequence: React.FC<setMostrarIntroSequenceProp> = ({setMostrarIntroSequence}) => {
         
     return (
     
         <div>
 
             <div>
-                <Disclaimer />
+                <Disclaimer setMostrarIntroSequence={setMostrarIntroSequence} />
             </div>
 
         </div>

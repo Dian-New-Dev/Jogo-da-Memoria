@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Presents from './Presents';
 import Intro from './Intro';
 
-const Disclaimer: React.FC = () => {
+interface setMostrarIntroSequenceProp {
+    setMostrarIntroSequence: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequence }) => {
 
     const [clicouEmJogar, setClicouEmJogar] = useState <boolean> (false);
     const [terminarDisclaimer, setTerminarDisclaimer] = useState <boolean> (false);
@@ -51,6 +55,10 @@ const Disclaimer: React.FC = () => {
         audioRef.current.play();
     } 
 
+    function terminarIntroePassarAoMenu() {
+        setMostrarIntroSequence(false)
+    }
+
     return (
     
         <div>
@@ -71,10 +79,10 @@ const Disclaimer: React.FC = () => {
             </div>
 
             <div id='intro' onTransitionEnd={PassarPropParaIntro} className={`absolute top-0 left-0 w-full h-screen grid place-items-center transicao-opacidade opacity-0 pointer-events-none ${aparecerIntro ? 'transicao-in' : 'transicao-out'}`}>
-                <Intro propParaIntro={propParaIntro} />
+                <Intro propParaIntro={propParaIntro}/>
             </div>
 
-            <audio ref={audioRef} src={"./assets/audio/music/intro.mp3"}></audio>
+            <audio ref={audioRef} src={"./assets/audio/music/intro.mp3"} onEnded={terminarIntroePassarAoMenu}></audio>
 
         </div>
 

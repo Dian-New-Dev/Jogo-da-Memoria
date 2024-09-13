@@ -88,8 +88,16 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
     function textoFinal() {
         setTimeout(() => {
             setTextoIndex(6)
+            terminarIntroePassarAoMenu();
         }, 4000)
     }
+
+    // function terminarIntroePassarAoMenu() {
+    //     setTimeout(() => {
+    //         setMostrarIntroSequence(false);
+    //     }, 5000)
+        
+    // }
     
     return (
     
