@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import TypingAnimator from 'react-typing-animator';
 
-const textoIntro:string[] = [
-    'O reino agoniza',
-    'Outrora o coração pulsante de nossa civilização, hoje ele apodrece moribundo sob o olhar indiferente dos deuses.',
-    'Sem água para matar a sede ou para cultivar o alimento de cada, o povo cadavérico e raquítico se aglomera em volta do palácio. Seus corpos morrem segundo após segundo, agarrando-se à esperança de que seu Faraó convencerá os deuses a lhes devolver o Nilo.',
-    'Mas mesmo nos corredores do palácio, a fome e a sede correm de mãos dadas com o fantasma da morte. De morte em morte, a corte do Faraó se desintegra. Mesmo o mais forte dos generais luta para se manter de pé sobre pernas finais, e até o mais brilhante dos escribas luta em vão contra a loucura.',
-    'Sem opções, nosso Faraó tenta uma vez mais. Lhe escolhendo a dedo da multidão lá embaixo, sem critério outro que a confiança nos desígnios dos deuses, o faraó lhe encarrega, a um só passo, da mais nobre missão e da mais perversa das sentenças.',
-    'Dezenove outros tentaram antes de você, nenhum retornou. Mas onde eles resistiram, apavorados, você aceitou com orgulho. Escolhido pelos deuses, você desbrava o deserto em busca de água.',
-    'Você é o Vigésimo. A última esperança do Reino.'
-];
+
+// const textoIntro:string[] = [
+//     'O reino agoniza',
+//     'Outrora o coração pulsante de nossa civilização, hoje ele apodrece moribundo sob o olhar indiferente dos deuses.',
+//     'Sem água para matar a sede ou para cultivar o alimento de cada, o povo cadavérico e raquítico se aglomera em volta do palácio. Seus corpos morrem segundo após segundo, agarrando-se à esperança de que seu Faraó convencerá os deuses a lhes devolver o Nilo.',
+//     'Mas mesmo nos corredores do palácio, a fome e a sede correm de mãos dadas com o fantasma da morte. De morte em morte, a corte do Faraó se desintegra. Mesmo o mais forte dos generais luta para se manter de pé sobre pernas finais, e até o mais brilhante dos escribas luta em vão contra a loucura.',
+//     'Sem opções, nosso Faraó tenta uma vez mais. Lhe escolhendo a dedo da multidão lá embaixo, sem critério outro que a confiança nos desígnios dos deuses, o faraó lhe encarrega, a um só passo, da mais nobre missão e da mais perversa das sentenças.',
+//     'Dezenove outros tentaram antes de você, nenhum retornou. Mas onde eles resistiram, apavorados, você aceitou com orgulho. Escolhido pelos deuses, você desbrava o deserto em busca de água.',
+//     'Você é o Vigésimo. A última esperança do Reino.'
+// ];
 
 interface IntroProps {
     propParaIntro: boolean;
@@ -25,24 +27,28 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
 
     //aparecer primeira imagem
     const [aparecerImagem1, setAparecerImagem1] = useState <boolean> (false)
+    const [aparecerTexto, setAparecerTexto] = useState <boolean> (false);
     if (comecarIntro > 1) {
+        
         setTimeout(() => {
             setAparecerImagem1(true)
+            setAparecerTexto(true)
             console.log('aparecerImagem é: ' + aparecerImagem1)
         }, 2000);
     }
     
     //aparecer proximos textos e imagens
-    const [textoIndex, setTextoIndex] = useState <number> (0);
+    // const [textoIndex, setTextoIndex] = useState <number> (0);
     const [aparecerImagem2, setAparecerImagem2] = useState <boolean> (false)
     const [aparecerImagem3, setAparecerImagem3] = useState <boolean> (false)
     const [aparecerImagem4, setAparecerImagem4] = useState <boolean> (false)
     const [aparecerImagem5, setAparecerImagem5] = useState <boolean> (false)
     const [sumirAsImagens, setSumirAsImagens] = useState <boolean> (false)
+    const [sumirCaixaDeTexto, setSumirCaixaDeTexto] = useState <boolean> (false)
 
     function avancar1() {
         setTimeout(() => {
-            setTextoIndex(1)
+            // setTextoIndex(1)
 
             setTimeout(() => {
                 avancar2();
@@ -52,43 +58,39 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
 
     function avancar2() {
         setTimeout(() => {
-            setTextoIndex(2)
+            // setTextoIndex(2)
             setAparecerImagem2(true)
         }, 1000);
     }
 
     function avancar3() {
         setTimeout(() => {
-            setTextoIndex(3)
+            // setTextoIndex(3)
             setAparecerImagem3(true)
         }, 15000);
     }
 
     function avancar4() {
         setTimeout(() => {
-            setTextoIndex(4)
+            // setTextoIndex(4)
             setAparecerImagem4(true)
-        }, 15000);
+        }, 16000);
     }
 
     function avancar5() {
         setTimeout(() => {
-            setTextoIndex(5)
+            // setTextoIndex(5)
             setAparecerImagem5(true)
-        }, 15000);
+        }, 16000);
     }
 
     function avancar6() {
         setTimeout(() => {
             setSumirAsImagens(true)
-            textoFinal();
-        }, 15000);
-    }
-
-    function textoFinal() {
-        setTimeout(() => {
-            setTextoIndex(6)
-        }, 4000)
+            setTimeout(() => {
+                setSumirCaixaDeTexto(true);
+            }, 2000)
+        }, 28000);
     }
 
     // function terminarIntroePassarAoMenu() {
@@ -102,13 +104,49 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
     
         <div id='paineis-container' className='w-full h-screen relative fonte-papyrus text-gray-800 text-lg font-bold'>
 
-                <div className='z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px]'>
-                    <p 
+                <div className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : ''}`}>
+                    {/* <p 
                     className={`w-[600px] text-center transicao-opacidade ${textoIndex !== 0 ? '' : ''}`}>
                         
                         
                         {textoIntro[textoIndex]}
-                        </p>
+                        </p> */}
+
+                    {aparecerTexto &&
+
+                        <TypingAnimator
+                        textArray={[
+                                'O Reino agoniza.',
+                                'Outrora o coração pulsante de nossa civilização, hoje ele apodrece moribundo sob o olhar indiferente dos deuses.',
+                                'Sem água para matar a sede ou para cultivar o alimento de cada dia, o povo cadavérico e raquítico se aglomera em volta do palácio. Seus corpos morrem segundo após segundo, escorando-se apenas na esperança de que o Faraó convencerá os deuses a lhes devolver o Nilo.',
+                                'Mas mesmo nos corredores do palácio, a fome e a sede passeiam de mãos dadas com o fantasma da morte. De óbito em óbito, a corte real se desintegra. Mesmo os fortes generais mal conseguem se manter de pé sobre pernas finas, e até o mais brilhante dos escribas luta contra a loucura.',
+                                'Sem opções, o Deus-Sol tenta uma última vez. Lhe escolhendo a dedo da multidão lá embaixo, sem critério outro que não a confiança nos desígnios dos deuses, o Faraó lhe encarrega, a um só passo, da mais nobre das missões e da mais perversa das sentenças.',
+                                'Dezenove outros tentaram antes de você, nenhum retornou. Mas onde eles resistiram, apavorados, você aceitou com orgulho.',
+                                'Escolhido pelos deuses, você desbrava o deserto em busca de água.',
+                                'Pelo Reino.',
+                                'Pelo Faraó.',
+                                'Você é o Vigésimo. A última esperança do seu povo.'
+                        ]}
+                        cursorColor="#ffffff00"
+                        textColor="#555"
+                        fontSize="20px"
+                        loop={false}
+                        typingSpeed={60}
+                        delaySpeed={3000}
+                        backspace={false}
+                        height="auto"
+                        dynamicDelay={false}
+                        style={{
+                            textAlign: 'center',
+                            fontFamily: 'Papyrus',
+                            fontWeight: 'bold',
+                            marginTop: '10px',
+                            caretColor: 'transparent',
+                            width: '600px',
+                          }}
+                    />
+
+                }
                 </div>
                 
 
