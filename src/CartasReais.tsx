@@ -21,7 +21,6 @@ const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas}) => {
 
     function processarCliqueNasCartas(src:string, index:number) {
         verificarSeCartasSaoIguais(src);
-        animClique(index);
     }
 
     let clickCounter:number = 0;
@@ -43,11 +42,6 @@ const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas}) => {
         }
 
     }
-
-    function animClique(index:number) {
-        console.log(index)
-    }
-
 
     ////////
 

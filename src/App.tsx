@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import GameLogic from './GameLogic';
 import IntroSequence from './IntroSequence';
 import Menu from './Menu';
 import GameLogic from './GameLogic';
+import Cena1 from './Cena1';
 
 const App: React.FC = () => {
 
@@ -21,17 +21,14 @@ const App: React.FC = () => {
                 {!mostrarIntroSequence && !comecarJogo && <Menu setComecarJogo={setComecarJogo} />}
             </div>
 
+            <div>
+                <Cena1 />
+            </div>
+
             <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${comecarJogo ? 'visible' : 'hidden'} `}>
                 {comecarJogo && <GameLogic />}
             </div>
         </div>
-    
-        
-
-        //     <div>
-    //         <GameLogic />
-    //     </div>
-
     );
 };
 

@@ -27,10 +27,9 @@ const GameLogic: React.FC = () => {
 
     }, []);
 
-    //criar prop de estilização única para ambos componentes children
-
-
-    // Se botao Iniciar for clicado, faz o Menu sumir e o painel de jogo aparecer
+    
+    // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
+    // e inicia o jogo
     function iniciarJogo() {
         setJogadorPreparado(true)
     }
