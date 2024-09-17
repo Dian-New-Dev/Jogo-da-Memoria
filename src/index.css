@@ -72,8 +72,6 @@ html {
     background-repeat: no-repeat;
     background-size: 900px 300px;
     background-position: center;
-    background-color: rgba(21, 172, 29, 0.479);
-    background-blend-mode: multiply;
 
 }
 
@@ -84,5 +82,13 @@ html {
     background-size: contain;
     background-color: rgba(0, 0, 0, 0.411);
     background-blend-mode: multiply;
+}
+
+.background-pulpito {
+    background-image: url('./assets/images/gameplay/pulpito.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 

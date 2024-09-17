@@ -9,7 +9,7 @@ const cartas: string[] = [
 
 const GameLogic: React.FC = () => {
     //states
-    const [sumirMenu, setSumirMenu] = useState<boolean> (false)
+    const [jogadorPreparado, setJogadorPreparado] = useState<boolean> (false)
     const [cartasEmbaralhadas, setCartasEmbaralhadas] = useState<string[]> ([])
     const [numeroDeCartas, setNumeroDeCartas] = useState <number | null> (null);
 
@@ -32,24 +32,25 @@ const GameLogic: React.FC = () => {
 
     // Se botao Iniciar for clicado, faz o Menu sumir e o painel de jogo aparecer
     function iniciarJogo() {
-        setSumirMenu(true)
+        setJogadorPreparado(true)
     }
 
 
     return (
-        <div>
-            <div className={`relative ${sumirMenu ? 'hidden' : 'visible'} `}>
-                <button onClick={iniciarJogo}>Iniciar Jogo</button>
+
+        <div className='w-[95%] mx-auto h-screen background-pulpito'>
+            <div className={`relative w-full h-screen grid place-items-center ${jogadorPreparado ? 'hidden' : 'visible'} `}>
+                <button onClick={iniciarJogo} className='w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl'>Preparado?</button>
             </div>
 
-            <div className={`relative ${sumirMenu ? 'visible' : 'hidden'}`}>
+            <div className={`relative ${jogadorPreparado ? 'visible' : 'hidden'}`}>
                 
-                <div className='z-10 absolute w-full top-0'>
+                <div className='z-10 absolute w-full h-screen top-0 grid place-items-center'>
                     <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} />
                 </div>
                     
 
-                <div className='z-20 absolute w-full top-0'>
+                <div className='z-20 absolute w-full h-screen top-0 grid place-items-center'>
                     <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} />
                 </div>
             

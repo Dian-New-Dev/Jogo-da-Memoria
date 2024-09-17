@@ -52,7 +52,7 @@ const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas}) => {
     ////////
 
     return (
-        <div className=' p-4 bg-amber-300 grid gap-2 grid-row-2 grid-cols-2 w-[500px] mx-auto'>
+        <div className=' p-4 bg-amber-300 grid gap-2 grid-row-2 grid-cols-2 w-[500px] m-auto'>
             {listaDeCartas}
         </div>
 

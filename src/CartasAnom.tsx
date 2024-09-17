@@ -14,7 +14,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
     const [index1, setIndex1] = useState<number>(-1);
     const [cartasAEliminar, setCartasAEliminar] = useState<number[]> ([])
     const [contadorDeMatches, setContadorDeMatches] = useState<number>(0)
-    const [statusDoJogo, setStatusDoJogo] = useState<string>('Jogo Em Progresso')
+    const [fimDeJogo, setFimDeJogo] = useState<boolean>(false)
 
 
     
@@ -82,16 +82,21 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
 
     useEffect(() => {
         if (contadorDeMatches > 0 && contadorDeMatches === Math.floor(cartasEmbaralhadas.length / 2)) {
-            setStatusDoJogo('Fim de Jogo');
+            setFimDeJogo(true);
         }
     }, [contadorDeMatches, cartasEmbaralhadas.length]);
+
+    useEffect(() => {
+        if (fimDeJogo) {
+            console.log('jogo acabou');
+        }
+    }, [fimDeJogo]);
     
     
 
     return (
-        <div className='p-4  grid gap-2 grid-row-2 grid-cols-2 w-[500px] mx-auto grid-rows-2'>
+        <div className='p-4  grid gap-2 grid-row-2 grid-cols-2 w-[500px] m-auto grid-rows-2'>
             {ListaDeCartasAnom}
-            <p>{statusDoJogo}</p>
         </div>
 
 
