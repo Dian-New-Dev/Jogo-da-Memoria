@@ -1,29 +1,26 @@
 import React from 'react';
-import TypingAnimator from 'react-typing-animator';
 
 
 const Menu: React.FC = () => {
         
     return (
-    
-        //<div className='text-white grid place-items-center w-full h-screen'>
-                    <TypingAnimator
-                        textArray={['Estamos no Menu!!', 'agora vamos lá', 'aiaiaia']}
-                        cursorColor="transparent"
-                        textColor="#555"
-                        fontSize="24px"
-                        loop={false}
-                        typingSpeed={100}
-                        delaySpeed={8000}
-                        backspace={false}
-                        height="60px"
-                        dynamicDelay={true}
-                        style={{fontFamily: "Helvetica" , fontWeight: "bold", marginTop: "10px"}}
-                    />
-            
-            
-        //</div>
-    
+    <div id='menu-container' className='w-full h-screen flex flex-col items-center justify-evenly gap-16 background-menu'>
+        <div className='text-amber-400 fonte-headline text-[250px] m-0'>
+            <h1>O Vigésimo</h1>
+        </div>
+
+        <div className='fonte-papyrus text-amber-200 text-lg font-bold'>
+            <ul className='flex flex-col gap-4'>
+                <li className='cursor-pointer hover:scale-125'>Novo Jogo</li>
+                <li className='cursor-pointer hover:scale-125'>Carregar Jogo</li>
+                <li className='cursor-pointer hover:scale-125'>Opções</li>
+            </ul>
+        </div>
+
+        <div className=''>
+            2024 - DA Web Dev.
+        </div>
+    </div>
     );
 };
 

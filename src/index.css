@@ -7,8 +7,17 @@
     src: url('./assets/fonts/papyrus.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Headline';
+    src: url('./assets/fonts/headline.ttf') format('truetype');
+}
+
 .fonte-papyrus {
     font-family: 'Papyrus';
+}
+
+.fonte-headline {
+    font-family: 'Headline'
 }
 
 * {
@@ -63,6 +72,17 @@ html {
     background-repeat: no-repeat;
     background-size: 900px 300px;
     background-position: center;
+    background-color: rgba(21, 172, 29, 0.479);
+    background-blend-mode: multiply;
 
+}
+
+.background-menu {
+    background-image: url('./assets/images/menu/deserto.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.411);
+    background-blend-mode: multiply;
 }
 
