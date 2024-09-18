@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-interface setComecarJogoProp {
-    setComecarJogo: React.Dispatch<React.SetStateAction<boolean>>;
+interface setComecarCena1Prop {
+    setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 
-const Menu: React.FC<setComecarJogoProp> = ({setComecarJogo}) => {
+const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
 
     const [fadeOut, setFadeOut] = useState <boolean> (false);
     
@@ -13,14 +13,14 @@ const Menu: React.FC<setComecarJogoProp> = ({setComecarJogo}) => {
     
     const tocarVentoMenu = () => {
         ventoRef.current.play();
-    } 
+    }
       
     function clicouEmComecarJogo() {
         setFadeOut(true)
 
         setTimeout(function () {
-            setComecarJogo(true)
-        }, 4000)
+            setComecarCena1(true)
+        }, 3000)
 
     }
 
