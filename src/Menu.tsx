@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 
 interface setComecarCena1Prop {
     setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
@@ -9,11 +9,7 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
 
     const [fadeOut, setFadeOut] = useState <boolean> (false);
     
-    const ventoRef = useRef(null);
-    
-    const tocarVentoMenu = () => {
-        ventoRef.current.play();
-    }
+
       
     function clicouEmComecarJogo() {
         setFadeOut(true)
@@ -24,9 +20,7 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
 
     }
 
-    useEffect (() => {
-        tocarVentoMenu();
-    }, [])
+
 
     return (
     <div id='menu-container' className={`w-full h-screen flex flex-col items-center justify-evenly gap-16 background-menu transicao-opacidade ${fadeOut ? 'transicao-out' : 'transicao-in'} `}>
@@ -45,8 +39,6 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
         <div className=''>
             2024 - DA Web Dev.
         </div>
-
-        <audio ref={ventoRef} src={"./assets/audio/music/menu.mp3"} onEnded={tocarVentoMenu}></audio>
     </div>
     );
 };

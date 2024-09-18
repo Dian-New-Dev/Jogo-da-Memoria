@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import IntroSequence from './IntroSequence';
 import Menu from './Menu';
 import GameLogic from './GameLogic';
@@ -6,10 +6,23 @@ import Cena1 from './Cena1';
 
 const App: React.FC = () => {
 
-    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false)
-    const [comecarCena1, setComecarCena1] = useState <boolean> (true)
+    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (true)
+    const [comecarCena1, setComecarCena1] = useState <boolean> (false)
     const [faseAtual, setFaseAtual] = useState <number> (0)
+
+
+    //musica cena1
+    const ventoRef = useRef(null);
     
+    const tocarVento = () => {
+        ventoRef.current.play();
+    }
+    
+    useEffect (() => {
+        if (comecarCena1) {
+            tocarVento();
+        }
+    }, [comecarCena1])
     
     return (
 
@@ -21,6 +34,8 @@ const App: React.FC = () => {
             <div className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${mostrarIntroSequence ? 'hidden' : 'visible'} `}>
                 {!mostrarIntroSequence && !comecarCena1 && <Menu setComecarCena1={setComecarCena1} />}
             </div>
+
+            <audio ref={ventoRef} src={"./assets/audio/music/menu.mp3"} onEnded={tocarVento}></audio>
 
             <div className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${comecarCena1 ? 'visible' : 'hidden'} `}>
                 {comecarCena1 && <Cena1 setComecarCena1={setComecarCena1} />}
