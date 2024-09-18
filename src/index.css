@@ -56,7 +56,7 @@ html {
 }
 
 .transicao-opacidade-imagens {
-    transition: opacity 4s ease-in-out;
+    transition: opacity 4s ease-in-out, transform 20s ease-in-out;
 }
 
 .transicao-out {
@@ -92,3 +92,15 @@ html {
 
 }
 
+.mover-imagem1-pra-baixo {
+    transform: translateY(300px);
+}
+
+.crescer-imagem-2 {
+    transform:scale(1.2)
+
+
+}
+.mover-imagem3-pra-esquerda {
+    transform: translateX(-600px);
+}

@@ -103,13 +103,15 @@ const Cena1: React.FC<setComecarCena1Prop> = ({ setComecarCena1 }) => {
                                     'O pouco de água e os três calangos que a comitiva real lhe forneceu antes de sua saída se esgotaram pela manhã.',
                                     'Atrás de si, o reino já não é mais visível. Adiante, somente o infinito deserto.',
                                     'Quente.',
-                                    'Desolado.',
+                                    'Cruel.',
                                     'Vazio.',
                                     'Seus limites estão próximos. Sua esperança de ser o escolhido pelos deuses a salvar o reino e honrar seu faraó, a um fio de se romper, junto com suas forças de continuar.',
                                     'É quando você vê.',
                                     'Impossível não ver. Desponta, quase brilha, em meio à mesmice enlouquecedora da paisagem.',
                                     'Um púlpito de pedra, cravado na areia. Inscrições estranhas em seu relevo não importam. Sobre si, um livro aberto em duas páginas. A da direita, em branco. A da esquerda, com as seguintes inscrições:',
-                                    '“Eu guardo a água. Eu guardo a vida. Vença meu desafio, e viva mais um dia para continuar sua busca.” '
+                                    '“Eu guardo a água. Eu guardo a vida. Vença meu desafio, e viva mais um dia para continuar sua busca.”',
+                                    '',
+                                    '',
                             ]}
                             cursorColor="#ffffff00"
                             textColor="#555"
@@ -136,13 +138,13 @@ const Cena1: React.FC<setComecarCena1Prop> = ({ setComecarCena1 }) => {
 
 
                 <div className={`z-0 relative top-0 left-0 w-full h-screen grid place-items-center transicao-opacidade ${sumirAsImagens ? 'transicao-out' : 'transicao-in'} `}>
-                    <img id='problematic-pic' className={`w-[80%] z-0 transicao-opacidade ${aparecerImagem1 ? 'transicao-in' : 'transicao-out'} ${sumirImagem ? 'hidden' : ''} `} src={"./assets/images/cena1/painel1.png"} alt="Ilustração de um assustador e imenso deserto de areia sob um céu de sol forte cercado de tonalidades negras." />
+                    <img id='problematic-pic' className={`w-[80%] z-0 absolute mx-auto top-[-300px] transicao-opacidade-imagens ${aparecerImagem1 ? 'transicao-in, mover-imagem1-pra-baixo' : 'transicao-out'} ${sumirImagem ? 'hidden' : ''} `} src={"./assets/images/cena1/painel1.png"} alt="Ilustração de um assustador e imenso deserto de areia sob um céu de sol forte cercado de tonalidades negras." />
 
 
-                    <img className={`w-[50%] absolute z-10 transicao-opacidade ${aparecerImagem2 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/cena1/painel2.jpg"} alt="Ilustração de um viajante tapado por rústicos trapos cansadamente caminhando pelo deserto." />
+                    <img className={`w-[90%] absolute z-10 scale-100 transicao-opacidade-imagens ${aparecerImagem2 ? 'transicao-in, crescer-imagem-2' : 'transicao-out'}`} src={"./assets/images/cena1/painel2.jpg"} alt="Ilustração de um viajante tapado por rústicos trapos cansadamente caminhando pelo deserto." />
 
 
-                    <img className={`w-[50%] absolute right-[5%] bottom-0 z-20 transicao-opacidade ${aparecerImagem3 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/cena1/painel3.jpeg"} alt="Ilustração de um púlpito de pedra com um livro aberto sobre si, no meio do deserto.." />
+                    <img className={`w-[80%] absolute right-[-200px] my-auto z-20 transicao-opacidade-imagens ${aparecerImagem3 ? 'transicao-in, mover-imagem3-pra-esquerda' : 'transicao-out'}`} src={"./assets/images/cena1/painel3.jpeg"} alt="Ilustração de um púlpito de pedra com um livro aberto sobre si, no meio do deserto.." />
                 </div>   
 
 
