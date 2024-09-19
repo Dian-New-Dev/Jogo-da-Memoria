@@ -21,7 +21,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
     const arrayDeAnoms:string[] = [];
     if (numeroDeCartas !== null) {
         for (let i = 0; i < numeroDeCartas; i++) {
-            arrayDeAnoms.push('./assets/images/prototype/anom.jpg')
+            arrayDeAnoms.push('./assets/images/cartas/anom.jpg')
         }
     }
     

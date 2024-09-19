@@ -6,21 +6,25 @@ import Cena1 from './Cena1';
 
 const App: React.FC = () => {
 
-    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (true)
+    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false)
     const [comecarCena1, setComecarCena1] = useState <boolean> (false)
-    const [faseAtual, setFaseAtual] = useState <number> (0)
+    const [faseAtual, setFaseAtual] = useState <number> (1)
 
 
     //musica cena1
     const ventoRef = useRef(null);
     
     const tocarVento = () => {
-        ventoRef.current.play();
+        if (comecarCena1) {
+            ventoRef.current.play();
+        }
     }
     
-    useEffect (() => {
+    useEffect (() => { 
         if (comecarCena1) {
             tocarVento();
+        } else {
+            ventoRef.current.pause();
         }
     }, [comecarCena1])
     
