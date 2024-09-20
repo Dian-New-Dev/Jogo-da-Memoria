@@ -4,6 +4,8 @@ import Menu from './Menu';
 import GameLogic from './GameLogic';
 import Cena1 from './Cena1';
 
+
+
 const App: React.FC = () => {
 
     const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false)

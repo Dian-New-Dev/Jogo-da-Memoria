@@ -3,6 +3,7 @@ import CartasReais from './CartasReais';
 import CartasAnom from './CartasAnom';
 import ArmazemDeCartas from './data/ArmazemDeCartas';
 import PosDesafio from './PosDesafio';
+import Cronometro from './Cronometro';
 
 interface GameLogicProps {
     faseAtual: number;
@@ -19,6 +20,10 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual}) => {
     const [cartasEmbaralhadas, setCartasEmbaralhadas] = useState<string[]> ([])
     const [numeroDeCartas, setNumeroDeCartas] = useState <number | null> (null);
     const [venceuDesafioAtual, setVenceuDesafioAtual] = useState <boolean> (false);
+    const [contagem321, setContagem321] = useState <string> ('!')
+    const [mostrarContagem321, setMostrarContagem321] = useState <boolean> (false)
+    const [tempoFinalDoDesafio, setTempoFinalDoDesafio] = useState <string> ('');
+
 
     // duplicar e embaralhar cartas + registrar numero de cartas no jogo
     // ambos serão passados como props
@@ -48,7 +53,20 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual}) => {
     // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
     // e inicia o jogo
     function iniciarJogo() {
-        setJogadorPreparado(true)
+        setMostrarContagem321(true)
+        setContagem321('3');
+        console.log('3');
+        setTimeout(() => {
+            setContagem321('2');
+            console.log('2');
+            setTimeout(() => {
+                setContagem321('1');
+                console.log('1');
+                setTimeout(() => {
+                    setJogadorPreparado(true);
+                }, 1000);
+            }, 1000);
+        }, 1000);
     }
 
 
@@ -59,10 +77,18 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual}) => {
                 <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>Desafio {faseAtual}</p>
                 <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto'>Duas novas cartas surgem sobre o livro!!</p>
                 <button onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>Preparado?</button>
+                <p className={`fonte-papyrus text-5xl text-red-700 opacity-0 contorno-de-texto font-bold ${mostrarContagem321 ? 'opacity-100' : ''} `}>
+                    {contagem321}
+                </p>
+
             </div>
 
             <div className={`relative ${jogadorPreparado ? 'visible' : 'hidden'}`}>
-                                
+
+                <div className='z-0 absolute w-full h-screen top-0 grid place-items-center'>
+                    <Cronometro jogadorPreparado={jogadorPreparado} venceuDesafioAtual={venceuDesafioAtual} setTempoFinalDoDesafio={setTempoFinalDoDesafio} />
+                </div>
+
                 <div className='z-10 absolute w-full h-screen top-0 grid place-items-center'>
                     <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} />
                 </div>
@@ -72,7 +98,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual}) => {
                     <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} />
                 </div>
             
-                {venceuDesafioAtual && <PosDesafio />}
+                {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} />}
             </div>
         </div>
 
