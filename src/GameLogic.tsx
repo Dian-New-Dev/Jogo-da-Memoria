@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import CartasReais from './CartasReais';
 import CartasAnom from './CartasAnom';
 import ArmazemDeCartas from './data/ArmazemDeCartas';
@@ -10,11 +10,13 @@ interface GameLogicProps {
     setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
     setRenderizarGameLogic: React.Dispatch<React.SetStateAction<boolean>>;
     setRenderizarDescricaoDasCartas: React.Dispatch<React.SetStateAction<boolean>>;
+    setIndexA: React.Dispatch<React.SetStateAction<number>>;
+    setIndexB: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const cartasArrayOriginal: string[] = ArmazemDeCartas;
 
-const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas}) => {
+const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas, setIndexA, setIndexB}) => {
 
     //states
     const [jogadorPreparado, setJogadorPreparado] = useState<boolean> (false)
@@ -69,6 +71,21 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             }, 1000);
         }, 1000);
     }
+
+    //logica para determinar os indexes para o Componente DescricaoDasCartas
+
+    const effectRan = useRef(false);
+    useEffect(() => {
+        if (effectRan.current || process.env.NODE_ENV !== "development") {
+            console.log('foi chamado o useEffect dos indexes no remount')
+            setIndexA(prev => prev + 2)
+            setIndexB(prev => prev + 2)
+        }
+
+        return () => {
+            effectRan.current = true;
+        } 
+    }, []);
 
 
     return (

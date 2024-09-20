@@ -1,11 +1,24 @@
 import React from 'react';
 import cartasOriginal from './data/ArmazemDeCartas';
+import nomeDasCartas from './data/ArmazemDeNomes';
+import descricoesDasCartas from './data/ArmazemDeDescricoes';
 
-const cartasArrayOriginal: string[] = cartasOriginal;
+interface DescricaoDasCartasProps {
+    indexA: number;
+    indexB: number;
+}
 
-const cartas = [...Array(2)].map((_, i) => cartasArrayOriginal[i]);
+// const cartasArrayOriginal: string[] = cartasOriginal;
 
-const DescricaoDasCartas: React.FC = () => {
+// const cartas = [...Array(2)].map((_, i) => cartasArrayOriginal[i]);
+
+//carta
+//nome
+//descricao
+
+const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ indexA, indexB }) => {
+
+
         
     return (
     
@@ -17,11 +30,19 @@ const DescricaoDasCartas: React.FC = () => {
            
            <div className='flex items-center justify-center'>
                 <div className='p-2 flex justify-center'>
-                    <img className='w-[60%]' src={cartas[0]} alt="Carta1" />
+                    <img className='w-[60%]' src={cartasOriginal[indexA]} alt="Carta1" />
+                    <p>{nomeDasCartas[indexA]}</p>
+                    <div>
+                        <p>{descricoesDasCartas[indexA]}</p>
+                    </div>
                 </div>
 
                 <div className='p-2 flex justify-center'>
-                    <img className='w-[60%]' src={cartas[1]} alt="Carta2" />
+                    <img className='w-[60%]' src={cartasOriginal[indexB]} alt="Carta2" />
+                    <p>{nomeDasCartas[indexB]}</p>
+                    <div>
+                        <p>{descricoesDasCartas[indexB]}</p>
+                    </div>
                 </div>
            </div>
 

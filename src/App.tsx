@@ -9,11 +9,13 @@ import DescricaoDasCartas from './DescricaoDasCartas';
 
 const App: React.FC = () => {
 
-    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false)
+    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (true)
     const [comecarCena1, setComecarCena1] = useState <boolean> (false)
     const [faseAtual, setFaseAtual] = useState <number> (0)
     const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (false)
     const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (false)
+    const [indexA, setIndexA] = useState <number> (-2);
+    const [indexB, setIndexB] = useState <number> (-1);
 
 
     //musica cena1
@@ -51,11 +53,11 @@ const App: React.FC = () => {
             </div>
 
             <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${faseAtual !== 0 ? 'visible' : 'hidden'} `}>
-                {faseAtual !== 0 && renderizarGameLogic && <GameLogic faseAtual={faseAtual} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
+                {faseAtual !== 0 && renderizarGameLogic && <GameLogic faseAtual={faseAtual} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} setIndexA={setIndexA} setIndexB={setIndexB} />}
             </div>
 
             <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${renderizarDescricaoDasCartas ? 'visible' : 'hidden'} `}>
-                {renderizarDescricaoDasCartas && <DescricaoDasCartas />}
+                {renderizarDescricaoDasCartas && <DescricaoDasCartas indexA={indexA} indexB={indexB} />}
             </div>
         </div>
     );
