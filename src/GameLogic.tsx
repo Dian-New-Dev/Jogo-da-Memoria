@@ -7,13 +7,14 @@ import Cronometro from './Cronometro';
 
 interface GameLogicProps {
     faseAtual: number;
+    setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
+    setRenderizarGameLogic: React.Dispatch<React.SetStateAction<boolean>>;
+    setRenderizarDescricaoDasCartas: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const cartasArrayOriginal: string[] = ArmazemDeCartas;
 
-const GameLogic: React.FC <GameLogicProps> = ({faseAtual}) => {
-    console.log('começando gameLogic com a fase numero ' + faseAtual)
-
+const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas}) => {
 
     //states
     const [jogadorPreparado, setJogadorPreparado] = useState<boolean> (false)
@@ -98,7 +99,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual}) => {
                     <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} />
                 </div>
             
-                {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} />}
+                {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
             </div>
         </div>
 

@@ -4,9 +4,10 @@ import TypingAnimator from 'react-typing-animator';
 interface Cean1Props {
     setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
     setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
+    setRenderizarGameLogic: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual }) => {
+const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual, setRenderizarGameLogic }) => {
 
     const [cena1Comecou, setCena1Comecou] = useState <boolean> (false)
     const [aparecerTexto, setAparecerTexto] = useState <boolean> (false)
@@ -74,6 +75,7 @@ const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual }) => {
             setTimeout(() => {
                 setComecarCena1(false)
                 setFaseAtual(1) // passa para a primeira fase
+                setRenderizarGameLogic(true)
             }, 4000);
             setSumirImagem(true)
             setSumirCaixaDeTexto(true);
@@ -84,11 +86,17 @@ const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual }) => {
         }, 22000);
     }
 
+    function pularCena1() {
+        setComecarCena1(false)
+        setFaseAtual(1) // passa para a primeira fase
+        setRenderizarGameLogic(true)
+    }
+
 
 
     return (
     
-        <div className={`w-full h-screen relative .transicao-opacidade ${fadeOut ? 'transicao-out' : 'trasicao-in'} `}>
+        <div className={`w-full h-screen relative transicao-opacidade ${fadeOut ? 'transicao-out' : 'trasicao-in'} `}>
 
             <div onTransitionEnd={comecarApresentacao} className={`z-0 grid place-items-center w-full h-screen absolute top-0 left-0 fonte-headline text-amber-400 text-5xl transicao-opacidade ${cena1Comecou ? 'transicao-out' : ''} `}>
                 <p>Capítulo 1</p>
@@ -152,6 +160,10 @@ const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual }) => {
 
 
 
+            </div>
+
+            <div className='absolute bottom-5 right-5 z-50 pointer-events-auto'>
+                <button onClick={pularCena1} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold pointer-events-auto'>PULAR</button>
             </div>
             
         </div>

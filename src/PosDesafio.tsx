@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Cronometro from './Cronometro';
+import React, { useEffect } from 'react';
 
 interface PosDesafioProps {
     tempoFinalDoDesafio: string;
+    setFaseAtual:React.Dispatch<React.SetStateAction<number>>;
+    setRenderizarGameLogic: React.Dispatch<React.SetStateAction<boolean>>;
+    setRenderizarDescricaoDasCartas: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const PosDesafio: React.FC <PosDesafioProps> = ({tempoFinalDoDesafio}) => {
-
-    const [mostrarPosJogo, setMostrarPosJogo] = useState <boolean> (false)
+const PosDesafio: React.FC <PosDesafioProps> = ({tempoFinalDoDesafio, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas}) => {
 
     useEffect(() => {
         console.log('o componente de pos desafio foi montado')
     }, [])
+
+    function terminarPartida() {
+        console.log('terminou partida')
+        setFaseAtual(prev => prev + 1)
+        setRenderizarGameLogic(false)
+        setRenderizarDescricaoDasCartas(true)
+    }
         
     return (
     
@@ -26,7 +33,7 @@ const PosDesafio: React.FC <PosDesafioProps> = ({tempoFinalDoDesafio}) => {
                 </div>
 
 
-                <button className='text-black fonte-papyrus bg-amber-600 hover:bg-amber-800 p-4 rounded-lg font-bold text-center'>Finalizar</button>
+                <button onClick={terminarPartida} className='text-black fonte-papyrus bg-amber-600 hover:bg-amber-800 p-4 rounded-lg font-bold text-center'>Finalizar</button>
             </div>
         </div>
     

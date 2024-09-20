@@ -3,6 +3,7 @@ import IntroSequence from './IntroSequence';
 import Menu from './Menu';
 import GameLogic from './GameLogic';
 import Cena1 from './Cena1';
+import DescricaoDasCartas from './DescricaoDasCartas';
 
 
 
@@ -10,7 +11,9 @@ const App: React.FC = () => {
 
     const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false)
     const [comecarCena1, setComecarCena1] = useState <boolean> (false)
-    const [faseAtual, setFaseAtual] = useState <number> (1)
+    const [faseAtual, setFaseAtual] = useState <number> (0)
+    const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (false)
+    const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (false)
 
 
     //musica cena1
@@ -38,17 +41,21 @@ const App: React.FC = () => {
             </div>
 
             <div className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${mostrarIntroSequence ? 'hidden' : 'visible'} `}>
-                {!mostrarIntroSequence && !comecarCena1 && <Menu setComecarCena1={setComecarCena1} />}
+                {!mostrarIntroSequence && !comecarCena1 && faseAtual === 0 && <Menu setComecarCena1={setComecarCena1} />}
             </div>
 
             <audio ref={ventoRef} src={"./assets/audio/music/menu.mp3"} onEnded={tocarVento}></audio>
 
             <div className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${comecarCena1 ? 'visible' : 'hidden'} `}>
-                {comecarCena1 && <Cena1 setComecarCena1={setComecarCena1} setFaseAtual={setFaseAtual} />}
+                {comecarCena1 && <Cena1 setComecarCena1={setComecarCena1} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} />}
             </div>
 
             <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${faseAtual !== 0 ? 'visible' : 'hidden'} `}>
-                {faseAtual !== 0 && <GameLogic faseAtual={faseAtual} />}
+                {faseAtual !== 0 && renderizarGameLogic && <GameLogic faseAtual={faseAtual} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
+            </div>
+
+            <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${renderizarDescricaoDasCartas ? 'visible' : 'hidden'} `}>
+                {renderizarDescricaoDasCartas && <DescricaoDasCartas />}
             </div>
         </div>
     );
