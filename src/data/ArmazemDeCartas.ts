@@ -5,7 +5,7 @@ const cartasOriginal: string[] = [
     './assets/images/cartas/general.jpg',
     './assets/images/cartas/crianca.jpg',
     './assets/images/cartas/campones.jpg',
-    './assets/images/cartas/filha.png',
+    './assets/images/cartas/filha.jpg',
     './assets/images/cartas/farao.jpg',
     ]
 

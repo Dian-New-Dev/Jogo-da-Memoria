@@ -3,9 +3,10 @@ import React, { useState, useEffect  } from 'react';
 interface cartasAnomProps {
     numeroDeCartas: number | null;
     cartasEmbaralhadas: string[];
+    setVenceuDesafioAtual: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralhadas}) => {
+const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralhadas, setVenceuDesafioAtual }) => {
 
     const [IndexDeCartaAnon ,setIndexDeCartaAnon] = useState <number[]> ([]);
     const [ListaDeCartasAnom, setListaDeCartasAnom] = useState <JSX.Element[]> ([]);
@@ -88,12 +89,11 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
 
     useEffect(() => {
         if (fimDeJogo) {
-            console.log('jogo acabou');
+            console.log('venceu!!!')
+            setVenceuDesafioAtual(true)
         }
     }, [fimDeJogo]);
     
-    
-
     return (
         <div className='p-4  grid gap-2 grid-row-2 grid-cols-2 w-[500px] m-auto grid-rows-2'>
             {ListaDeCartasAnom}

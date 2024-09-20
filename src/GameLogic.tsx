@@ -2,26 +2,28 @@ import React, { useState, useEffect} from 'react';
 import CartasReais from './CartasReais';
 import CartasAnom from './CartasAnom';
 import ArmazemDeCartas from './data/ArmazemDeCartas';
+import PosDesafio from './PosDesafio';
 
+interface GameLogicProps {
+    faseAtual: number;
+}
 
 const cartasArrayOriginal: string[] = ArmazemDeCartas;
 
-// const cartas: string[] = [
-//     './assets/images/prototype/advisor.png',
-//     './assets/images/prototype/fortune-teller.png'
-// ]
+const GameLogic: React.FC <GameLogicProps> = ({faseAtual}) => {
+    console.log('começando gameLogic com a fase numero ' + faseAtual)
 
-const GameLogic: React.FC = () => {
+
     //states
     const [jogadorPreparado, setJogadorPreparado] = useState<boolean> (false)
     const [cartasEmbaralhadas, setCartasEmbaralhadas] = useState<string[]> ([])
     const [numeroDeCartas, setNumeroDeCartas] = useState <number | null> (null);
+    const [venceuDesafioAtual, setVenceuDesafioAtual] = useState <boolean> (false);
 
     // duplicar e embaralhar cartas + registrar numero de cartas no jogo
     // ambos serão passados como props
     useEffect(() => {
-        const cartas = [...Array(8)].map((_, i) => cartasArrayOriginal[i]);
-        console.log(cartas)
+        const cartas = [...Array(2)].map((_, i) => cartasArrayOriginal[i]);
         //a linha anterior equivale a
 
         // const cartas = [];
@@ -53,21 +55,24 @@ const GameLogic: React.FC = () => {
     return (
 
         <div className='w-[95%] mx-auto h-screen background-pulpito'>
-            <div className={`relative w-full h-screen grid place-items-center ${jogadorPreparado ? 'hidden' : 'visible'} `}>
-                <button onClick={iniciarJogo} className='w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl'>Preparado?</button>
+            <div className={`fonte-headline relative w-full h-screen flex flex-col justify-center items-center gap-8 ${jogadorPreparado ? 'hidden' : 'visible'} `}>
+                <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>Desafio {faseAtual}</p>
+                <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto'>Duas novas cartas surgem sobre o livro!!</p>
+                <button onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>Preparado?</button>
             </div>
 
             <div className={`relative ${jogadorPreparado ? 'visible' : 'hidden'}`}>
-                
+                                
                 <div className='z-10 absolute w-full h-screen top-0 grid place-items-center'>
                     <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} />
                 </div>
                     
 
                 <div className='z-20 absolute w-full h-screen top-0 grid place-items-center'>
-                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} />
+                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} />
                 </div>
             
+                {venceuDesafioAtual && <PosDesafio />}
             </div>
         </div>
 

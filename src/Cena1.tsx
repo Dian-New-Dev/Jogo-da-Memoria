@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import TypingAnimator from 'react-typing-animator';
 
-interface setComecarCena1Prop {
+interface Cean1Props {
     setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
+    setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Cena1: React.FC<setComecarCena1Prop> = ({ setComecarCena1 }) => {
+const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual }) => {
 
     const [cena1Comecou, setCena1Comecou] = useState <boolean> (false)
     const [aparecerTexto, setAparecerTexto] = useState <boolean> (false)
@@ -72,6 +73,7 @@ const Cena1: React.FC<setComecarCena1Prop> = ({ setComecarCena1 }) => {
         setTimeout(() => {
             setTimeout(() => {
                 setComecarCena1(false)
+                setFaseAtual(1) // passa para a primeira fase
             }, 4000);
             setSumirImagem(true)
             setSumirCaixaDeTexto(true);

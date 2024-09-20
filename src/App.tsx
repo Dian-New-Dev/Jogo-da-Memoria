@@ -42,11 +42,11 @@ const App: React.FC = () => {
             <audio ref={ventoRef} src={"./assets/audio/music/menu.mp3"} onEnded={tocarVento}></audio>
 
             <div className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${comecarCena1 ? 'visible' : 'hidden'} `}>
-                {comecarCena1 && <Cena1 setComecarCena1={setComecarCena1} />}
+                {comecarCena1 && <Cena1 setComecarCena1={setComecarCena1} setFaseAtual={setFaseAtual} />}
             </div>
 
             <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${faseAtual !== 0 ? 'visible' : 'hidden'} `}>
-                {faseAtual !== 0 && <GameLogic />}
+                {faseAtual !== 0 && <GameLogic faseAtual={faseAtual} />}
             </div>
         </div>
     );
