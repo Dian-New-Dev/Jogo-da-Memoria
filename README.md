@@ -1,9 +1,10 @@
-# Projeto Fleeing Sands
+# Projeto Web-Game: O Vigésimo
 
 ## Descrição
 
 - Jogo da memória com narrativa imersiva e intrigante.
 - Jogo de navegador, feito em react.
+- Mistura de puzzle com rogue-like.
 
 ## Planejamento
 
