@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 interface cartasReaisProps {
     cartasEmbaralhadas: string[];
-    display: string;
-    gap: string; 
-    gridRows: string;
-    gridCols: string;
-    width: string;
+    estilosDasFases: string[];
 }
 
-const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas, display, gap, gridRows, gridCols, width}) => {
+const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas, estilosDasFases}) => {
 
     const [listaDeCartas, setListaDeCartas] = useState <JSX.Element[]> ([])
 
@@ -51,7 +47,7 @@ const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas, display, g
     ////////
 
     return (
-        <div className=' p-4 bg-amber-300 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto'>
+        <div className=' p-4 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto'>
             {listaDeCartas}
         </div>
 

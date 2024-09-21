@@ -28,26 +28,37 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     const [tempoFinalDoDesafio, setTempoFinalDoDesafio] = useState <string> ('');
 
     //states para estilizacao conjunta de CartasReais e CartasAnom
-    const [display, setDisplay] = useState <string> ('grid') //grid
-    const [gap, setGap] = useState <string> ('gap-2')    //gap
-    const [gridRows, setGridRows] = useState <string> ('grid-rows-2')    //grid-row
-    const [gridCols, setGridCols] = useState <string> ('grid-cols-2')    //grid-cols
-    const [width, setWidth] = useState <string> ('w-[500px]') //w
-    const [srcAnom, setSrcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')    //src de anom: linha 25
+        const [srcAnom, setSrcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')
+        const [estilosDasFases, setEstilosDasFases] = useState <string[]> ([
+            "absolute w-full h-screen top-0 grid place-items-center", //esse primeiro é diferente
+            "p-4 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto",
+            "fase2",
+            "fase3",
+            "fase4",
+            "fase5",
+            "fase6",
+            "fase7",
+            "fase8",
+            "fase9",
+            "fase10",
+            "fase11",
+            "fase12",
+            "fase13",
+            "fase14",
+            "fase15",
+            "fase16",
+            "fase17",
+            "fase18",
+            "fase20",    
+        ])
 
 
     // duplicar e embaralhar cartas + registrar numero de cartas no jogo
-    // ambos serão passados como props
+    // ambos são passados como props
+    //uso o valor de faseAtual como numero de iteracoes para sempre produzir
+    //um array que selecione o dobro de cartas, pois cada fase tem Ncartas = n° da fase x 2
     useEffect(() => {
-        const cartas = [...Array(2)].map((_, i) => cartasArrayOriginal[i]);
-        //a linha anterior equivale a
-
-        // const cartas = [];
-        // for (let i = 0; i < 2; i++) {
-        //     cartas.push(cartasArrayOriginal[i])
-        // }
-
-        //mas o método for/push não é recomendando em react
+        const cartas = [...Array(faseAtual * 2)].map((_, i) => cartasArrayOriginal[i]);
 
         const cartasDuplicado = [...cartas, ...cartas];
         embaralharCartas(cartasDuplicado)
@@ -115,13 +126,13 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
                     <Cronometro jogadorPreparado={jogadorPreparado} venceuDesafioAtual={venceuDesafioAtual} setTempoFinalDoDesafio={setTempoFinalDoDesafio} />
                 </div>
 
-                <div className='z-10 absolute w-full h-screen top-0 grid place-items-center'>
-                    <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} display={display} gap={gap} gridRows={gridRows} gridCols={gridCols} width={width} />
+                <div className={`z-10 ${estilosDasFases[0]} `}>
+                    <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} estilosDasFases={estilosDasFases} />
                 </div>
                     
 
-                <div className='z-20 absolute w-full h-screen top-0 grid place-items-center'>
-                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} display={display} gap={gap} gridRows={gridRows} gridCols={gridCols} width={width} srcAnom={srcAnom} />
+                <div className={`z-20 ${estilosDasFases[0]} `}>
+                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} srcAnom={srcAnom} estilosDasFases={estilosDasFases} />
                 </div>
             
                 {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
