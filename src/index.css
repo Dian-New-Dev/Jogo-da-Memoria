@@ -20,6 +20,10 @@
     font-family: 'Headline'
 }
 
+.fonte-hieroglifo {
+    font-family: "Noto Sans Egyptian Hieroglyphs", sans-serif;
+}
+
 .contorno-de-texto {
     text-shadow: 
       2px 2px 0 black, /* Sombra no canto inferior direito */
@@ -107,6 +111,13 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
 
+}
+
+.background-descricoes {
+    background-image: url('./assets/images/gameplay/descricao-bg.png');
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
 }
 
 .mover-imagem1-pra-baixo {

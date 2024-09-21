@@ -9,14 +9,15 @@ import DescricaoDasCartas from './DescricaoDasCartas';
 
 const App: React.FC = () => {
 
-    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (true)
-    const [comecarCena1, setComecarCena1] = useState <boolean> (false)
-    const [faseAtual, setFaseAtual] = useState <number> (0)
-    const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (false)
-    const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (false)
-    const [indexA, setIndexA] = useState <number> (-2);
-    const [indexB, setIndexB] = useState <number> (-1);
+    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false) // padrao: true
+    const [comecarCena1, setComecarCena1] = useState <boolean> (false) // padrao: false
+    const [faseAtual, setFaseAtual] = useState <number> (1) // padrao: 0
+    const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (false) // padrao: false
+    const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (true) // padrao: false
+    const [indexA, setIndexA] = useState <number> (0); // padrao: -2
+    const [indexB, setIndexB] = useState <number> (1); // padrao: -1
 
+    //descricao cartas: f, f, 1, t, 0, 1
 
     //musica cena1
     const ventoRef = useRef(null);
