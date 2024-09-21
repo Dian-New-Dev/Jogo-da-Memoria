@@ -6,11 +6,13 @@ import descricoesDasCartas from './data/ArmazemDeDescricoes';
 interface DescricaoDasCartasProps {
     indexA: number;
     indexB: number;
+    setRenderizarDescricaoDasCartas: React.Dispatch<React.SetStateAction<boolean>>;
+    setRenderizarGameLogic: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 
 
-const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ indexA, indexB }) => {
+const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ indexA, indexB, setRenderizarDescricaoDasCartas, setRenderizarGameLogic }) => {
   
     const [descABlock, setDescABlock] = useState <boolean> (false);
     const [descBBlock, setDescBBlock] = useState <boolean> (false);
@@ -53,6 +55,8 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ indexA, indexB
 
     function terminarComponente() {
         console.log('componente deve ser desmontado')
+        setRenderizarDescricaoDasCartas(false)
+        setRenderizarGameLogic(true)
     }
         
     return (
@@ -98,7 +102,7 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ indexA, indexB
                     
                 </div>
                 <div className={`absolute inset-0 flex items-center justify-center bg-red-70 fonte-headline text-3xl ${mostrarBotaoAvancar ? 'block': 'hidden'} ` }>
-                <button onClick={terminarComponente} className={`fonte-headline text-3xl p-2 border bg-amber-600 border-amber-700 rounded-md text-amber-950`}>Finalizar</button>
+                    <button onClick={terminarComponente} className={`fonte-headline text-3xl p-2 border bg-amber-600 border-amber-700 rounded-md text-amber-950`}>Finalizar</button>
                 </div>
 
                 
