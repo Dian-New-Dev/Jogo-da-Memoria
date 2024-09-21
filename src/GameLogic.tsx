@@ -27,6 +27,14 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     const [mostrarContagem321, setMostrarContagem321] = useState <boolean> (false)
     const [tempoFinalDoDesafio, setTempoFinalDoDesafio] = useState <string> ('');
 
+    //states para estilizacao conjunta de CartasReais e CartasAnom
+    const [display, setDisplay] = useState <string> ('grid') //grid
+    const [gap, setGap] = useState <string> ('gap-2')    //gap
+    const [gridRows, setGridRows] = useState <string> ('grid-rows-2')    //grid-row
+    const [gridCols, setGridCols] = useState <string> ('grid-cols-2')    //grid-cols
+    const [width, setWidth] = useState <string> ('w-[500px]') //w
+    const [srcAnom, setSrcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')    //src de anom: linha 25
+
 
     // duplicar e embaralhar cartas + registrar numero de cartas no jogo
     // ambos serão passados como props
@@ -108,12 +116,12 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
                 </div>
 
                 <div className='z-10 absolute w-full h-screen top-0 grid place-items-center'>
-                    <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} />
+                    <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} display={display} gap={gap} gridRows={gridRows} gridCols={gridCols} width={width} />
                 </div>
                     
 
                 <div className='z-20 absolute w-full h-screen top-0 grid place-items-center'>
-                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} />
+                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} display={display} gap={gap} gridRows={gridRows} gridCols={gridCols} width={width} srcAnom={srcAnom} />
                 </div>
             
                 {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}

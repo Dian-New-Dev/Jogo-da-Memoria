@@ -4,9 +4,15 @@ interface cartasAnomProps {
     numeroDeCartas: number | null;
     cartasEmbaralhadas: string[];
     setVenceuDesafioAtual: React.Dispatch<React.SetStateAction<boolean>>;
+    display: string;
+    gap: string; 
+    gridRows: string;
+    gridCols: string;
+    width: string;
+    srcAnom: string;
 }
 
-const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralhadas, setVenceuDesafioAtual }) => {
+const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralhadas, setVenceuDesafioAtual, display, gap, gridRows, gridCols, width, srcAnom }) => {
 
     const [IndexDeCartaAnon ,setIndexDeCartaAnon] = useState <number[]> ([]);
     const [ListaDeCartasAnom, setListaDeCartasAnom] = useState <JSX.Element[]> ([]);
@@ -22,7 +28,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
     const arrayDeAnoms:string[] = [];
     if (numeroDeCartas !== null) {
         for (let i = 0; i < numeroDeCartas; i++) {
-            arrayDeAnoms.push('./assets/images/cartas/anom.jpg')
+            arrayDeAnoms.push(srcAnom)
         }
     }
     
@@ -95,7 +101,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
     }, [fimDeJogo]);
     
     return (
-        <div className='p-4  grid gap-2 grid-row-2 grid-cols-2 w-[500px] m-auto grid-rows-2'>
+        <div className='p-4  grid gap-2 grid-cols-2 w-[500px] m-auto grid-rows-2'>
             {ListaDeCartasAnom}
         </div>
 
