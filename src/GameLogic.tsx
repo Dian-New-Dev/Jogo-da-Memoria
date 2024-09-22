@@ -18,6 +18,16 @@ const cartasArrayOriginal: string[] = ArmazemDeCartas;
 
 const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas, setIndexA, setIndexB}) => {
 
+    useEffect(() => {
+        if (faseAtual === 1) {
+            setFase1(true)
+        } else {
+            setFase1(false)
+        }
+    }, [faseAtual])
+    
+    const [fase1, setFase1] = useState <boolean> (false);
+
     //states
     
     const [jogadorPreparado, setJogadorPreparado] = useState<boolean> (false)
@@ -29,8 +39,8 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     const [tempoFinalDoDesafio, setTempoFinalDoDesafio] = useState <string> ('');
 
     //states para estilizacao conjunta de CartasReais e CartasAnom
-        const [srcAnom, setSrcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')
-        const [estilosDasFases, setEstilosDasFases] = useState <string[]> ([
+        const [srcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')
+        const [estilosDasFases] = useState <string[]> ([
             "absolute w-full h-screen top-0 grid place-items-center", //esse primeiro é diferente
             "p-4 grid gap-2 w-[500px] mapa-grid-fase1",
             "p-4 grid gap-2 w-[50%] mapa-grid-fase2",
@@ -95,10 +105,18 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
 
     const effectRan = useRef(false);
     useEffect(() => {
-        if (effectRan.current || process.env.NODE_ENV !== "development") {
-            console.log('foi chamado o useEffect dos indexes no remount')
-            setIndexA(prev => prev + 2)
-            setIndexB(prev => prev + 2)
+        if (faseAtual === 1) {
+            if (effectRan.current || process.env.NODE_ENV !== "development") {
+                console.log('foi chamado o useEffect dos indexes no remount')
+                setIndexA(prev => prev + 2)
+                setIndexB(prev => prev + 2)
+            }
+        } else {
+            if (effectRan.current || process.env.NODE_ENV !== "development") {
+                console.log('foi chamado o useEffect dos indexes no remount')
+                setIndexB(prev => prev + 1)
+
+            }
         }
 
         return () => {
@@ -112,7 +130,9 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
         <div className='w-[95%] mx-auto h-screen background-pulpito'>
             <div className={`fonte-headline relative w-full h-screen flex flex-col justify-center items-center gap-8 ${jogadorPreparado ? 'hidden' : 'visible'} `}>
                 <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>Desafio {faseAtual}</p>
-                <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto'>Duas novas cartas surgem sobre o livro!!</p>
+                <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto'>
+                    {fase1 ? "Duas novas cartas surgem sobre o livro." : "Um novo par de cartas surge sobre o livro."} 
+                </p>
                 <button onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>Preparado?</button>
                 <p className={`fonte-papyrus text-5xl text-red-700 opacity-0 contorno-de-texto font-bold ${mostrarContagem321 ? 'opacity-100' : ''} `}>
                     {contagem321}
