@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
 interface cartasReaisProps {
+    faseAtual: number;
     cartasEmbaralhadas: string[];
     estilosDasFases: string[];
 }
 
-const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas, estilosDasFases}) => {
+const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, cartasEmbaralhadas, estilosDasFases}) => {
 
     const [listaDeCartas, setListaDeCartas] = useState <JSX.Element[]> ([])
 
     useEffect(() => {
         
         const cartasRenderizadas = cartasEmbaralhadas.map((item, index) => (
-            <div key={index} className={`relative`}>
-                <img onClick={() => processarCliqueNasCartas(item, index)} className='cartasClicaveis' src={item} alt="Carta" />
+            <div key={index} className={`relative carta${index+1}`}>
+                <img className={`cartasClicaveis`} onClick={() => processarCliqueNasCartas(item, index)} src={item} alt="Carta" />
             </div>
         ));
         setListaDeCartas(cartasRenderizadas)
@@ -47,7 +48,7 @@ const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas, estilosDas
     ////////
 
     return (
-        <div className=' p-4 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto'>
+        <div className={estilosDasFases[faseAtual]}>
             {listaDeCartas}
         </div>
 
@@ -55,3 +56,7 @@ const CartasReais: React.FC<cartasReaisProps> = ({cartasEmbaralhadas, estilosDas
 };
 
 export default CartasReais;
+
+{/* <div className='p-4 grid gap-2 grid-rows-3 grid-cols-3 w-[500px] m-auto'>
+{listaDeCartas}
+</div> */}

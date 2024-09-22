@@ -19,6 +19,7 @@ const cartasArrayOriginal: string[] = ArmazemDeCartas;
 const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas, setIndexA, setIndexB}) => {
 
     //states
+    
     const [jogadorPreparado, setJogadorPreparado] = useState<boolean> (false)
     const [cartasEmbaralhadas, setCartasEmbaralhadas] = useState<string[]> ([])
     const [numeroDeCartas, setNumeroDeCartas] = useState <number | null> (null);
@@ -31,9 +32,9 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
         const [srcAnom, setSrcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')
         const [estilosDasFases, setEstilosDasFases] = useState <string[]> ([
             "absolute w-full h-screen top-0 grid place-items-center", //esse primeiro é diferente
-            "p-4 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto",
-            "fase2",
-            "fase3",
+            "p-4 grid gap-2 w-[500px] mapa-grid-fase1",
+            "p-4 grid gap-2 w-[50%] mapa-grid-fase2",
+            "p-4 grid gap-2 w-[30%] mapa-grid-fase3",
             "fase4",
             "fase5",
             "fase6",
@@ -55,10 +56,9 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
 
     // duplicar e embaralhar cartas + registrar numero de cartas no jogo
     // ambos são passados como props
-    //uso o valor de faseAtual como numero de iteracoes para sempre produzir
-    //um array que selecione o dobro de cartas, pois cada fase tem Ncartas = n° da fase x 2
     useEffect(() => {
-        const cartas = [...Array(faseAtual * 2)].map((_, i) => cartasArrayOriginal[i]);
+        console.log('fase atual: ' + faseAtual)
+        const cartas = [...Array(faseAtual + 1)].map((_, i) => cartasArrayOriginal[i]);
 
         const cartasDuplicado = [...cartas, ...cartas];
         embaralharCartas(cartasDuplicado)
@@ -69,7 +69,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             setCartasEmbaralhadas(embaralhandoCartas)
         }
 
-    }, []);
+    }, [faseAtual]);
 
     
     // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
@@ -127,12 +127,12 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
                 </div>
 
                 <div className={`z-10 ${estilosDasFases[0]} `}>
-                    <CartasReais cartasEmbaralhadas={cartasEmbaralhadas} estilosDasFases={estilosDasFases} />
+                    <CartasReais faseAtual={faseAtual} cartasEmbaralhadas={cartasEmbaralhadas} estilosDasFases={estilosDasFases} />
                 </div>
                     
 
                 <div className={`z-20 ${estilosDasFases[0]} `}>
-                    <CartasAnom numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} srcAnom={srcAnom} estilosDasFases={estilosDasFases} />
+                    <CartasAnom faseAtual={faseAtual} numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} srcAnom={srcAnom} estilosDasFases={estilosDasFases} />
                 </div>
             
                 {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}

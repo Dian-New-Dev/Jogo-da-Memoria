@@ -1,6 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 
 interface cartasAnomProps {
+    faseAtual: number;
     numeroDeCartas: number | null;
     cartasEmbaralhadas: string[];
     setVenceuDesafioAtual: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,7 +9,7 @@ interface cartasAnomProps {
     estilosDasFases: string[];
 }
 
-const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralhadas, setVenceuDesafioAtual, srcAnom, estilosDasFases }) => {
+const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, numeroDeCartas, cartasEmbaralhadas, setVenceuDesafioAtual, srcAnom, estilosDasFases }) => {
 
     const [IndexDeCartaAnon ,setIndexDeCartaAnon] = useState <number[]> ([]);
     const [ListaDeCartasAnom, setListaDeCartasAnom] = useState <JSX.Element[]> ([]);
@@ -31,7 +32,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
     useEffect(() => {
         
         const cartasAnomRenderizadas = arrayDeAnoms.map((item, index) => (
-            <div key={index} className={`relative`}>
+            <div key={index} className={`relative carta${index+1}`}>
                 <img onClick={() => animarClique(index)} className={`anomAnim ${IndexDeCartaAnon.includes(index) ? 'animarCartaAnom' : '' } eliminarCartaAnim ${cartasAEliminar.includes(index) ? 'eliminarCarta' : ''}`} src={item} alt="Carta de ?" />
             </div>
         ));
@@ -97,7 +98,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
     }, [fimDeJogo]);
     
     return (
-        <div className={`p-4 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto`}>
+        <div className={estilosDasFases[faseAtual]}>
             {ListaDeCartasAnom}
         </div>
 
@@ -106,3 +107,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({numeroDeCartas, cartasEmbaralha
 };
 
 export default CartasAnom;
+
+{/* <div className={`p-4 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto opacity-0`}>
+{ListaDeCartasAnom}
+</div> */}

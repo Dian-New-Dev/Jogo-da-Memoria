@@ -132,3 +132,126 @@ html {
 .mover-imagem3-pra-esquerda {
     transform: translateX(-600px);
 }
+
+.mapa-grid-fase1 {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "a b"
+    "c d";
+}
+
+.mapa-grid-fase2 {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "a b c"
+    "d e f";
+}
+
+.mapa-grid-fase3 {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "a b c"
+    "d . e"
+    "f g h";
+}
+
+.mapa-grid-fase4 {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "a b c d"
+        "e f g h"
+        ". i j .";
+}
+
+.mapa-grid-fase5 {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "a b c d"
+        "e f g h"
+        "i j k l";
+}
+
+.carta1 {
+  grid-area: a;
+}
+
+.carta2 {
+  grid-area: b;
+}
+
+.carta3 {
+  grid-area: c;
+}
+
+.carta4 {
+  grid-area: d;
+}
+
+.carta5 {
+  grid-area: e;
+}
+
+.carta6 {
+  grid-area: f;
+}
+
+.carta7 {
+  grid-area: g;
+}
+
+.carta8 {
+  grid-area: h;
+}
+
+.carta9 {
+  grid-area: i;
+}
+
+.carta10 {
+  grid-area: j;
+}
+
+.carta11 {
+  grid-area: k;
+}
+
+.carta12 {
+  grid-area: l;
+}
+
+.carta13 {
+  grid-area: m;
+}
+
+.carta14 {
+  grid-area: n;
+}
+
+.carta15 {
+  grid-area: o;
+}
+
+.carta16 {
+  grid-area: p;
+}
+
+.carta17 {
+  grid-area: q;
+}
+
+.carta18 {
+  grid-area: r;
+}
+
+.carta19 {
+  grid-area: s;
+}
+
+.carta20 {
+  grid-area: t;
+}
