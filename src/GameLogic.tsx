@@ -45,10 +45,10 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             "p-4 grid gap-2 w-[500px] mapa-grid-fase1",
             "p-4 grid gap-2 w-[50%] mapa-grid-fase2",
             "p-4 grid gap-2 w-[30%] mapa-grid-fase3",
-            "fase4",
-            "fase5",
-            "fase6",
-            "fase7",
+            "p-4 grid gap-2 w-[40%] mapa-grid-fase4",
+            "p-4 grid gap-2 w-[40%] mapa-grid-fase5",
+            "p-4 grid gap-2 w-[40%] mapa-grid-fase6",
+            "p-4 grid gap-2 w-[40%] mapa-grid-fase7",
             "fase8",
             "fase9",
             "fase10",
@@ -85,20 +85,21 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
     // e inicia o jogo
     function iniciarJogo() {
-        setMostrarContagem321(true)
-        setContagem321('3');
-        console.log('3');
-        setTimeout(() => {
-            setContagem321('2');
-            console.log('2');
-            setTimeout(() => {
-                setContagem321('1');
-                console.log('1');
-                setTimeout(() => {
-                    setJogadorPreparado(true);
-                }, 1000);
-            }, 1000);
-        }, 1000);
+        // setMostrarContagem321(true)
+        // setContagem321('3');
+        // console.log('3');
+        // setTimeout(() => {
+        //     setContagem321('2');
+        //     console.log('2');
+        //     setTimeout(() => {
+        //         setContagem321('1');
+        //         console.log('1');
+        //         setTimeout(() => {
+        //             setJogadorPreparado(true);
+        //         }, 1000);
+        //     }, 1000);
+        // }, 1000);
+        setJogadorPreparado(true) // apenas para debug, tirar o comment do resto dps
     }
 
     //logica para determinar os indexes para o Componente DescricaoDasCartas

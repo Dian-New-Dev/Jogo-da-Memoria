@@ -168,12 +168,31 @@ html {
 }
 
 .mapa-grid-fase5 {
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
         "a b c d"
         "e f g h"
         "i j k l";
+}
+
+.mapa-grid-fase6 {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+        "a b c d e"
+        "f g . h i"
+        "j k l m n";
+}
+
+.mapa-grid-fase7 {
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+      "a b . c d"
+      "e f . g h"
+      "i j . k l"
+      "m n . o p";
 }
 
 .carta1 {
