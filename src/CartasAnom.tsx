@@ -72,6 +72,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     //no array (um par de cartas), chama-se checarSeCartasReaisSaoIguais(index);
 
     function animarClique(index:number) {
+        console.log(index)
         if (IndexDeCartaAnon.length < 2) {
             setIndexDeCartaAnon([...IndexDeCartaAnon, index]);
             checarSeCartasReaisSaoIguais(index);
@@ -92,7 +93,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
 
             setTimeout(() => {
                 setBloquearClicksAnom(false)
-            }, 400);
+            }, 2000);
 
             console.log('cliques bloqueados')
             if (src1 === cartasEmbaralhadas[index]) { //se indexes sao iguais
@@ -100,13 +101,13 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
                 eliminarCartasIguais(index1, index) // chama eliminarCartasIguais
                 
                 console.log('cliques liberados')
-            }, 300); 
+            }, 1000); 
             } else { // se não forem (player clicou em duas cartas diferentes)
                 setTimeout(() => {
                     setIndexDeCartaAnon([]); // reseta o array de indexes
                     
                     console.log('cliques liberados')
-                }, 300); 
+                }, 1000); 
             }
             setCheckCounter(1)
         }
