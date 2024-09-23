@@ -503,3 +503,46 @@ html {
   .carta42 {
     grid-area: pp;
   }
+
+/* @keyframes bg-animado {
+    0%{background-color: black;}
+    50%{background-color: gray}
+    100%{background-color: black;}
+} */
+
+.bg-jogo-animado {
+
+    animation-name: bg-animado;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes blob-animation {
+    0%{rotate: 0deg;}
+    50%{rotate:180deg;}
+    100%{rotate: 0deg;}
+}
+
+.blob-anim {
+    transform-origin: center;
+    animation-name: blob-animation;
+    transition: 2s;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.centralizar-absoluto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.glasmofirmo {
+
+    background-color: rgba(255, 0, 0, 0.089);
+    backdrop-filter: blur(50px);
+}
+

@@ -35,9 +35,9 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     }
     
     useEffect(() => {
-        
+        //não alterar "carta${index+1}"
         const cartasAnomRenderizadas = arrayDeAnoms.map((item, index) => (
-            <div key={index} className={`${estiloDasDivsDasCartas} ${index+1}`}>
+            <div key={index} className={`${estiloDasDivsDasCartas} carta${index+1}`}> 
                 <img onDragStart={evitarArrastarImg}  onClick={() => animarClique(index)} className={`anomAnim ${IndexDeCartaAnon.includes(index) ? 'animarCartaAnom' : '' } eliminarCartaAnim ${cartasAEliminar.includes(index) ? 'eliminarCarta' : ''}`} src={item} alt="Carta de ?" />
             </div>
         ));

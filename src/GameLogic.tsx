@@ -42,29 +42,29 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
         const [srcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')
         const [estilosDasFases] = useState <string[]> ([
             "absolute w-full h-screen top-0 grid place-items-center", //esse primeiro é diferente
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[500px] mapa-grid-fase1",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[50%] mapa-grid-fase2",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[30%] mapa-grid-fase3",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[40%] mapa-grid-fase4",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[40%] mapa-grid-fase5",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[50%] mapa-grid-fase6",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[40%] mapa-grid-fase7",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[40%] mapa-grid-fase8",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[40%] mapa-grid-fase9",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[60%] mt-8 mapa-grid-fase10",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[60%] mapa-grid-fase11",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[70%] mapa-grid-fase12",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[70%] mapa-grid-fase13",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[70%] mapa-grid-fase14",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[70%] mapa-grid-fase15",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[80%] mapa-grid-fase16",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[45%] mapa-grid-fase17",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[80%] mapa-grid-fase18",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[60%] mapa-grid-fase19",
-            "border-8 border-red-600 bg-red-600 rounded-xl grid w-[70%] mapa-grid-fase20",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[500px] mapa-grid-fase1",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[50%] mapa-grid-fase2",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[30%] mapa-grid-fase3",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[40%] mapa-grid-fase4",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[40%] mapa-grid-fase5",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[50%] mapa-grid-fase6",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[40%] mapa-grid-fase7",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[40%] mapa-grid-fase8",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[40%] mapa-grid-fase9",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[60%] mt-8 mapa-grid-fase10",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[60%] mapa-grid-fase11",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[70%] mapa-grid-fase12",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[70%] mapa-grid-fase13",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[70%] mapa-grid-fase14",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[70%] mapa-grid-fase15",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[80%] mapa-grid-fase16",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[45%] mapa-grid-fase17",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[80%] mapa-grid-fase18",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[60%] mapa-grid-fase19",
+            "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[70%] mapa-grid-fase20",
         ])
 
-        const estiloDasDivsDasCartas: string = 'git relative carta'
+        const estiloDasDivsDasCartas: string = 'border-4 border-amber-800 relative'
         
 
 
@@ -151,12 +151,12 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
                     <Cronometro jogadorPreparado={jogadorPreparado} venceuDesafioAtual={venceuDesafioAtual} setTempoFinalDoDesafio={setTempoFinalDoDesafio} />
                 </div>
 
-                <div className={`z-10 ${estilosDasFases[0]} `}>
+                <div className={`z-20 ${estilosDasFases[0]} `}>
                     <CartasReais faseAtual={faseAtual} estiloDasDivsDasCartas={estiloDasDivsDasCartas} cartasEmbaralhadas={cartasEmbaralhadas} estilosDasFases={estilosDasFases} />
                 </div>
                     
 
-                <div className={`z-20 ${estilosDasFases[0]} `}>
+                <div className={`z-30 ${estilosDasFases[0]} `}>
                     <CartasAnom faseAtual={faseAtual} estiloDasDivsDasCartas={estiloDasDivsDasCartas} numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} srcAnom={srcAnom} estilosDasFases={estilosDasFases} />
                 </div>
             

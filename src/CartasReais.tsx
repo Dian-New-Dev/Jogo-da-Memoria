@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Blob from './CartasReaisBlob';
 
 interface cartasReaisProps {
     faseAtual: number;
@@ -12,9 +13,9 @@ const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, estiloDasDivsDasCar
     const [listaDeCartas, setListaDeCartas] = useState <JSX.Element[]> ([])
 
     useEffect(() => {
-        
+        //não alterar "carta${index+1}"
         const cartasRenderizadas = cartasEmbaralhadas.map((item, index) => (
-            <div key={index} className={`${estiloDasDivsDasCartas} ${index+1}`}>
+            <div key={index} className={`z-20 ${estiloDasDivsDasCartas} carta${index+1}`}>
                 <img className={`cartasClicaveis`} onClick={() => processarCliqueNasCartas(item, index)} src={item} alt="Carta" />
             </div>
         ));
@@ -49,8 +50,23 @@ const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, estiloDasDivsDasCar
     ////////
 
     return (
-        <div className={estilosDasFases[faseAtual]}>
+        <div className={` ${estilosDasFases[faseAtual]}`}>
+
+            <div className='z-20 absolute top-0 left-0 w-full h-screen glasmofirmo'>
+                
+            </div>
             {listaDeCartas}
+
+            
+            <div className='z-10 absolute bg-red-500 w-full h-screen'>
+
+                 <Blob />   
+
+                
+            </div>
+            
+
+
         </div>
 
     );
