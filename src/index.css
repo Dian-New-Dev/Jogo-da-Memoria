@@ -217,24 +217,25 @@ html {
 
 .mapa-grid-fase10 {
     grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-areas:
         "a b c d e f g"
         ". h i . j k ."
-        ". l m . m o ."
-        "r s t u v w y";
+        ". l m . n o ."
+        "p q r s t u v";
 }
 
 .mapa-grid-fase11 {
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-areas:
-      "a b v c d"
-      "e f w g h"
-      "i j y k l"
-      "m n . o p"
-      "q r s t u";
-}
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+        "a b c d e"
+        "f g h i j"
+        "k l m n o"
+        "p q . r s"
+        "t u v w x";
+  }
+  
 
 .mapa-grid-fase12 {
   grid-template-rows: repeat(6, 1fr);
