@@ -29,12 +29,16 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
             arrayDeAnoms.push(srcAnom)
         }
     }
+
+    function evitarArrastarImg(event: React.DragEvent<HTMLImageElement>) {
+        event.preventDefault();
+    }
     
     useEffect(() => {
         
         const cartasAnomRenderizadas = arrayDeAnoms.map((item, index) => (
             <div key={index} className={`${estiloDasDivsDasCartas} ${index+1}`}>
-                <img onClick={() => animarClique(index)} className={`anomAnim ${IndexDeCartaAnon.includes(index) ? 'animarCartaAnom' : '' } eliminarCartaAnim ${cartasAEliminar.includes(index) ? 'eliminarCarta' : ''}`} src={item} alt="Carta de ?" />
+                <img onDragStart={evitarArrastarImg}  onClick={() => animarClique(index)} className={`anomAnim ${IndexDeCartaAnon.includes(index) ? 'animarCartaAnom' : '' } eliminarCartaAnim ${cartasAEliminar.includes(index) ? 'eliminarCarta' : ''}`} src={item} alt="Carta de ?" />
             </div>
         ));
         setListaDeCartasAnom(cartasAnomRenderizadas)
