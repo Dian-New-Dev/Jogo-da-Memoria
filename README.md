@@ -97,6 +97,8 @@ https://www.npmjs.com/package/react-type-animation
 
 para animação de máquina de escrever nas caixas de diálogo
 
+* mecanica de jogo: os antagonistas ficam mais fortes (atiram mais, maior AoE, etc) a cada par de cartas virada (ou seja, quanto mais o jogador vira sem conseguir pares, mais dificil o jogo fica)
+
 ## Audio
 
 * Intro: https://www.youtube.com/watch?v=tyFvpDLqRiA&list=PLfP6i5T0-DkK9jisqW81AF4N8pljQLagE&index=2

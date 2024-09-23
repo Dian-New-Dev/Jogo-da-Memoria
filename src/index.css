@@ -189,10 +189,166 @@ html {
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-      "a b . c d"
-      "e f . g h"
-      "i j . k l"
-      "m n . o p";
+        "m n . d g"
+        "i f . j h"
+        "c a . k l"
+        "e b . o p"
+}
+
+.mapa-grid-fase8 {
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+      "a b c d e"
+      "f g h i j"
+      "k l m n o"
+      ". p q r .";
+}
+
+.mapa-grid-fase9 {
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+      "a b c d e"
+      "f g h i j"
+      "k l m n o"
+      "p q r s t";
+}
+
+.mapa-grid-fase10 {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+        "a b c d e f g"
+        ". h i . j k ."
+        ". l m . m o ."
+        "r s t u v w y";
+}
+
+.mapa-grid-fase11 {
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+      "a b v c d"
+      "e f w g h"
+      "i j y k l"
+      "m n . o p"
+      "q r s t u";
+}
+
+.mapa-grid-fase12 {
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+      ". . a b . ."
+      ". c d e f ."
+      "g h i j k l"
+      "m n o p q r"
+      ". s t u v ."
+      ". w y x z .";
+}
+
+.mapa-grid-fase13 {
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+        ". . a b . ."
+        ". c d e f ."
+        "g h i j k l"
+        "m n o p q r"
+        ". s t u v ."
+        ". w y x z ."
+        ". . aa bb . ."
+}
+
+.mapa-grid-fase14 {
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-areas:
+        ". . . . . . . . . ."
+        "a b c d e f g h i j"
+        "k l m n o p q r s t"
+        "u v w y x z aa bb cc dd"
+        ". . . . . . . . . ."
+}
+
+.mapa-grid-fase15 {
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas:
+      "a b c . d e f"
+      "g . h . i . j"
+      "k l m . n o p"
+      ". . . . . . ."
+      "q r s . t u v"
+      "w . y . x . z"
+      "aa bb cc . dd ee ff"
+}
+
+.mapa-grid-fase16 {
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas:
+      "a i . o . y bb"
+      "b . . p . . cc"
+      "c j . q . x dd"
+      "d . . r . . ee"
+      "e k m s v z ff"
+      "f . . t . . gg"
+      "g l n . w aa hh"
+      "h . . . . . ii"
+
+}
+
+.mapa-grid-fase17 {
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-areas:
+    ". . . . a . . . ."  
+    "b c d e f g h i j"
+    ". . . . k . . . ."
+    ". . . . i . . . ."
+    ". . . j k l . . ."
+    ". . m n o p q . ."
+    ". r s t u v w y ."
+    "z aa bb cc dd ee ff gg hh";
+}
+
+.mapa-grid-fase18 {
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-areas:
+    "a d g . m p s u y . dd gg kk"
+    "b e . j . q t v . aa . hh ll"
+    "c . h k n . . . x bb ee . mm"
+    ". f i l o r . w z cc ff jj ."
+}
+
+.mapa-grid-fase19 {
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+        "a b c d e f"
+        "g . h i . j"
+        "k l . . m n"
+        "o . q r . s"
+        "t u . . v w"
+        "y . x z . aa"
+        "bb cc . . dd ee"
+        "ff . gg hh . ii"
+        "jj kk ll mm nn oo";
+}
+
+.mapa-grid-fase20 {
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-areas:
+    ". . . . . o t y . . . . ."
+    "a . g . k p u x cc . ii . mm"
+    "b e . i l q . z dd gg . kk nn"
+    "c f . j m . . . ee hh . ll oo"
+    "d . h . n r v aa ff . jj . pp"
+    ". . . . . s w bb . . . . .";
 }
 
 .carta1 {
@@ -274,3 +430,91 @@ html {
 .carta20 {
   grid-area: t;
 }
+
+.carta21 {
+    grid-area: u;
+  }
+  
+  .carta22 {
+    grid-area: v;
+  }
+  
+  .carta23 {
+    grid-area: w;
+  }
+  
+  .carta24 {
+    grid-area: x;
+  }
+  
+  .carta25 {
+    grid-area: y;
+  }
+  
+  .carta26 {
+    grid-area: z;
+  }
+  
+  .carta27 {
+    grid-area: aa;
+  }
+  
+  .carta28 {
+    grid-area: bb;
+  }
+  
+  .carta29 {
+    grid-area: cc;
+  }
+  
+  .carta30 {
+    grid-area: dd;
+  }
+  
+  .carta31 {
+    grid-area: ee;
+  }
+  
+  .carta32 {
+    grid-area: ff;
+  }
+  
+  .carta33 {
+    grid-area: gg;
+  }
+  
+  .carta34 {
+    grid-area: hh;
+  }
+  
+  .carta35 {
+    grid-area: ii;
+  }
+  
+  .carta36 {
+    grid-area: jj;
+  }
+  
+  .carta37 {
+    grid-area: kk;
+  }
+  
+  .carta38 {
+    grid-area: ll;
+  }
+  
+  .carta39 {
+    grid-area: mm;
+  }
+  
+  .carta40 {
+    grid-area: nn;
+  }
+  
+  .carta41 {
+    grid-area: oo;
+  }
+  
+  .carta42 {
+    grid-area: pp;
+  }
