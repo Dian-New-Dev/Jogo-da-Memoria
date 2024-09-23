@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 
 interface cartasReaisProps {
     faseAtual: number;
+    estiloDasDivsDasCartas: string;
     cartasEmbaralhadas: string[];
     estilosDasFases: string[];
 }
 
-const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, cartasEmbaralhadas, estilosDasFases}) => {
+const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, estiloDasDivsDasCartas, cartasEmbaralhadas, estilosDasFases}) => {
 
     const [listaDeCartas, setListaDeCartas] = useState <JSX.Element[]> ([])
 
     useEffect(() => {
         
         const cartasRenderizadas = cartasEmbaralhadas.map((item, index) => (
-            <div key={index} className={`relative carta${index+1}`}>
+            <div key={index} className={`${estiloDasDivsDasCartas} ${index+1}`}>
                 <img className={`cartasClicaveis`} onClick={() => processarCliqueNasCartas(item, index)} src={item} alt="Carta" />
             </div>
         ));

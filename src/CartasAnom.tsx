@@ -2,6 +2,7 @@ import React, { useState, useEffect  } from 'react';
 
 interface cartasAnomProps {
     faseAtual: number;
+    estiloDasDivsDasCartas: string;
     numeroDeCartas: number | null;
     cartasEmbaralhadas: string[];
     setVenceuDesafioAtual: React.Dispatch<React.SetStateAction<boolean>>;
@@ -9,7 +10,7 @@ interface cartasAnomProps {
     estilosDasFases: string[];
 }
 
-const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, numeroDeCartas, cartasEmbaralhadas, setVenceuDesafioAtual, srcAnom, estilosDasFases }) => {
+const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCartas, numeroDeCartas, cartasEmbaralhadas, setVenceuDesafioAtual, srcAnom, estilosDasFases }) => {
 
     const [IndexDeCartaAnon ,setIndexDeCartaAnon] = useState <number[]> ([]);
     const [ListaDeCartasAnom, setListaDeCartasAnom] = useState <JSX.Element[]> ([]);
@@ -32,7 +33,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, numeroDeCartas, cart
     useEffect(() => {
         
         const cartasAnomRenderizadas = arrayDeAnoms.map((item, index) => (
-            <div key={index} className={`relative carta${index+1}`}>
+            <div key={index} className={`${estiloDasDivsDasCartas} ${index+1}`}>
                 <img onClick={() => animarClique(index)} className={`anomAnim ${IndexDeCartaAnon.includes(index) ? 'animarCartaAnom' : '' } eliminarCartaAnim ${cartasAEliminar.includes(index) ? 'eliminarCarta' : ''}`} src={item} alt="Carta de ?" />
             </div>
         ));
