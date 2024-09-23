@@ -290,14 +290,14 @@ html {
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: repeat(7, 1fr);
   grid-template-areas:
-      "a i . o . y bb"
-      "b . . p . . cc"
-      "c j . q . x dd"
-      "d . . r . . ee"
-      "e k m s v z ff"
-      "f . . t . . gg"
-      "g l n . w aa hh"
-      "h . . . . . ii"
+      "a b . c . d e"
+      "f . . g . . h"
+      "i j . k . l m"
+      "n . . o . . p"
+      "q r s t u v w"
+      "y . . x . . z"
+      "aa bb cc . dd ee ff"
+      "gg . . . . . hh"
 
 }
 
@@ -308,21 +308,21 @@ html {
     ". . . . a . . . ."  
     "b c d e f g h i j"
     ". . . . k . . . ."
-    ". . . . i . . . ."
-    ". . . j k l . . ."
-    ". . m n o p q . ."
-    ". r s t u v w y ."
-    "z aa bb cc dd ee ff gg hh";
+    ". . . . l . . . ."
+    ". . . m n o . . ."
+    ". . p q r s t . ."
+    ". u v w y x z aa ."
+    "bb cc dd ee ff gg hh ii jj";
 }
 
 .mapa-grid-fase18 {
   grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(13, 1fr);
   grid-template-areas:
-    "a d g . m p s u y . dd gg kk"
-    "b e . j . q t v . aa . hh ll"
-    "c . h k n . . . x bb ee . mm"
-    ". f i l o r . w z cc ff jj ."
+    "a b c . d e f g h . i j k"
+    "l m . n . o p q . r . s t"
+    "u . v w y . . . x z aa . bb"
+    ". cc dd ee ff gg . hh ii jj kk ll."
 }
 
 .mapa-grid-fase19 {
@@ -332,12 +332,12 @@ html {
         "a b c d e f"
         "g . h i . j"
         "k l . . m n"
-        "o . q r . s"
-        "t u . . v w"
-        "y . x z . aa"
-        "bb cc . . dd ee"
-        "ff . gg hh . ii"
-        "jj kk ll mm nn oo";
+        "o . p q . r"
+        "s t . . u v"
+        "w . y x . z"
+        "aa bb . . cc dd"
+        "ee . ff gg . hh"
+        "ii jj kk ll mm nn";
 }
 
 .mapa-grid-fase20 {
