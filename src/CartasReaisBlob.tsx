@@ -8,8 +8,7 @@ const Blob: React.FC = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndexForma(prev => (prev + 1) % svgCartasReaisAnim.length);
-            console.log('Transição acionada: ' + svgCartasReaisAnim[(indexForma + 1) % svgCartasReaisAnim.length]);
-        }, 2000);
+            }, 2000);
 
         return () => clearInterval(interval); // Limpar o intervalo ao desmontar
     }, [indexForma]);

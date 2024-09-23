@@ -37,8 +37,26 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     useEffect(() => {
         //não alterar "carta${index+1}"
         const cartasAnomRenderizadas = arrayDeAnoms.map((item, index) => (
-            <div key={index} className={`${estiloDasDivsDasCartas} carta${index+1}`}> 
-                <img onDragStart={evitarArrastarImg}  onClick={() => animarClique(index)} className={`anomAnim ${IndexDeCartaAnon.includes(index) ? 'animarCartaAnom' : '' } eliminarCartaAnim ${cartasAEliminar.includes(index) ? 'eliminarCarta' : ''}`} src={item} alt="Carta de ?" />
+            <div 
+                key={index}
+                className={`${estiloDasDivsDasCartas}
+                carta${index+1}`}
+            > 
+                
+                <img
+                    className={
+                        //anomAnim = css para velocidade da animação
+                        //animarCartaAnom = css para animar virada de carta anom
+                        //eliminarCarta = css para fazer carta anom sair do jogo
+                        `anomAnim
+                        ${IndexDeCartaAnon.includes(index) ? 'animarCartaAnom' : '' }   
+                        ${cartasAEliminar.includes(index) ? 'eliminarCarta' : ''}`}
+                    onDragStart={evitarArrastarImg}  
+                    onClick={() => animarClique(index)}
+                    src={item} 
+                    alt="Carta de ?"
+                />
+            
             </div>
         ));
         setListaDeCartasAnom(cartasAnomRenderizadas)
@@ -47,6 +65,10 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     
 
     }, [numeroDeCartas, IndexDeCartaAnon]);
+
+    //sempre que um anom é clicado, o index da div dele é adicionado
+    //no array vazio "IndexDeCartaAnom", após dois indexes serem adicionados
+    //no array (um par de cartas), chama-se checarSeCartasReaisSaoIguais(index);
 
     function animarClique(index:number) {
         if (IndexDeCartaAnon.length < 2) {
@@ -66,14 +88,14 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
             setIndex1(index)
         } else {
 
-            if (src1 === cartasEmbaralhadas[index]) {
+            if (src1 === cartasEmbaralhadas[index]) { //se indexes sao iguais
                 setTimeout(() => {
-                eliminarCartasIguais(index1, index)
-            }, 1000); 
-            } else {
+                eliminarCartasIguais(index1, index) // chama eliminarCartasIguais
+            }, 300); 
+            } else { // se não forem (player clicou em duas cartas diferentes)
                 setTimeout(() => {
-                    setIndexDeCartaAnon([]);
-                }, 1000); 
+                    setIndexDeCartaAnon([]); // reseta o array de indexes
+                }, 300); 
             }
             setCheckCounter(1)
         }
@@ -83,8 +105,8 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     }
 
     function eliminarCartasIguais(index1:number, index2:number) {
-        setCartasAEliminar((prev) => [...prev, index1, index2]);
-        setIndexDeCartaAnon([]);
+        setCartasAEliminar((prev) => [...prev, index1, index2]); // adiciona indesxes em um array de cartas anom a ter opacidade 0
+        setIndexDeCartaAnon([]); // reseta array de indexes
         setContadorDeMatches(prevContador => prevContador + 1)
 
     }
@@ -97,7 +119,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
 
     useEffect(() => {
         if (fimDeJogo) {
-            console.log('venceu!!!')
+
             setVenceuDesafioAtual(true)
         }
     }, [fimDeJogo]);
