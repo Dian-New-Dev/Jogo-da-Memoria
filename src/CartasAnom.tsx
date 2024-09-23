@@ -20,6 +20,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     const [cartasAEliminar, setCartasAEliminar] = useState<number[]> ([])
     const [contadorDeMatches, setContadorDeMatches] = useState<number>(0)
     const [fimDeJogo, setFimDeJogo] = useState<boolean>(false)
+    const [bloquearClicksAnom ,setBloquearClicksAnom] = useState <boolean> (false)
 
 
     
@@ -87,14 +88,24 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
             setSrc1(cartasEmbaralhadas[index]);
             setIndex1(index)
         } else {
+            setBloquearClicksAnom(true)
 
+            setTimeout(() => {
+                setBloquearClicksAnom(false)
+            }, 400);
+
+            console.log('cliques bloqueados')
             if (src1 === cartasEmbaralhadas[index]) { //se indexes sao iguais
                 setTimeout(() => {
                 eliminarCartasIguais(index1, index) // chama eliminarCartasIguais
+                
+                console.log('cliques liberados')
             }, 300); 
             } else { // se não forem (player clicou em duas cartas diferentes)
                 setTimeout(() => {
                     setIndexDeCartaAnon([]); // reseta o array de indexes
+                    
+                    console.log('cliques liberados')
                 }, 300); 
             }
             setCheckCounter(1)
@@ -125,8 +136,12 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     }, [fimDeJogo]);
     
     return (
-        <div className={estilosDasFases[faseAtual]}>
-            {ListaDeCartasAnom}
+        <div className={` 
+            ${bloquearClicksAnom ? 'pointer-events-auto' : 'pointer-events-auto'} 
+            ${estilosDasFases[faseAtual]}`}>
+                
+                {ListaDeCartasAnom}
+        
         </div>
 
 
