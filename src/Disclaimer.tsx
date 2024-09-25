@@ -82,7 +82,7 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
                 <Intro propParaIntro={propParaIntro}/>
             </div>
 
-            <button onClick={terminarIntroePassarAoMenu} className='text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold'>Pular</button>
+            <button onClick={terminarIntroePassarAoMenu} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold opacity-30 hover:opacity-100'>Pular</button>
 
             <audio ref={audioRef} src={"./assets/audio/music/intro.mp3"} onEnded={terminarIntroePassarAoMenu}></audio>
 

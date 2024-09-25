@@ -163,7 +163,7 @@ const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual, setRenderi
             </div>
 
             <div className='absolute bottom-5 right-5 z-50 pointer-events-auto'>
-                <button onClick={pularCena1} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold pointer-events-auto'>PULAR</button>
+                <button onClick={pularCena1} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold pointer-events-auto opacity-20 border border-black hover:opacity-100'>PULAR</button>
             </div>
             
         </div>
