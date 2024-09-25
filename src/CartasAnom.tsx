@@ -41,7 +41,10 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
             <div 
                 key={index}
                 className={`${estiloDasDivsDasCartas}
-                carta${index+1}`}
+                carta${index+1}
+                ${cartasAEliminar.includes(index) ? 'eliminarDivCarta' : ''}`
+                //esse último é quem aplica efeito sobre carta descoberta
+                }
             > 
                 
                 <img

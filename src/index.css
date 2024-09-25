@@ -62,6 +62,12 @@ html {
     opacity: 0;
 }
 
+.eliminarDivCarta {
+  background-color: transparent;
+  transition: backdrop-filter 0.2s ease ;
+  backdrop-filter: brightness(25%);
+}
+
 .acme-regular {
     font-family: "Acme", sans-serif;
     font-weight: 400;
