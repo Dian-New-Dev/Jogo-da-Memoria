@@ -38,9 +38,9 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     const [mostrarContagem321, setMostrarContagem321] = useState <boolean> (false)
     const [tempoFinalDoDesafio, setTempoFinalDoDesafio] = useState <string> ('');
 
-    //states para estilizacao conjunta de CartasReais e CartasAnom
-        const [srcAnom] = useState <string> ('./assets/images/cartas/anom.jpg')
-        const [estilosDasFases] = useState <string[]> ([
+    //variaveis para estilizacao conjunta de CartasReais e CartasAnom
+        const srcAnom: string = ('./assets/images/cartas/anom.jpg')
+        const estilosDasFases: string[] = [
             "absolute w-full h-screen top-0 grid place-items-center", //esse primeiro é diferente
             "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[500px] mapa-grid-fase1",
             "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[50%] mapa-grid-fase2",
@@ -62,7 +62,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[80%] mapa-grid-fase18",
             "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[60%] mapa-grid-fase19",
             "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[70%] mapa-grid-fase20",
-        ])
+        ];
 
         const estiloDasDivsDasCartas: string = 'border-4 border-amber-800 relative'
         

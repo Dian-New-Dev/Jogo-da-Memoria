@@ -75,7 +75,7 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     //no array (um par de cartas), chama-se checarSeCartasReaisSaoIguais(index);
 
     function animarClique(index:number) {
-        console.log(index)
+
         if (IndexDeCartaAnon.length < 2) {
             setIndexDeCartaAnon([...IndexDeCartaAnon, index]);
             checarSeCartasReaisSaoIguais(index);
@@ -87,10 +87,12 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
 
 
     function checarSeCartasReaisSaoIguais(index:number) {
+        setBloquearClicksAnom(true)
         setCheckCounter(prevCounter => prevCounter + 1)
         if (checkCounter === 1) {
             setSrc1(cartasEmbaralhadas[index]);
             setIndex1(index)
+            setBloquearClicksAnom(false)
         } else {
             setBloquearClicksAnom(true)
 
@@ -99,18 +101,20 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
             }, 2000);
 
             console.log('cliques bloqueados')
-            if (src1 === cartasEmbaralhadas[index]) { //se indexes sao iguais
-                setTimeout(() => {
+            if (src1 === cartasEmbaralhadas[index] && index1 !== index) { //se indexes sao iguais
+                //a segunda condição "&& index1 !== index" impede que o jogador clique na mesma carta duas vezes e obtenha um ponto
                 eliminarCartasIguais(index1, index) // chama eliminarCartasIguais
+                setTimeout(() => {
+                
                 
                 console.log('cliques liberados')
-            }, 1000); 
-            } else { // se não forem (player clicou em duas cartas diferentes)
+            }, 800); //esse valor tem q ser 2x o tempo de anomAnim (CSS)
+            } else { // se não forem iguais (player clicou em duas cartas diferentes)
                 setTimeout(() => {
                     setIndexDeCartaAnon([]); // reseta o array de indexes
                     
                     console.log('cliques liberados')
-                }, 1000); 
+                }, 600); // esse valor tem que ser = ou > que anomAnim (CSS)
             }
             setCheckCounter(1)
         }
@@ -153,7 +157,3 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
 };
 
 export default CartasAnom;
-
-{/* <div className={`p-4 grid gap-2 grid-rows-2 grid-cols-2 w-[500px] m-auto opacity-0`}>
-{ListaDeCartasAnom}
-</div> */}

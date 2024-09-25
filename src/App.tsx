@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
     const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false) // padrao: true
     const [comecarCena1, setComecarCena1] = useState <boolean> (false) // padrao: false
-    const [faseAtual, setFaseAtual] = useState <number> (6) // padrao: 0 //
+    const [faseAtual, setFaseAtual] = useState <number> (10) // padrao: 0 //
     const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (true) // padrao: false
     const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (false) // padrao: false
     const [indexA, setIndexA] = useState <number> (-2); // padrao: -2

@@ -16,36 +16,37 @@ const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, estiloDasDivsDasCar
         //não alterar "carta${index+1}"
         const cartasRenderizadas = cartasEmbaralhadas.map((item, index) => (
             <div key={index} className={`z-20 ${estiloDasDivsDasCartas} carta${index+1}`}>
-                <img className={`cartasClicaveis`} onClick={() => processarCliqueNasCartas(item, index)} src={item} alt="Carta" />
+                <img src={item} alt="Carta" />
             </div>
         ));
         setListaDeCartas(cartasRenderizadas)
+        console.log(cartasRenderizadas)
         
     }, [cartasEmbaralhadas]);
 
-    function processarCliqueNasCartas(src:string, index:number) {
-        verificarSeCartasSaoIguais(src);
-    }
+    // function processarCliqueNasCartas(src:string, index:number) {
+    //     verificarSeCartasSaoIguais(src);
+    // }
 
-    let clickCounter:number = 0;
-    let primeiroSrc:string = '';
-    let segundoSrc: string = '';
+    // let clickCounter:number = 0;
+    // let primeiroSrc:string = '';
+    // let segundoSrc: string = '';
 
-    function verificarSeCartasSaoIguais(src:string) {
-        clickCounter = clickCounter + 1;
-        if (clickCounter == 2) {
-            segundoSrc = src;
-            if (primeiroSrc === segundoSrc) {
-                console.log('ambas imagens são a mesma')
-            } else {
-                console.log('imagens diferentes')
-            }
-            clickCounter = 0;
-        } else {
-            primeiroSrc = src;
-        }
+    // function verificarSeCartasSaoIguais(src:string) {
+    //     clickCounter = clickCounter + 1;
+    //     if (clickCounter == 2) {
+    //         segundoSrc = src;
+    //         if (primeiroSrc === segundoSrc) {
+    //             console.log('ambas imagens são a mesma')
+    //         } else {
+    //             console.log('imagens diferentes')
+    //         }
+    //         clickCounter = 0;
+    //     } else {
+    //         primeiroSrc = src;
+    //     }
 
-    }
+    // }
 
     ////////
 
@@ -58,7 +59,7 @@ const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, estiloDasDivsDasCar
             {listaDeCartas}
 
             
-            <div className='z-10 absolute bg-red-500 w-full h-screen'>
+            <div className='z-10 absolute bg-red-500 w-full h-full'>
 
                  <Blob />   
 
