@@ -4,12 +4,12 @@
 
 @font-face {
     font-family: 'Papyrus';
-    src: url('./assets/fonts/papyrus.ttf') format('truetype');
+    src: url('./fonts/papyrus.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Headline';
-    src: url('./assets/fonts/headline.ttf') format('truetype');
+    src: url('./fonts/headline.ttf') format('truetype');
 }
 
 .fonte-papyrus {
@@ -91,7 +91,7 @@ html {
 }
 
 .fundo-de-pergaminho {
-    background-image: url('./assets/images/prototype/Intro/pergaminho3.png');
+    background-image: url('./images/prototype/Intro/pergaminho3.png');
     background-repeat: no-repeat;
     background-size: 900px 300px;
     background-position: center;
@@ -99,7 +99,7 @@ html {
 }
 
 .background-menu {
-    background-image: url('./assets/images/menu/deserto.png');
+    background-image: url('./images/menu/deserto.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -108,7 +108,7 @@ html {
 }
 
 .background-pulpito {
-    background-image: url('./assets/images/gameplay/pulpito.png');
+    background-image: url('./images/gameplay/pulpito.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -116,7 +116,7 @@ html {
 }
 
 .background-descricoes {
-    background-image: url('./assets/images/gameplay/descricao-bg.png');
+    background-image: url('./images/gameplay/descricao-bg.png');
     background-position: center;
     background-repeat:no-repeat;
     background-size: 100% 100%;
