@@ -19,6 +19,7 @@ const cartasOriginal: string[] = [
     './assets/images/cartas/sacerdote.jpg',
     './assets/images/cartas/loucos.jpg',
     './assets/images/cartas/astronomo.jpg',
+    './assets/images/cartas/devoto.jpg',
     ]
 
     export default cartasOriginal;
