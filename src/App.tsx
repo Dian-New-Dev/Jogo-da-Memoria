@@ -9,10 +9,10 @@ import DescricaoDasCartas from './DescricaoDasCartas';
 
 const App: React.FC = () => {
 
-    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false) // padrao: true
+    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (true) // padrao: true
     const [comecarCena1, setComecarCena1] = useState <boolean> (false) // padrao: false
-    const [faseAtual, setFaseAtual] = useState <number> (10) // padrao: 0 //
-    const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (true) // padrao: false
+    const [faseAtual, setFaseAtual] = useState <number> (0) // padrao: 0 //
+    const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (false) // padrao: false
     const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (false) // padrao: false
     const [indexA, setIndexA] = useState <number> (-2); // padrao: -2
     const [indexB, setIndexB] = useState <number> (-1); // padrao: -1
@@ -44,7 +44,7 @@ const App: React.FC = () => {
                 {mostrarIntroSequence && <IntroSequence setMostrarIntroSequence={setMostrarIntroSequence}/>}
             </div>
 
-            <div className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${mostrarIntroSequence ? 'hidden' : 'visible'} `}>
+            <div id="menu-outer-container" className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${mostrarIntroSequence ? 'hidden' : 'visible'} `}>
                 {!mostrarIntroSequence && !comecarCena1 && faseAtual === 0 && <Menu setComecarCena1={setComecarCena1} />}
             </div>
 
