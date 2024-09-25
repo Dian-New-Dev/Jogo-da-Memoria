@@ -8,39 +8,39 @@ const descricoesDasCartas: string[] = [
     //general
     '“Nós não precisamos de outro general” diziam, após mais um morrer de fome. “Nosso inimigo não se mata com lanças e flechas” continuavam, em desesperada persistência. Mas o Deus-Sol sabe mais do que eles. O Faraó insistiu por mais uma cerimônia, mais uma nomeação, mais um militar de médio escalão abruptamente elevado ao topo da hierarquia militar. O novo General sequer conseguiu elevar a Lança Cerimonial aos céus, como dita o protocolo. Em outros tempos, seria executado por desrespeito ao Faraó e a Montu. Nos dias de hoje, seria um golpe de misericórdia.',
     //artesão
-
+    'Sempre foram vistos como seres abençoados com o dom do trabalho refinado, capazes de levar a matéria tosca ao belo e desejado, embora nada nunca lhes pertenã de fato. Seus vasos sagrados sempre fugiram aos templos. Suas joias brilhantes sempre tomadas pelos nobres. Nem mesmo suas belas estátuas escapavam a escoar para palácios e mastabas. Pois quando a água acabou, a comida findou e a loucura varreu o reino como uma tempestade de areia, a maioria dos artesãos fecharam-se em seus ateliês, encerrando-se em comunhão faminta com suas criações.',
     //escriba
     'Um dos vários escribas reais, em sua tarefa diária de registrar quantas almas foram ceifadas pela sede e enviadas prematuramente aos braços de Anúbis. Jurados a cumprir suas funções independente das dificuldades, são forçados a continuar trabalhando até que a carne viva de seus dedos suma. Muitos morrem sobre os pergaminhos, enquanto outros enlouquecem registrando o próprio nome, como se torcessem para perecer logo.',
     //filha
-    'Minha filha, no momento em que me despedi dela. Sempre quis ser uma princesa, e no dia em que lhe adornam, lhe enfeitam e lhe perfumam como tal, em homenagem à minha bravura, só o que ela consegue é chorar pedindo para que não me vá. A ti retornarei, minha querida. Hei de te ver sorrindo outra vez.',
+    'Minha filha, no momento em que me despedi dela. Sempre quis ser uma princesa, e no dia em que lhe adornam, lhe enfeitam e lhe perfumam como tal, disfarçando sua fraqueza e desnutrição em homenagem à minha bravura, só o que ela consegue é chorar pedindo para que não me vá. A ti retornarei, minha querida. Hei de te ver sorrindo outra vez, como a princesa que é.',
     //guarda
-
-    //criança
-    'Elas não têm culpa de nada do que acontece, não viveram o suficiente para terem a oportunidade de ofender os deuses. Aos olhos de Amon-Rá, não faz diferença: sofrerão pelos pecados dos pais, e sofrerão em dobro pois diferente deles, os pequenos têm menos tecido para o corpo devorar quando a fome chega aos níveis do desespero. Mas é nos olhos delas, inocentes como mais nada no mundo, que persiste a esperança. Quando ali ela morrer, estaremos todos perdidos.',
-    //escravos
-
-    //nobreza
-
-    //guardiao
-
-    //rainha
-
-    //faraó
-    'O Deus-Sol, filho de Rá, guardião dos homens e do sol e a razão pela qual ainda estamos aqui. Se os deuses optaram por castigar nossos erros com uma morte lenta, ao invés de destruir nosso reino em fulminante tempestade de areia, é porque nosso Faraó intercede por seu povo. Ele tem fome como nós, enfrenta sede como nós, luta contra a exaustão como nós, mas não pode ruir como nós. Ele tem de estar firme mesmo que seu corpo devore a si mesmo e seu reino chacoalhe em caos e pavor. Ele nos mantém de pé, até o fim.',
-    //engenheiro
-
-    //embalsamador
-
-    //ritualista
-
+    'Sempre priorizaram a segurança dos nobres, sacerdotes e membros da corte real. Quando os famintos começaram a se somar em massas ferozes e imprevisíveis, os guardas passaram a lavar de sangue comum suas espadas e lanças. Não tardou a ficar evidente que as volumosas ondas de famintos sedentos sem nada a perder são oponentes imbatíveis contra os poucos guardas comprometidos com suas ordens. Os guardas que restaram foram trasnferidos para a segurança do palácio real e da corte, sob a promessa de água e comida. Quando saí ao deserto, essa promessa continuava pendente.',
     //sacerdote
-
+    'Se os oficiais do governo preocupam-se com a manutenção da ordem e das leis, os sacerdotes preocupam-se com a moralidade e o respeito aos deuses. Os primeiros sugeriram o extermínio dos vermes, os segundos recomendaram sua purificação. Os primeiros recomendaram trancar a corte e o Faraó dentro do palácio, os segundos insistiram na necessidade de descer o Deus-Rei e seus asseclas ao calor do povo. Os primeiros imploraram para que o filho de Rá mandasse as tropas ao deserto em busca de água, os segundos lembraram da profecia dos 20. Somente em um desses embates, os sacerdotes venceram.',
+    //criança
+    'Elas não têm culpa de nada do que acontece, não viveram o suficiente para terem a oportunidade de ofender os deuses. Aos olhos de Amon-Rá, não faz diferença: sofrerão pelos pecados dos pais, e sofrerão em dobro pois diferente deles, os pequenos têm menos tecido para o corpo devorar quando a fome chega aos níveis do insustentável. Mas é nos olhos delas, inocentes como mais nada no mundo, que persiste a esperança. Quando ali a fé morrer, estaremos todos perdidos.',
+    //escravos
+    'Outrora símbolos máximos de nossas vitórias e proezas militares, hoje evidência de nossa derrota fragorosa perante a fúria dos deuses. Escravos não existem mais, foram os primeiros a desaparecer pois devorar ao semelhante é um ato de horror, mas devorar o animal capturado é mero ato de sobrevivência. Ou assim disseram os sacerdotes de Set.',
+    //nobreza
+    'A nobreza duraria mais do que o povo. Tinham estoques de água e comida e seus números diminutos lhes permitiam coordenar esforços de racionamento impossíveis às masssas. Mas eles esqueceram que diante da fome, da sede e do medo da morte, as massas esquecem das leis e retornam ao estado bárbaro dos primeiros homens do deserto. Esquecidos pelos deuses e pelo Faraó, quem trouxe para seu palácio toda a guarda da cidade, os nobres só puderam assistir em horror o povo faminto escalando as paredes e sacadas de suas residências.',
+    //guardiao
+    'Os guardiões também foram abandonados à própria sorte pelo Faraó, mas sua lealdade sempre ateve-se aos deuses. Sede, fome, violência e horror não lhes chacoalhou. Como nos dias prósperos, os guardiões mantiveram guarda na porta de seus templos mesmo nos dias finais. Seus cadáveres, desnutridos e ressecados pela sede, não parecem muito diferente dos inifnitos cadáveres comuns que se amontoam nas ruas e apodrecem os ares do reino.',
+    //rainha
+    'Outrora tida como a mulher mais bela de todo o Egito, hoje nossa Rainha parece tão moribunda quanto o mais pobre dos súditos. Ela chora a morte de seu povo. Chora a morte de seus filhos. Chora o apodrecimento de seu marido. Ela chora tanto que não há mais lágrimas em seu corpo. De seus olhos ardentes, escorre sangue quente quando ela, uma vez mais, torna a chorar.',
+    //faraó
+    'O Deus-Sol, filho de Rá, guardião dos homens e do sol e a razão pela qual ainda estamos aqui. Se os deuses optaram por castigar nossos pecados com uma morte lenta, ao invés de destruir o reino em fulminante tempestade de areia, é porque nosso Faraó intercede por seu povo. Ele tem fome como nós, enfrenta sede como nós, luta contra a exaustão como nós, mas não pode ruir como nós. Ele tem de estar firme mesmo que seu corpo devore a si mesmo e seu reino chacoalhe em caos e pavor. Ele nos mantém de pé, até o fim.',
+    //engenheiro
+    'A maioria morreu pouco após os escravos, mais de melancolia do que qualquer outra coisa. Assim que as esfinges, templos e palácios inacabados deixaram de ser erigidos, os engenheiros reais perderam seu propósito e deixaram de ser considerados pelos deuses. Aqueles que não entregaram-se à tristeza de ver a estrutura do reino ruir tentaram refúgio no palácio que muitos deles ajudaram a levantar. Nenhum foi aceito lá dentro.',
+    //embalsamador
+    'Nenhum nobre, sacerdote ou membro da corte ousaria morrer como um qualquer. Todos que tinham moedas suficientes pagaram embalsamadores para poderem ascender aos campos de Anúbis em paz, certos de que seus corpos seriam mumificados e depositados ao repouso eterno nas mastabas. Somente os embalsamadores foram capazes de honrar o serviço. Os ricos que morreram foram enfaixados e conversados, mas permaneceram largados em qualquer canto quando acabaram as covas, morreram os coveiros e seus filhos trocaram o respeito aos mortos pelo instinto de sobrevivência.',
+    //ritualista
+    '"Levai as mais belas jóias, as mais deliciosas frutas e os mais sedosos tecidos e lançai-os ao leito seco do Nilo, aos pés de Set." \n "Erguei grandes fogueiras no templo de Thoth e às chamas lançai vossos rebanhos, sinal de sua fé inabalável nos desígnios divinos."\n"Jejuai e mostrai a Ra vossa obstinação em nutrir-vos somente de fé."\n"Tomai vossos escravos, peso de vossa perdição, e sacrificai-os seus escravos, bebendo seu sangue impuro para lavrar a terra de vossos pecados."\n"Sacrificai vossas crianças. Que suas almas puras ascendam aos céus e comovam Anúbis, quem chorará a chuva sobre nós." \n "Devorem vossas oferendas."',
     //loucos
-
+    'Costumavam surgir no caldo do deserto, quando o calor lhes torrava a cabeça. Nos últimos dias, começaram a aparecer, aos montes, no coração do reino.\nEu os invejo. A loucura lhes perverteu ao ponto de confundirem suas dores com prazeres e seus medos com alegrias. Cadáveres afundados no chão, mortos com a boca cheia de areia, viveram seus últimos momentos em incompreensível júbilo que a nós, os sãos, será negado.',
     //astronomo
-
+    'Os primeiros nova ou dez tinham mapas detalhados produzidos pelos melhores astrônomos, e nada encontraram. Cinco ou seis receberam rascunhos feitos às pressas de onde o sussurro das estrelas indicava poder haver água. Os últimos antes de mim nada receberam.\nQuando estava ao portão, o último dos astrônomos vivos veio trôpego até mim e me deixou nada mais que um bilhete: "Ao olho no céu, nada escapa".',
     //devoto
-
+    'Os verdadeiros morreram ajoelhados.\nOs falsos, tornaram-se vermes com pernas.'
 ]
 
 export default descricoesDasCartas;
