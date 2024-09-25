@@ -49,10 +49,10 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
 
     //CÓDIGO PARA MANIPULAR AUDIO
 
-    const audioRef = useRef(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const playAudio = () => {
-        audioRef.current.play();
+        audioRef.current?.play();
     } 
 
     function terminarIntroePassarAoMenu() {

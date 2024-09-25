@@ -89,20 +89,20 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
     // e inicia o jogo
     function iniciarJogo() {
-        // setMostrarContagem321(true)
-        // setContagem321('3');
-        // console.log('3');
-        // setTimeout(() => {
-        //     setContagem321('2');
-        //     console.log('2');
-        //     setTimeout(() => {
-        //         setContagem321('1');
-        //         console.log('1');
-        //         setTimeout(() => {
-        //             setJogadorPreparado(true);
-        //         }, 1000);
-        //     }, 1000);
-        // }, 1000);
+        setMostrarContagem321(true)
+        setContagem321('3');
+        console.log('3');
+        setTimeout(() => {
+            setContagem321('2');
+            console.log('2');
+            setTimeout(() => {
+                setContagem321('1');
+                console.log('1');
+                setTimeout(() => {
+                    setJogadorPreparado(true);
+                }, 1000);
+            }, 1000);
+        }, 1000);
         setJogadorPreparado(true) // apenas para debug, tirar o comment do resto dps
     }
 

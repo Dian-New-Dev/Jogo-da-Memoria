@@ -15,12 +15,16 @@ const [time, setTime] = useState(0);
 const [isRunning, setIsRunning] = useState(false);
 
 useEffect(() => {
-    let intervalId:number;
+    let intervalId: NodeJS.Timeout | null = null; // Declare como null inicialmente
     if (isRunning) {
     // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
         intervalId = setInterval(() => setTime(time + 1), 10);
     }
-    return () => clearInterval(intervalId);
+    return () => {
+        if (intervalId) {
+            clearInterval(intervalId); // Limpe apenas se intervalId não for null
+        }
+    };
 }, [isRunning, time]);
 
 useEffect(() => {

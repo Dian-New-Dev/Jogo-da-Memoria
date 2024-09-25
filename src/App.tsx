@@ -21,21 +21,22 @@ const App: React.FC = () => {
     //descricao cartas: f, f, 1, t, 0, 1
 
     //musica cena1
-    const ventoRef = useRef(null);
+    const ventoRef = useRef<HTMLAudioElement | null>(null);
     
     const tocarVento = () => {
         if (comecarCena1) {
-            ventoRef.current.play();
+            ventoRef.current?.play(); // Usa optional chaining
         }
     }
     
-    useEffect (() => { 
+    useEffect(() => { 
         if (comecarCena1) {
             tocarVento();
         } else {
-            ventoRef.current.pause();
+            ventoRef.current?.pause(); // Usa optional chaining
         }
-    }, [comecarCena1])
+    }, [comecarCena1]);
+    
     
     return (
 
