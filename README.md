@@ -5,6 +5,7 @@
 - Jogo da memória com narrativa imersiva e intrigante.
 - Jogo de navegador, feito em react.
 - Mistura de puzzle com rogue-like.
+- O elemento rogue-like ficará para o futuro.
 
 ## Planejamento
 
