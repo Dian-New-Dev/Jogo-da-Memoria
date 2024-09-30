@@ -78,6 +78,9 @@ feito
 
 - mecanica de jogo: os antagonistas ficam mais fortes (atiram mais, maior AoE, etc) a cada par de cartas virada (ou seja, quanto mais o jogador vira sem conseguir pares, mais dificil o jogo fica)
 
+- não está renderizando após deploy: imagens e texto da intro;
+- favicon
+
 ## Recursos usados até agora:
 
 - pacote para animação de maquina de escrever: 

@@ -34,6 +34,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
             setAparecerImagem1(true)
             setAparecerTexto(true)
             console.log('aparecerImagem é: ' + aparecerImagem1)
+            // debugger;
         }, 2000);
     }
     
@@ -104,7 +105,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
     
         <div id='paineis-container' className='w-full h-screen relative fonte-papyrus text-gray-800 text-lg font-bold'>
 
-                <div className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : ''}`}>
+                <div id="fundo-pergaminho" className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : ''}`}>
                     {/* <p 
                     className={`w-[600px] text-center transicao-opacidade ${textoIndex !== 0 ? '' : ''}`}>
                         
@@ -149,24 +150,25 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
                 }
                 </div>
                 
+                
 
             
             <div className={`z-0 relative top-0 left-0 w-full h-screen grid place-items-center transicao-opacidade ${sumirAsImagens ? 'transicao-out' : ''} `}>
-                <img onTransitionEnd={avancar1} className={`w-[80%] z-0 transicao-opacidade-imagens ${aparecerImagem1 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/prototype/Intro/painel1ap.jpg"} alt="Ilustração de um reino egípcio antigo com estruturas decaindo em ruínas. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
+                <img onTransitionEnd={avancar1} className={`w-[80%] z-0 transicao-opacidade-imagens ${aparecerImagem1 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel1ap.jpg"} alt="Ilustração de um reino egípcio antigo com estruturas decaindo em ruínas. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
                 
 
-                <img onTransitionEnd={avancar3} className={`w-[50%] absolute z-10 transicao-opacidade-imagens ${aparecerImagem2 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/prototype/Intro/painel2ap.jpg"} alt="Ilustração de pessoas raquíticas passando fome e sede nas ruas de um reino egípcio antigo um reino. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
+                <img onTransitionEnd={avancar3} className={`w-[50%] absolute z-10 transicao-opacidade-imagens ${aparecerImagem2 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel2ap.jpg"} alt="Ilustração de pessoas raquíticas passando fome e sede nas ruas de um reino egípcio antigo um reino. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
                 
 
-                <img onTransitionEnd={avancar4} className={`w-[50%] absolute right-[5%] bottom-0 z-20 transicao-opacidade-imagens ${aparecerImagem3 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/prototype/Intro/painel3ap.jpg"} alt="Ilustração de um homem raquítico e cadavérico sentado no chão no interior de um escuro palácio egípcio, com outras pessoas cadavéricas sentadas ao fundo. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
+                <img onTransitionEnd={avancar4} className={`w-[50%] absolute right-[5%] bottom-0 z-20 transicao-opacidade-imagens ${aparecerImagem3 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel3ap.jpg"} alt="Ilustração de um homem raquítico e cadavérico sentado no chão no interior de um escuro palácio egípcio, com outras pessoas cadavéricas sentadas ao fundo. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
 
                 
 
-                <img onTransitionEnd={avancar5} className={`w-[60%] absolute right-[5%] top-0 z-30 transicao-opacidade-imagens ${aparecerImagem4 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/prototype/Intro/painel4ap.jpg"} alt="Ilustração de um cadavérico faraó observando seu reino do topo de seu palácio, enquanto uma sinistra figura esquelética faz o mesmo. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
+                <img onTransitionEnd={avancar5} className={`w-[60%] absolute right-[5%] top-0 z-30 transicao-opacidade-imagens ${aparecerImagem4 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel4ap.jpg"} alt="Ilustração de um cadavérico faraó observando seu reino do topo de seu palácio, enquanto uma sinistra figura esquelética faz o mesmo. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
                 
 
 
-                <img onTransitionEnd={avancar6} className={`w-[60%] absolute top-0 mx-auto z-40 transicao-opacidade-imagens ${aparecerImagem5 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/prototype/Intro/painel5ap.jpg"} alt="Ilustração de solitário viajante desbravando o tórrido deserto egípcio. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
+                <img onTransitionEnd={avancar6} className={`w-[60%] absolute top-0 mx-auto z-40 transicao-opacidade-imagens ${aparecerImagem5 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel5ap.jpg"} alt="Ilustração de solitário viajante desbravando o tórrido deserto egípcio. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
             </div>   
 
 
