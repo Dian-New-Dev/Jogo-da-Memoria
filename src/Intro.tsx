@@ -21,7 +21,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
    
     useEffect(() => {
         console.log('comecarIntro:', comecarIntro);
-        if (comecarIntro > 1) {
+        if (comecarIntro >= 1) {
             const timer = setTimeout(() => {
                 console.log('imagem1 e texto devem começar');
                 setAparecerImagem1(true);
