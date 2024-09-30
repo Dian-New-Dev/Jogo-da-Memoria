@@ -20,23 +20,26 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
 
     //começar a intro e aparecer primeiro texto
     const [comecarIntro, setComecarIntro] = useState <number> (-1)
-
+    
+    //aparecer primeira imagem
+    const [aparecerImagem1, setAparecerImagem1] = useState <boolean> (false)
+    const [aparecerTexto, setAparecerTexto] = useState <boolean> (false);
     useEffect(() => {
         setComecarIntro( prevState => prevState + 1)
     }, [propParaIntro]);
 
-    //aparecer primeira imagem
-    const [aparecerImagem1, setAparecerImagem1] = useState <boolean> (false)
-    const [aparecerTexto, setAparecerTexto] = useState <boolean> (false);
-    if (comecarIntro > 1) {
-        
-        setTimeout(() => {
-            setAparecerImagem1(true)
-            setAparecerTexto(true)
-            console.log('aparecerImagem é: ' + aparecerImagem1)
-            // debugger;
-        }, 2000);
-    }
+   
+    useEffect(() => {
+        if (comecarIntro > 1) {
+            const timer = setTimeout(() => {
+                setAparecerImagem1(true);
+                setAparecerTexto(true);
+                avancar1();
+            }, 2000);
+    
+            return () => clearTimeout(timer);  // Cleanup timeout
+        }
+    }, [comecarIntro]);
     
     //aparecer proximos textos e imagens
     // const [textoIndex, setTextoIndex] = useState <number> (0);
