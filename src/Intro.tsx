@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TypingAnimator from 'react-typing-animator';
 
-
-// const textoIntro:string[] = [
-//     'O reino agoniza',
-//     'Outrora o coração pulsante de nossa civilização, hoje ele apodrece moribundo sob o olhar indiferente dos deuses.',
-//     'Sem água para matar a sede ou para cultivar o alimento de cada, o povo cadavérico e raquítico se aglomera em volta do palácio. Seus corpos morrem segundo após segundo, agarrando-se à esperança de que seu Faraó convencerá os deuses a lhes devolver o Nilo.',
-//     'Mas mesmo nos corredores do palácio, a fome e a sede correm de mãos dadas com o fantasma da morte. De morte em morte, a corte do Faraó se desintegra. Mesmo o mais forte dos generais luta para se manter de pé sobre pernas finais, e até o mais brilhante dos escribas luta em vão contra a loucura.',
-//     'Sem opções, nosso Faraó tenta uma vez mais. Lhe escolhendo a dedo da multidão lá embaixo, sem critério outro que a confiança nos desígnios dos deuses, o faraó lhe encarrega, a um só passo, da mais nobre missão e da mais perversa das sentenças.',
-//     'Dezenove outros tentaram antes de você, nenhum retornou. Mas onde eles resistiram, apavorados, você aceitou com orgulho. Escolhido pelos deuses, você desbrava o deserto em busca de água.',
-//     'Você é o Vigésimo. A última esperança do Reino.'
-// ];
-
 interface IntroProps {
     propParaIntro: boolean;
 }
@@ -24,6 +13,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
     //aparecer primeira imagem
     const [aparecerImagem1, setAparecerImagem1] = useState <boolean> (false)
     const [aparecerTexto, setAparecerTexto] = useState <boolean> (false);
+    
     useEffect(() => {
         setComecarIntro( prevState => prevState + 1)
     }, [propParaIntro]);
@@ -32,6 +22,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
     useEffect(() => {
         if (comecarIntro > 1) {
             const timer = setTimeout(() => {
+                console.log('imagem1 e texto devem começar')
                 setAparecerImagem1(true);
                 setAparecerTexto(true);
                 avancar1();
