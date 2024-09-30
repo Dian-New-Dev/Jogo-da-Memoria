@@ -74,6 +74,10 @@ feito
 
 * Usar console.log para verificar o fluxo do código em React é confuso, pois o log registra valores antes do componente re-renderizar, mostrando sempre um valor desatualizado.
 
+* Mesmo quando a lógica parece funcionar localmente, ela pode se comportar de maneira diferente após o deploy.
+
+* Se algum recurso não estiver carregando no deploy e o pathing estiver correto, o problema é a lógica.
+
 ## A Implementar
 
 - mecanica de jogo: os antagonistas ficam mais fortes (atiram mais, maior AoE, etc) a cada par de cartas virada (ou seja, quanto mais o jogador vira sem conseguir pares, mais dificil o jogo fica)
