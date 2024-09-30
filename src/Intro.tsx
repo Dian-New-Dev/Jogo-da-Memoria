@@ -20,9 +20,10 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
 
    
     useEffect(() => {
+        console.log('comecarIntro:', comecarIntro);
         if (comecarIntro > 1) {
             const timer = setTimeout(() => {
-                console.log('imagem1 e texto devem começar')
+                console.log('imagem1 e texto devem começar');
                 setAparecerImagem1(true);
                 setAparecerTexto(true);
                 avancar1();
@@ -31,6 +32,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
             return () => clearTimeout(timer);  // Cleanup timeout
         }
     }, [comecarIntro]);
+    
     
     //aparecer proximos textos e imagens
     // const [textoIndex, setTextoIndex] = useState <number> (0);
