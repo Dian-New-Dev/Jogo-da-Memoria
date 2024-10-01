@@ -70,6 +70,7 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
                         indivíduos (violência, existencialismo, suicídio). Ao clicar
                         em jogar, o usuário declara estar ciente.
                     </p>
+                    <p>Teste: musica na descricao</p>
                     <button onClick={ () => setClicouEmJogar(true)} className='w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl'>JOGAR</button>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import cartasOriginal from './data/ArmazemDeCartas';
 import nomeDasCartas from './data/ArmazemDeNomes';
 import descricoesDasCartas from './data/ArmazemDeDescricoes';
@@ -28,16 +28,13 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
     const [mostrarBotaoAvancar, setMostrarBotaoAvancar] = useState <boolean> (false)
 
     useEffect(() => {
+        playMusicaDesc();
         if ((faseAtual-1) === 1) {
             setFase1(true)
         } else {
             setFase1(false)
         }
     }, [faseAtual])
-
-    useEffect(() => {
-        console.log('componente desc montado, o valor de fase1 é: ' + fase1)
-    }, [fase1])
 
     function mostrarDescricaoA () {
         setSrcA(cartasOriginal[indexA])
@@ -78,11 +75,22 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
         setRenderizarDescricaoDasCartas(false)
         setRenderizarGameLogic(true)
     }
+
+    //musica / audio \/
+
+    const musicaDescricao = useRef<HTMLAudioElement | null>(null);
+
+    const playMusicaDesc = () => {
+        musicaDescricao.current?.play();
+    } 
         
     return (
 
         <div className='w-full h-screen'>
+            
+
             {fase1 ? (
+                        
                         <div className='w-full h-screen flex flex-col items-center gap-8'>
 
                         <div className='p-4 relative z-50 text-amber-400 text-center flex flex-col gap-2 fonte-headline text-2xl pointer-events-none'>
@@ -129,7 +137,7 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                             </div>
             
                             
-            
+                            <audio ref={musicaDescricao} src={"./assets/audio/music/descricao.mp3"} onEnded={playMusicaDesc}></audio>
                         </div>
                     </div>
             ) : (
@@ -164,7 +172,7 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                         </div>
         
                         
-        
+                        <audio ref={musicaDescricao} src={"./assets/audio/music/descricao.mp3"} onEnded={playMusicaDesc}></audio>
                     </div>
             </div>
             )}

@@ -64,7 +64,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
         setTimeout(() => {
             // setTextoIndex(3)
             setAparecerImagem3(true)
-            debugger;
+            
         }, 15000);
     }
 

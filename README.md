@@ -89,7 +89,15 @@ feito
 
 - pacote para animação de maquina de escrever: 
 
-https://www.npmjs.com/package/react-type-animation
+https://www.npmjs.com/package/react-type-animator
+
+- música da intro
+
+https://www.youtube.com/watch?v=tyFvpDLqRiA
+
+- musica da descrição
+
+https://freesound.org/people/TheoJT/sounds/511198/
 
 ## Audio
 
