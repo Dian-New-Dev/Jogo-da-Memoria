@@ -64,6 +64,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
         setTimeout(() => {
             // setTextoIndex(3)
             setAparecerImagem3(true)
+            debugger;
         }, 15000);
     }
 
@@ -156,7 +157,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
                 <img onTransitionEnd={avancar3} className={`w-[50%] absolute z-10 transicao-opacidade-imagens ${aparecerImagem2 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel2ap.jpg"} alt="Ilustração de pessoas raquíticas passando fome e sede nas ruas de um reino egípcio antigo um reino. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
                 
 
-                <img onTransitionEnd={avancar4} className={`w-[50%] absolute right-[5%] bottom-0 z-20 transicao-opacidade-imagens ${aparecerImagem3 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel3ap.jpg"} alt="Ilustração de um homem raquítico e cadavérico sentado no chão no interior de um escuro palácio egípcio, com outras pessoas cadavéricas sentadas ao fundo. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
+                <img onTransitionEnd={avancar4} className={`w-[50%] absolute left-[5%] bottom-[30%] z-20 transicao-opacidade-imagens ${aparecerImagem3 ? 'transicao-in' : 'transicao-out'}`} src={"./assets/images/intro/painel3ap.jpg"} alt="Ilustração de um homem raquítico e cadavérico sentado no chão no interior de um escuro palácio egípcio, com outras pessoas cadavéricas sentadas ao fundo. Estilo artístico de desenho à mão, aspecto sutilmente sinistro." />
 
                 
 
