@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 interface setComecarCena1Prop {
     setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
@@ -9,9 +9,14 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
 
     const [fadeOut, setFadeOut] = useState <boolean> (false);
     
+    const clickPlaySoundRef = useRef<HTMLAudioElement | null>(null);
 
+    const playClickSound = () => {
+        clickPlaySoundRef.current?.play();
+    }
       
     function clicouEmComecarJogo() {
+        playClickSound();
         setFadeOut(true)
 
         setTimeout(function () {
@@ -39,6 +44,8 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
         <div className=''>
             2024 - DA Web Dev.
         </div>
+
+        <audio ref={clickPlaySoundRef} src={"./assets/audio/sfx/click-play.mp3"}></audio>
     </div>
     );
 };
