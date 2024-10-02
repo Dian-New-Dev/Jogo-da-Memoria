@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface PosDesafioProps {
     tempoFinalDoDesafio: string;
@@ -9,8 +9,15 @@ interface PosDesafioProps {
 
 const PosDesafio: React.FC <PosDesafioProps> = ({tempoFinalDoDesafio, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas}) => {
 
+    const audioVitoriaRef = useRef<HTMLAudioElement | null>(null);
+
+    const playVitoriaAudio = () => {
+        audioVitoriaRef.current?.play();
+    }
+
+    //esse aqui roda na inicialização do componente
     useEffect(() => {
-        console.log('o componente de pos desafio foi montado')
+        playVitoriaAudio();
     }, [])
 
     function terminarPartida() {
@@ -35,6 +42,8 @@ const PosDesafio: React.FC <PosDesafioProps> = ({tempoFinalDoDesafio, setFaseAtu
 
                 <button onClick={terminarPartida} className='text-black fonte-papyrus bg-amber-600 hover:bg-amber-800 p-4 rounded-lg font-bold text-center'>Finalizar</button>
             </div>
+
+            <audio ref={audioVitoriaRef} src={"./assets/audio/sfx/vitoria.mp3"}></audio>
         </div>
     
     );
