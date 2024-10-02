@@ -85,6 +85,13 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
 
     }, [faseAtual]);
 
+    //musica gameplay
+    const gameplayMusic1 = useRef<HTMLAudioElement | null>(null);
+
+    const gameplayMusic1Play = () => {
+        gameplayMusic1.current?.play();
+    }
+
     
     // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
     // e inicia o jogo
@@ -104,7 +111,8 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
                 }, 1000);
             }, 1000);
         }, 1000);
-        setJogadorPreparado(true) // apenas para debug, tirar o comment do resto dps
+        setJogadorPreparado(true) // apenas para debug, pula a contagem
+        gameplayMusic1Play() //passar para o topo da função na versão final
     }
 
     //audio
@@ -141,6 +149,8 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     return (
 
         <div className='w-[95%] mx-auto h-screen background-pulpito'>
+            <audio ref={gameplayMusic1} src={"./assets/audio/music/fase1.mp3"}></audio>
+
             <div className={`fonte-headline relative w-full h-screen flex flex-col justify-center items-center gap-8 ${jogadorPreparado ? 'hidden' : 'visible'} `}>
                 <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>Desafio {faseAtual}</p>
                 <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto'>
