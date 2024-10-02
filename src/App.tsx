@@ -9,13 +9,13 @@ import DescricaoDasCartas from './DescricaoDasCartas';
 
 const App: React.FC = () => {
 
-    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (false) // padrao: true
+    const [mostrarIntroSequence, setMostrarIntroSequence] = useState <boolean> (true) // padrao: true
     const [comecarCena1, setComecarCena1] = useState <boolean> (false) // padrao: false
-    const [faseAtual, setFaseAtual] = useState <number> (1) // padrao: 0 //
+    const [faseAtual, setFaseAtual] = useState <number> (0) // padrao: 0 //
     const [renderizarGameLogic, setRenderizarGameLogic] = useState <boolean> (false) // padrao: false
-    const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (true) // padrao: false
-    const [indexA, setIndexA] = useState <number> (0); // padrao: -2
-    const [indexB, setIndexB] = useState <number> (1); // padrao: -1
+    const [renderizarDescricaoDasCartas, setRenderizarDescricaoDasCartas] = useState <boolean> (false) // padrao: false
+    const [indexA, setIndexA] = useState <number> (-2); // padrao: -2
+    const [indexB, setIndexB] = useState <number> (-1); // padrao: -1
 
     //gamelogic: f, f, 1, t, f, -2, -1,
     //descricao cartas: f, f, 1, t, 0, 1
