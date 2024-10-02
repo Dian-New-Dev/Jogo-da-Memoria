@@ -10,6 +10,11 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
     const [fadeOut, setFadeOut] = useState <boolean> (false);
     
     const clickPlaySoundRef = useRef<HTMLAudioElement | null>(null);
+    const hoverAudioRef = useRef<HTMLAudioElement | null>(null);
+
+    const playhoverSound = () => {
+        hoverAudioRef.current?.play();
+    }
 
     const playClickSound = () => {
         clickPlaySoundRef.current?.play();
@@ -35,9 +40,9 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
 
         <div className='fonte-papyrus text-amber-200 text-lg font-bold'>
             <ul className='flex flex-col gap-4 text-center'>
-                <li onClick={clicouEmComecarJogo} className='cursor-pointer hover:scale-125'>Novo Jogo</li>
-                <li className='cursor-pointer hover:scale-125'>Carregar Jogo</li>
-                <li className='cursor-pointer hover:scale-125'>Opções</li>
+                <li onMouseEnter={playhoverSound} onClick={clicouEmComecarJogo} className='cursor-pointer hover:scale-125 hover:text-amber-600 hover:underline'>Novo Jogo</li>
+                <li onMouseEnter={playhoverSound} className='cursor-pointer hover:scale-125 hover:text-amber-600 hover:underline'>Carregar Jogo</li>
+                <li onMouseEnter={playhoverSound} className='cursor-pointer hover:scale-125 hover:text-amber-600 hover:underline'>Opções</li>
             </ul>
         </div>
 
@@ -46,6 +51,7 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
         </div>
 
         <audio ref={clickPlaySoundRef} src={"./assets/audio/sfx/click-play.mp3"}></audio>
+        <audio ref={hoverAudioRef} src={"./assets/audio/sfx/hover.mp3"}></audio>
     </div>
     );
 };

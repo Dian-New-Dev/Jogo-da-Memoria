@@ -89,6 +89,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
     // e inicia o jogo
     function iniciarJogo() {
+
         setMostrarContagem321(true)
         setContagem321('3');
         console.log('3');
@@ -104,6 +105,13 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             }, 1000);
         }, 1000);
         setJogadorPreparado(true) // apenas para debug, tirar o comment do resto dps
+    }
+
+    //audio
+    const hoverAudioRef = useRef<HTMLAudioElement | null>(null);
+
+    const playhoverSound = () => {
+        hoverAudioRef.current?.play();
     }
 
     //logica para determinar os indexes para o Componente DescricaoDasCartas
@@ -138,7 +146,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
                 <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto'>
                     {fase1 ? "Duas novas cartas surgem sobre o livro." : "Um novo par de cartas surge sobre o livro."} 
                 </p>
-                <button onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>Preparado?</button>
+                <button onMouseEnter={playhoverSound} onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>Preparado?</button>
                 <p className={`fonte-papyrus text-5xl text-red-700 opacity-0 contorno-de-texto font-bold ${mostrarContagem321 ? 'opacity-100' : ''} `}>
                     {contagem321}
                 </p>
@@ -162,6 +170,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             
                 {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
             </div>
+            <audio ref={hoverAudioRef} src={"./assets/audio/sfx/hover.mp3"}></audio>
         </div>
 
     );

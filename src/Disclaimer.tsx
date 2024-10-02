@@ -59,9 +59,21 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
         setMostrarIntroSequence(false)
     }
 
+    const hoverAudioRef = useRef<HTMLAudioElement | null>(null);
+
+    const playhoverSound = () => {
+        hoverAudioRef.current?.play();
+    }
+
+    function clicouNoBotaoJogar() {
+        setClicouEmJogar(true)
+        playhoverSound();
+    }
+
     return (
     
         <div>
+            
             <div onTransitionEnd={tonarPresentsVisivel} className={`w-full h-screen grid place-items-center transicao-opacidade ${clicouEmJogar ? 'transicao-out' : '' } ${terminarDisclaimer ? 'hidden' : ''}`}>
                 <div className='flex flex-col gap-2 text-center max-w-[300px]'>
                     <p className='text-2xl text-red-600 font-bold'>AVISO</p>
@@ -71,7 +83,7 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
                         em jogar, o usuário declara estar ciente.
                     </p>
                     <p>Teste: musica na descricao</p>
-                    <button onClick={ () => setClicouEmJogar(true)} className='w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl'>JOGAR</button>
+                    <button onClick={clicouNoBotaoJogar} className='w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl'>JOGAR</button>
                 </div>
             </div>
 
@@ -86,6 +98,7 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
             <button onClick={terminarIntroePassarAoMenu} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold opacity-30 hover:opacity-100'>Pular</button>
 
             <audio ref={audioRef} src={"./assets/audio/music/intro.mp3"} onEnded={terminarIntroePassarAoMenu}></audio>
+            <audio ref={hoverAudioRef} src={"./assets/audio/sfx/hover.mp3"}></audio>
 
         </div>
 
