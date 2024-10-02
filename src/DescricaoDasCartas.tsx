@@ -37,6 +37,7 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
     }, [faseAtual])
 
     function mostrarDescricaoA () {
+        cartaClickSound();
         setSrcA(cartasOriginal[indexA])
         setMostrarCartaB(false)
         setDescABlock(true)
@@ -44,6 +45,7 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
     }
 
     function mostrarDescricaoB () {
+        cartaClickSound();
         setSrcB(cartasOriginal[indexB])
         setMostrarCartaA(false)
         setDescBBlock(true)
@@ -70,10 +72,24 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
         }
     }, [botaoAvancarCounter])
 
+    const finalizarDescAudioRef = useRef<HTMLAudioElement | null>(null);
+
+    const somFinalizarDesc = () => {
+        finalizarDescAudioRef.current?.play();
+    } 
+
+    const [fadeOut, setFadeOut] = useState<boolean>(false)
+
     function terminarComponente() {
-        console.log('componente deve ser desmontado')
-        setRenderizarDescricaoDasCartas(false)
-        setRenderizarGameLogic(true)
+        somFinalizarDesc();
+        //4 segundos para terminar componente, aplicar transição fade-out:
+        setFadeOut(true)
+
+        setTimeout(() => {
+            setRenderizarDescricaoDasCartas(false)
+            setRenderizarGameLogic(true)
+        }, 4000);
+
     }
 
     //musica / audio \/
@@ -83,10 +99,16 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
     const playMusicaDesc = () => {
         musicaDescricao.current?.play();
     } 
+
+    const cartaClickAudioRef = useRef<HTMLAudioElement | null>(null);
+
+    const cartaClickSound = () => {
+        cartaClickAudioRef.current?.play();
+    }
         
     return (
 
-        <div className='w-full h-screen'>
+        <div className={`w-full h-screen transicao-opacidade-imagens opacity-100 ${fadeOut ? 'transicao-out' : ''}`}>
             
 
             {fase1 ? (
@@ -138,6 +160,9 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
             
                             
                             <audio ref={musicaDescricao} src={"./assets/audio/music/descricao.mp3"} onEnded={playMusicaDesc}></audio>
+                            <audio ref={cartaClickAudioRef} src={"./assets/audio/sfx/vira-carta.mp3"}></audio>
+                            <audio ref={finalizarDescAudioRef} src={"./assets/audio/sfx/finalizar-desc.mp3"}></audio>
+                            
                         </div>
                     </div>
             ) : (
@@ -173,6 +198,8 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
         
                         
                         <audio ref={musicaDescricao} src={"./assets/audio/music/descricao.mp3"} onEnded={playMusicaDesc}></audio>
+                        <audio ref={cartaClickAudioRef} src={"./assets/audio/sfx/vira-carta.mp3"}></audio>
+                        <audio ref={finalizarDescAudioRef} src={"./assets/audio/sfx/finalizar-desc.mp3"}></audio>
                     </div>
             </div>
             )}

@@ -74,8 +74,16 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
     //no array vazio "IndexDeCartaAnom", após dois indexes serem adicionados
     //no array (um par de cartas), chama-se checarSeCartasReaisSaoIguais(index);
 
-    function animarClique(index:number) {
+    const cartaClickAudioRef = useRef<HTMLAudioElement | null>(null);
 
+    const cartaClickSound = () => {
+        cartaClickAudioRef.current?.play();
+    }
+
+    function animarClique(index:number) {
+        //sfx da carta virando:
+        cartaClickSound();
+        //
         if (IndexDeCartaAnon.length < 2) {
             setIndexDeCartaAnon([...IndexDeCartaAnon, index]);
             checarSeCartasReaisSaoIguais(index);
@@ -155,6 +163,8 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
             ${bloquearClicksAnom ? 'pointer-events-auto' : 'pointer-events-auto'} 
             ${estilosDasFases[faseAtual]}`}>
                 <audio ref={matchAudioRef} src={"./assets/audio/sfx/par-encontrado.mp3"}></audio>
+                <audio ref={cartaClickAudioRef} src={"./assets/audio/sfx/vira-carta.mp3"}></audio>
+                
                 
                 {ListaDeCartasAnom}
         
