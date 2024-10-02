@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 
 interface cartasAnomProps {
     faseAtual: number;
@@ -100,20 +100,21 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
                 setBloquearClicksAnom(false)
             }, 2000);
 
-            console.log('cliques bloqueados')
+            
             if (src1 === cartasEmbaralhadas[index] && index1 !== index) { //se indexes sao iguais
                 //a segunda condição "&& index1 !== index" impede que o jogador clique na mesma carta duas vezes e obtenha um ponto
                 eliminarCartasIguais(index1, index) // chama eliminarCartasIguais
+                playMatchSound();
                 setTimeout(() => {
                 
                 
-                console.log('cliques liberados')
+                
             }, 800); //esse valor tem q ser 2x o tempo de anomAnim (CSS)
             } else { // se não forem iguais (player clicou em duas cartas diferentes)
                 setTimeout(() => {
                     setIndexDeCartaAnon([]); // reseta o array de indexes
                     
-                    console.log('cliques liberados')
+                    
                 }, 600); // esse valor tem que ser = ou > que anomAnim (CSS)
             }
             setCheckCounter(1)
@@ -142,11 +143,18 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
             setVenceuDesafioAtual(true)
         }
     }, [fimDeJogo]);
+
+    const matchAudioRef = useRef<HTMLAudioElement | null>(null);
+
+    const playMatchSound = () => {
+        matchAudioRef.current?.play();
+    }
     
     return (
         <div className={` 
             ${bloquearClicksAnom ? 'pointer-events-auto' : 'pointer-events-auto'} 
             ${estilosDasFases[faseAtual]}`}>
+                <audio ref={matchAudioRef} src={"./assets/audio/sfx/par-encontrado.mp3"}></audio>
                 
                 {ListaDeCartasAnom}
         
