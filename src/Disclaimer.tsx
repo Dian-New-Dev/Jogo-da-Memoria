@@ -77,12 +77,9 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
             <div onTransitionEnd={tonarPresentsVisivel} className={`w-full h-screen grid place-items-center transicao-opacidade ${clicouEmJogar ? 'transicao-out' : '' } ${terminarDisclaimer ? 'hidden' : ''}`}>
                 <div className='flex flex-col gap-2 text-center max-w-[300px]'>
                     <p className='text-2xl text-red-600 font-bold'>AVISO</p>
-                    <p>O jogo a seguir se trata de uma obra de ficção, a qual aborda 
-                        temas adultos potencialmente sensíveis para determinados 
-                        indivíduos (violência, existencialismo, suicídio). Ao clicar
-                        em jogar, o usuário declara estar ciente.
+                    <p>O jogo a seguir se trata de uma obra de ficção, e se encontra
+                        em desenvolvimento contínuo. 
                     </p>
-                    <p>Teste: musica na descricao</p>
                     <button onClick={clicouNoBotaoJogar} className='w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl'>JOGAR</button>
                 </div>
             </div>
