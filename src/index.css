@@ -4,12 +4,12 @@
 
 @font-face {
     font-family: 'Papyrus';
-    src: url('.assets/fonts/papyrus.ttf') format('truetype');
+    src: url('./assets/fonts/papyrus.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Headline';
-    src: url('.assets/fonts/headline.ttf') format('truetype');
+    src: url('./assets/fonts/headline.ttf') format('truetype');
 }
 
 .fonte-papyrus {
