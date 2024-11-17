@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
+import vitoriaAudio from '../assets/audio/sfx/vitoria.mp3';
+
 interface PosDesafioProps {
     tempoFinalDoDesafio: string;
     setFaseAtual:React.Dispatch<React.SetStateAction<number>>;
@@ -43,7 +45,7 @@ const PosDesafio: React.FC <PosDesafioProps> = ({tempoFinalDoDesafio, setFaseAtu
                 <button onClick={terminarPartida} className='text-black fonte-papyrus bg-amber-600 hover:bg-amber-800 p-4 rounded-lg font-bold text-center'>Finalizar</button>
             </div>
 
-            <audio ref={audioVitoriaRef} src={"./assets/audio/sfx/vitoria.mp3"}></audio>
+            <audio ref={audioVitoriaRef} src={vitoriaAudio}></audio>
         </div>
     
     );

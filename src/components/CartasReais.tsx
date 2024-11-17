@@ -20,35 +20,8 @@ const CartasReais: React.FC<cartasReaisProps> = ({faseAtual, estiloDasDivsDasCar
             </div>
         ));
         setListaDeCartas(cartasRenderizadas)
-        console.log(cartasRenderizadas)
         
     }, [cartasEmbaralhadas]);
-
-    // function processarCliqueNasCartas(src:string, index:number) {
-    //     verificarSeCartasSaoIguais(src);
-    // }
-
-    // let clickCounter:number = 0;
-    // let primeiroSrc:string = '';
-    // let segundoSrc: string = '';
-
-    // function verificarSeCartasSaoIguais(src:string) {
-    //     clickCounter = clickCounter + 1;
-    //     if (clickCounter == 2) {
-    //         segundoSrc = src;
-    //         if (primeiroSrc === segundoSrc) {
-    //             console.log('ambas imagens são a mesma')
-    //         } else {
-    //             console.log('imagens diferentes')
-    //         }
-    //         clickCounter = 0;
-    //     } else {
-    //         primeiroSrc = src;
-    //     }
-
-    // }
-
-    ////////
 
     return (
         <div className={` ${estilosDasFases[faseAtual]}`}>

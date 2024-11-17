@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import TypingAnimator from 'react-typing-animator';
 
+import painel1Img from '../assets/images/cena1/painel1.png';
+import painel2Img from '../assets/images/cena1/painel2.jpg';
+import painel3Img from '../assets/images/cena1/painel3.jpeg';
+
 interface Cean1Props {
     setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
     setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
@@ -148,13 +152,13 @@ const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual, setRenderi
 
 
                 <div className={`z-0 relative top-0 left-0 w-full h-screen grid place-items-center transicao-opacidade ${sumirAsImagens ? 'transicao-out' : 'transicao-in'} `}>
-                    <img id='problematic-pic' className={`w-[80%] z-0 absolute mx-auto top-[-300px] transicao-opacidade-imagens ${aparecerImagem1 ? 'transicao-in, mover-imagem1-pra-baixo' : 'transicao-out'} ${sumirImagem ? 'hidden' : ''} `} src={"./assets/images/cena1/painel1.png"} alt="Ilustração de um assustador e imenso deserto de areia sob um céu de sol forte cercado de tonalidades negras." />
+                    <img id='problematic-pic' className={`w-[80%] z-0 absolute mx-auto top-[-300px] transicao-opacidade-imagens ${aparecerImagem1 ? 'transicao-in, mover-imagem1-pra-baixo' : 'transicao-out'} ${sumirImagem ? 'hidden' : ''} `} src={painel1Img} alt="Ilustração de um assustador e imenso deserto de areia sob um céu de sol forte cercado de tonalidades negras." />
 
 
-                    <img className={`w-[90%] absolute z-10 scale-100 transicao-opacidade-imagens ${aparecerImagem2 ? 'transicao-in, crescer-imagem-2' : 'transicao-out'}`} src={"./assets/images/cena1/painel2.jpg"} alt="Ilustração de um viajante tapado por rústicos trapos cansadamente caminhando pelo deserto." />
+                    <img className={`w-[90%] absolute z-10 scale-100 transicao-opacidade-imagens ${aparecerImagem2 ? 'transicao-in, crescer-imagem-2' : 'transicao-out'}`} src={painel2Img} alt="Ilustração de um viajante tapado por rústicos trapos cansadamente caminhando pelo deserto." />
 
 
-                    <img className={`w-[80%] absolute right-[-200px] my-auto z-20 transicao-opacidade-imagens ${aparecerImagem3 ? 'transicao-in, mover-imagem3-pra-esquerda' : 'transicao-out'}`} src={"./assets/images/cena1/painel3.jpeg"} alt="Ilustração de um púlpito de pedra com um livro aberto sobre si, no meio do deserto.." />
+                    <img className={`w-[80%] absolute right-[-200px] my-auto z-20 transicao-opacidade-imagens ${aparecerImagem3 ? 'transicao-in, mover-imagem3-pra-esquerda' : 'transicao-out'}`} src={painel3Img} alt="Ilustração de um púlpito de pedra com um livro aberto sobre si, no meio do deserto.." />
                 </div>   
 
 

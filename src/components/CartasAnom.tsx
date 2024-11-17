@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef  } from 'react';
 
+import parEncontradoAudio from '../assets/audio/sfx/par-encontrado.mp3';
+import viraCartaAudio from '../assets/audio/sfx/vira-carta.mp3';
+
 interface cartasAnomProps {
     faseAtual: number;
     estiloDasDivsDasCartas: string;
@@ -162,8 +165,8 @@ const CartasAnom: React.FC <cartasAnomProps> = ({faseAtual, estiloDasDivsDasCart
         <div className={` 
             ${bloquearClicksAnom ? 'pointer-events-auto' : 'pointer-events-auto'} 
             ${estilosDasFases[faseAtual]}`}>
-                <audio ref={matchAudioRef} src={"./assets/audio/sfx/par-encontrado.mp3"}></audio>
-                <audio ref={cartaClickAudioRef} src={"./assets/audio/sfx/vira-carta.mp3"}></audio>
+                <audio ref={matchAudioRef} src={parEncontradoAudio}></audio>
+                <audio ref={cartaClickAudioRef} src={viraCartaAudio}></audio>
                 
                 
                 {ListaDeCartasAnom}

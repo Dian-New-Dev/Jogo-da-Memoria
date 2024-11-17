@@ -5,6 +5,11 @@ import ArmazemDeCartas from '../data/ArmazemDeCartas';
 import PosDesafio from './PosDesafio';
 import Cronometro from './Cronometro';
 
+import cartasAnomImg from '../assets/images/cartas/anom.jpg';
+
+import fase1Music from '../assets/audio/music/fase1.mp3';
+import hoverAudio from '../assets/audio/sfx/hover.mp3';
+
 interface GameLogicProps {
     faseAtual: number;
     setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
@@ -39,7 +44,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     const [tempoFinalDoDesafio, setTempoFinalDoDesafio] = useState <string> ('');
 
     //variaveis para estilizacao conjunta de CartasReais e CartasAnom
-        const srcAnom: string = ('./assets/images/cartas/anom.jpg')
+        const srcAnom: string = (cartasAnomImg)
         const estilosDasFases: string[] = [
             "absolute w-full h-screen top-0 grid place-items-center", //esse primeiro é diferente
             "relative overflow-hidden border-8 border-red-600 rounded-xl grid w-[500px] mapa-grid-fase1",
@@ -71,7 +76,6 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     // duplicar e embaralhar cartas + registrar numero de cartas no jogo
     // ambos são passados como props
     useEffect(() => {
-        console.log('fase atual: ' + faseAtual)
         const cartas = [...Array(faseAtual + 1)].map((_, i) => cartasArrayOriginal[i]);
 
         const cartasDuplicado = [...cartas, ...cartas];
@@ -96,23 +100,20 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
     // Se botao "Preparado" for clicado, ativa um timer de 3 segundos
     // e inicia o jogo
     function iniciarJogo() {
+        gameplayMusic1Play() //passar para o topo da função na versão final
 
         setMostrarContagem321(true)
         setContagem321('3');
-        console.log('3');
         setTimeout(() => {
             setContagem321('2');
-            console.log('2');
             setTimeout(() => {
                 setContagem321('1');
-                console.log('1');
                 setTimeout(() => {
                     setJogadorPreparado(true);
                 }, 1000);
             }, 1000);
         }, 1000);
-        setJogadorPreparado(true) // apenas para debug, pula a contagem
-        gameplayMusic1Play() //passar para o topo da função na versão final
+        //setJogadorPreparado(true) // apenas para debug, pula a contagem
     }
 
     //audio
@@ -143,13 +144,13 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
         return () => {
             effectRan.current = true;
         } 
-    }, []);
+    }, []); 
 
 
     return (
 
         <div className='w-[95%] mx-auto h-screen background-pulpito'>
-            <audio ref={gameplayMusic1} src={"./assets/audio/music/fase1.mp3"}></audio>
+            <audio ref={gameplayMusic1} src={fase1Music} onEnded={gameplayMusic1Play}></audio>
 
             <div className={`fonte-headline relative w-full h-screen flex flex-col justify-center items-center gap-8 ${jogadorPreparado ? 'hidden' : 'visible'} `}>
                 <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>Desafio {faseAtual}</p>
@@ -180,7 +181,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             
                 {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
             </div>
-            <audio ref={hoverAudioRef} src={"./assets/audio/sfx/hover.mp3"}></audio>
+            <audio ref={hoverAudioRef} src={hoverAudio}></audio>
         </div>
 
     );

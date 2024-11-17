@@ -3,6 +3,12 @@ import cartasOriginal from '../data/ArmazemDeCartas';
 import nomeDasCartas from '../data/ArmazemDeNomes';
 import descricoesDasCartas from '../data/ArmazemDeDescricoes';
 
+import descricaoMusic from '../assets/audio/music/descricao.mp3'
+import viraCartaAudio from '../assets/audio/sfx/vira-carta.mp3';
+import finalizarDescAudio from '../assets/audio/sfx/finalizar-desc.mp3'
+
+import cartaAnom from '../assets/images/cartas/anom.jpg'
+
 interface DescricaoDasCartasProps {
     faseAtual: number;
     indexA: number;
@@ -20,8 +26,8 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
     const [descBBlock, setDescBBlock] = useState <boolean> (false);
     const [mostrarCartaA, setMostrarCartaA] = useState <boolean> (true);
     const [mostrarCartaB, setMostrarCartaB] = useState <boolean> (true);
-    const [srcA, setSrcA] = useState <string> ('./assets/images/cartas/anom.jpg');
-    const [srcB, setSrcB] = useState <string> ('./assets/images/cartas/anom.jpg');
+    const [srcA, setSrcA] = useState <string> (cartaAnom);
+    const [srcB, setSrcB] = useState <string> (cartaAnom);
     const [tirarClickImagemA, setTirarClickImagemA] = useState<boolean>(false)
     const [tirarClickImagemB, setTirarClickImagemB] = useState<boolean>(false)
     const [botaoAvancarCounter, setBotaoAvancarCounter ] = useState <number> (0)
@@ -159,9 +165,9 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                             </div>
             
                             
-                            <audio ref={musicaDescricao} src={"./assets/audio/music/descricao.mp3"} onEnded={playMusicaDesc}></audio>
-                            <audio ref={cartaClickAudioRef} src={"./assets/audio/sfx/vira-carta.mp3"}></audio>
-                            <audio ref={finalizarDescAudioRef} src={"./assets/audio/sfx/finalizar-desc.mp3"}></audio>
+                            <audio ref={musicaDescricao} src={descricaoMusic} onEnded={playMusicaDesc}></audio>
+                            <audio ref={cartaClickAudioRef} src={viraCartaAudio}></audio>
+                            <audio ref={finalizarDescAudioRef} src={finalizarDescAudio}></audio>
                             
                         </div>
                     </div>
@@ -197,9 +203,9 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                         </div>
         
                         
-                        <audio ref={musicaDescricao} src={"./assets/audio/music/descricao.mp3"} onEnded={playMusicaDesc}></audio>
-                        <audio ref={cartaClickAudioRef} src={"./assets/audio/sfx/vira-carta.mp3"}></audio>
-                        <audio ref={finalizarDescAudioRef} src={"./assets/audio/sfx/finalizar-desc.mp3"}></audio>
+                        <audio ref={musicaDescricao} src={descricaoMusic} onEnded={playMusicaDesc}></audio>
+                        <audio ref={cartaClickAudioRef} src={viraCartaAudio}></audio>
+                        <audio ref={finalizarDescAudioRef} src={finalizarDescAudio}></audio>
                     </div>
             </div>
             )}
