@@ -91,8 +91,9 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
             setSumirAsImagens(true)
             setTimeout(() => {
                 setSumirCaixaDeTexto(true);
-            }, 500)
-        }, 28000);
+                setAparecerTexto(false)
+            }, 4000)
+        }, 32000);
     }
 
     // function terminarIntroePassarAoMenu() {
