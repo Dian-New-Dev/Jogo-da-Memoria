@@ -127,33 +127,33 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                         </div>
             
                         <div className='relative z-40 w-full h-full'>
-                            <div className='px-48  p-24 flex absolute top-0 left-1/2 transform -translate-x-1/2 w-[80%] h-full background-descricoes rounded-md '>
-                            <div className={`relative w-1/2 h-full ${mostrarCartaA ? 'block' : 'hidden'} `}>
+                            <div className='text-center lg:text-start xl:px-48 p-4 py-24 xl:p-24 flex flex-col gap-4 lg:gap-0 items-center lg:flex-row absolute top-0 left-1/2 transform -translate-x-1/2 w-[100%] 2xl:w-[80%] h-full background-descricoes rounded-md '>
+                                <div className={`relative w-[200px]  lg:w-1/2 h-full ${mostrarCartaA ? 'block' : 'hidden'} `}>
                                     <img onClick={mostrarDescricaoA} className={`w-full h-full object-contain cursor-pointer ${tirarClickImagemA ? 'pointer-events-none' : 'pointer-events-auto'} ` } src={srcA} alt="" />
                                 </div>
             
-                                <div className={`relative w-1/2 h-full ${descABlock ? 'block' : 'hidden'}`}>
+                                <div className={`relative w-full lg:w-1/2 h-full ${descABlock ? 'block' : 'hidden'}`}>
                                     <div className='fonte-papyrus p-16 flex flex-col justify-center gap-4 w-full h-full'>
                                         
-                                            <p className='text-amber-600 font-bold text-4xl contorno-de-texto'>{nomeDasCartas[indexA]}</p>
-                                            <p className='text-gray-800 font-bold text-2xl'>{descricoesDasCartas[indexA]}</p>
+                                            <p className='text-amber-600 font-bold text-2xl xl:text-4xl contorno-de-texto'>{nomeDasCartas[indexA]}</p>
+                                            <p className='text-gray-800 font-bold text-xl xl:text-2xl'>{descricoesDasCartas[indexA]}</p>
                                             <div className='mt-4 w-full'>
                                                 <button onClick={fecharDescricoes} className='mx-auto w-[200px] font-bold text-gray-900 underline'>Voltar</button>
                                             </div>        
                                     </div>
                                 </div>
             
-                                <div className={`relative w-1/2 h-full ${descBBlock ? 'block' : 'hidden'}`}>
+                                <div className={`relative w-full lg:p-8 xl:p-0 lg:w-1/2  h-full ${descBBlock ? 'block' : 'hidden'}`}>
                                     <div className='fonte-papyrus p-16 flex flex-col justify-center gap-4 w-full h-full'>
-                                        <p className='text-amber-600 font-bold text-4xl contorno-de-texto'>{nomeDasCartas[indexB]}</p>
-                                        <p className='text-gray-800 font-bold text-2xl'>{descricoesDasCartas[indexB]}</p>
+                                        <p className='text-amber-600 font-bold text-2xl xl:text-4xl contorno-de-texto'>{nomeDasCartas[indexB]}</p>
+                                        <p className='text-gray-800 font-bold text-xl xl:text-2xl'>{descricoesDasCartas[indexB]}</p>
                                         <div className='mt-4 w-full'>
                                             <button onClick={fecharDescricoes} className='mx-auto w-[200px] font-bold text-gray-900 underline'>Voltar</button>
                                         </div>        
                                     </div>
                                 </div>
             
-                                <div className={`relative w-1/2 h-full ${mostrarCartaB ? 'block' : 'hidden'} `}>
+                                <div className={`relative w-[200px] lg:w-1/2 h-full ${mostrarCartaB ? 'block' : 'hidden'} `}>
                                     <img onClick={mostrarDescricaoB} className={`w-full h-full object-contain cursor-pointer ${tirarClickImagemB ? 'pointer-events-none' : 'pointer-events-auto'} ` } src={srcB} alt="" />
                                 </div>
             
@@ -172,7 +172,7 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                         </div>
                     </div>
             ) : (
-                <div className='w-full h-screen flex flex-col items-center gap-8'>
+                <div className='w-full h-full flex flex-col items-center 2xl:gap-8'>
 
                     <div className='p-4 relative z-50 text-amber-400 text-center flex flex-col gap-2 fonte-headline text-2xl pointer-events-none'>
                         <p>O alívio da vitória lhe clareia a mente.</p>
@@ -180,18 +180,18 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                     </div>
     
                     <div className='relative z-40 w-full h-full'>
-                        <div className='px-48  p-24 flex absolute top-0 left-1/2 transform -translate-x-1/2 w-[80%] h-full background-descricoes rounded-md '>
-                        <div className={`relative w-1/2 h-full ${mostrarCartaB ? 'block' : 'hidden'} `}>
+                        <div className='2xl:px-48 py-24 lg:p-24 2xl:p-24 flex  flex-col items-center lg:gap-4 lg:flex-row absolute top-0 left-1/2 transform -translate-x-1/2 w-full lg:w-[80%] h-full background-descricoes rounded-md '>
+                            <div className={`relative  w-[200px] lg:w-1/2 h-full ${mostrarCartaB ? 'block' : 'hidden'} `}>
                                 <img onClick={mostrarDescricaoB} className={`w-full h-full object-contain cursor-pointer ${tirarClickImagemB ? 'pointer-events-none' : 'pointer-events-auto'} ` } src={srcB} alt="" />
                             </div>
         
-                            <div className={`relative w-1/2 h-full ${descBBlock ? 'block' : 'hidden'}`}>
-                                <div className='fonte-papyrus p-16 flex flex-col justify-center gap-4 w-full h-full'>
+                            <div className={`relative w-full text-center lg:text-start lg:w-1/2 h-full ${descBBlock ? 'block' : 'hidden'}`}>
+                                <div className=' fonte-papyrus  p-16 lg:p-0 flex flex-col justify-center xl:gap-4 w-full h-full'>
                                     
-                                        <p className='text-amber-600 font-bold text-4xl contorno-de-texto'>{nomeDasCartas[indexB]}</p>
-                                        <p className='text-gray-800 font-bold text-2xl'>{descricoesDasCartas[indexB]}</p>
+                                        <p className='text-amber-600 font-bold text-2xl lg:text-xl xl:text-4xl contorno-de-texto'>{nomeDasCartas[indexB]}</p>
+                                        <p className='text-gray-800 font-bold text-xl lg:text-lg xl:text-2xl'>{descricoesDasCartas[indexB]}</p>
                                         <div className='mt-4 w-full'>
-                                            <button onClick={fecharDescricao} className='mx-auto w-[200px] font-bold text-gray-900 underline'>Voltar</button>
+                                            <button onClick={terminarComponente} className='mx-auto w-[200px] font-bold text-gray-900 underline'>Finalizar</button>
                                         </div>        
                                 </div>
                             </div>
@@ -210,36 +210,6 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
             </div>
             )}
         </div>
-
-
-    
-        // <div className='w-full h-screen flex flex-col items-center p-12 gap-8'>
-        //     <div className='text-amber-400 text-center flex flex-col gap-2 fonte-headline text-2xl'>
-        //         <p>O alívio da vitória lhe clareia a mente.</p>
-        //         <p>𓂧𓌅𓉐𓁶</p>
-        //         <p>As cartas no livro vão ficando familiares...</p>
-        //     </div>
-           
-        //    <div className='flex items-center justify-center'>
-        //         <div className='fonte-papyrus p-2 flex justify-center gap-4 w-1/2'>
-        //             <img className='w-1/2 border-4 border-double border-amber-700' src={cartasOriginal[indexA]} alt="Carta1" />
-        //             <div className='text-amber-800 w-1/2 flex flex-col gap-4'>
-        //                 <p className='font-bold text-4xl'>{nomeDasCartas[indexA]}</p>
-        //                 <p className='text-lg'>{descricoesDasCartas[indexA]}</p>
-        //             </div>
-        //         </div>
-
-        //         <div className='fonte-papyrus p-2 flex justify-center gap-4 w-1/2'>
-        //             <img className='w-1/2 border-4 border-double border-amber-700' src={cartasOriginal[indexB]} alt="Carta2" />
-        //             <div className='text-amber-800 w-1/2 flex flex-col gap-4'>
-        //                 <p className='font-bold text-4xl'>{nomeDasCartas[indexB]}</p>
-        //                 <p className='text-lg'>{descricoesDasCartas[indexB]}</p>
-        //             </div>
-        //         </div>
-        //    </div>
-
-        //     <button className='z-50 text-white fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold pointer-events-auto'>Avançar</button>
-        // </div>
     
     );
 };

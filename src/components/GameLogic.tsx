@@ -152,9 +152,9 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
         <div className='w-[95%] mx-auto h-screen background-pulpito'>
             <audio ref={gameplayMusic1} src={fase1Music} onEnded={gameplayMusic1Play}></audio>
 
-            <div className={`fonte-headline relative w-full h-screen flex flex-col justify-center items-center gap-8 ${jogadorPreparado ? 'hidden' : 'visible'} `}>
+            <div className={`p-8 fonte-headline relative w-full h-screen flex flex-col justify-center items-center gap-8 ${jogadorPreparado ? 'hidden' : 'visible'} `}>
                 <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>Desafio {faseAtual}</p>
-                <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto'>
+                <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto text-center'>
                     {fase1 ? "Duas novas cartas surgem sobre o livro." : "Um novo par de cartas surge sobre o livro."} 
                 </p>
                 <button onMouseEnter={playhoverSound} onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>Preparado?</button>
@@ -166,7 +166,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
 
             <div className={`relative ${jogadorPreparado ? 'visible' : 'hidden'}`}>
 
-                <div className='z-0 absolute w-full h-screen top-0 grid place-items-center'>
+                <div className='z-0 absolute w-full h-full top-0 grid place-items-center'>
                     <Cronometro jogadorPreparado={jogadorPreparado} venceuDesafioAtual={venceuDesafioAtual} setTempoFinalDoDesafio={setTempoFinalDoDesafio} />
                 </div>
 
