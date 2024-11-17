@@ -93,7 +93,7 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
                 setSumirCaixaDeTexto(true);
                 setAparecerTexto(false)
             }, 4000)
-        }, 32000);
+        }, 30000);
     }
 
     // function terminarIntroePassarAoMenu() {
