@@ -1,5 +1,10 @@
 import React, { useState, useRef } from 'react';
 
+import clickPlayAudio from '../assets/audio/sfx/click-play.mp3'
+import hoverAudio from '../assets/audio/sfx/hover.mp3'
+
+
+
 interface setComecarCena1Prop {
     setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -35,7 +40,7 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
     return (
     <div id='menu-container' className={`w-full h-screen flex flex-col items-center justify-evenly gap-16 background-menu transicao-opacidade ${fadeOut ? 'transicao-out' : 'transicao-in'} `}>
         <div className='text-amber-400 fonte-headline text-[250px] m-0'>
-            <h1>O Vigésimo</h1>
+            <h1 className='fonte-headline'>O Vigésimo</h1>
         </div>
 
         <div className='fonte-papyrus text-amber-200 text-lg font-bold'>
@@ -50,8 +55,8 @@ const Menu: React.FC<setComecarCena1Prop> = ({setComecarCena1}) => {
             2024 - DA Web Dev.
         </div>
 
-        <audio ref={clickPlaySoundRef} src={"./assets/audio/sfx/click-play.mp3"}></audio>
-        <audio ref={hoverAudioRef} src={"./assets/audio/sfx/hover.mp3"}></audio>
+        <audio ref={clickPlaySoundRef} src={clickPlayAudio}></audio>
+        <audio ref={hoverAudioRef} src={hoverAudio}></audio>
     </div>
     );
 };

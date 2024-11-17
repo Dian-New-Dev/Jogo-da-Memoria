@@ -4,12 +4,12 @@
 
 @font-face {
     font-family: 'Papyrus';
-    src: url('./fonts/papyrus.ttf') format('truetype');
+    src: url('.assets/fonts/papyrus.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Headline';
-    src: url('./fonts/headline.ttf') format('truetype');
+    src: url('.assets/fonts/headline.ttf') format('truetype');
 }
 
 .fonte-papyrus {
@@ -99,7 +99,7 @@ html {
 }
 
 .background-menu {
-    background-image: url('./images/menu/deserto.png');
+    background-image: url('./assets/images/menu/deserto.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
