@@ -66,11 +66,11 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
         setMostrarCartaB(true)
     }
 
-    function fecharDescricao() {
-        setDescBBlock(false)
-        setMostrarCartaB(true)
-        setMostrarBotaoAvancar(true)
-    }
+    // function fecharDescricao() {
+    //     setDescBBlock(false)
+    //     setMostrarCartaB(true)
+    //     setMostrarBotaoAvancar(true)
+    // }
 
     useEffect(() => {
         if (botaoAvancarCounter === 2) {
