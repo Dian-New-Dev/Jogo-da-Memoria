@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef} from 'react';
 import CartasReais from './CartasReais';
 import CartasAnom from './CartasAnom';
-import ArmazemDeCartas from './data/ArmazemDeCartas';
+import ArmazemDeCartas from '../data/ArmazemDeCartas';
 import PosDesafio from './PosDesafio';
 import Cronometro from './Cronometro';
 

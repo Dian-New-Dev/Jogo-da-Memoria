@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import Presents from './Presents';
 import Intro from './Intro';
 
+import introMusic from '../assets/audio/music/intro.mp3'
+import hoverSfx from '../assets/audio/sfx/hover.mp3'
+
+
 interface setMostrarIntroSequenceProp {
     setMostrarIntroSequence: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -94,8 +98,8 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
 
             <button onClick={terminarIntroePassarAoMenu} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold opacity-30 hover:opacity-100'>Pular</button>
 
-            <audio ref={audioRef} src={"./assets/audio/music/intro.mp3"} onEnded={terminarIntroePassarAoMenu}></audio>
-            <audio ref={hoverAudioRef} src={"./assets/audio/sfx/hover.mp3"}></audio>
+            <audio ref={audioRef} src={introMusic} onEnded={terminarIntroePassarAoMenu}></audio>
+            <audio ref={hoverAudioRef} src={hoverSfx}></audio>
 
         </div>
 

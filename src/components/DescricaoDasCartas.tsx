@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
-import cartasOriginal from './data/ArmazemDeCartas';
-import nomeDasCartas from './data/ArmazemDeNomes';
-import descricoesDasCartas from './data/ArmazemDeDescricoes';
+import cartasOriginal from '../data/ArmazemDeCartas';
+import nomeDasCartas from '../data/ArmazemDeNomes';
+import descricoesDasCartas from '../data/ArmazemDeDescricoes';
 
 interface DescricaoDasCartasProps {
     faseAtual: number;

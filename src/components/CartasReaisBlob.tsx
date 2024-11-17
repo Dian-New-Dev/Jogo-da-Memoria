@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import svgCartasReaisAnim from './data/ArmazemSVGCartasReais';
+import svgCartasReaisAnim from '../data/ArmazemSVGCartasReais';
 
 const Blob: React.FC = () => {
 
