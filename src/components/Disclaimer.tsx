@@ -84,7 +84,7 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
                     <p>O jogo a seguir se trata de uma obra de ficção, e se encontra
                         em desenvolvimento contínuo. 
                     </p>
-                    <button onClick={clicouNoBotaoJogar} className='w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl'>JOGAR</button>
+                    <button onClick={clicouNoBotaoJogar} className={`w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-3xl`}>JOGAR</button>
                 </div>
             </div>
 
@@ -96,7 +96,7 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
                 <Intro propParaIntro={propParaIntro}/>
             </div>
 
-            <button onClick={terminarIntroePassarAoMenu} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold opacity-30 hover:opacity-100'>Pular</button>
+            <button onClick={terminarIntroePassarAoMenu} className={`${clicouEmJogar ? 'opacity-[0.3]' : 'opacity-[0]'} z-30 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold hover:opacity-100`}>Pular</button>
 
             <audio ref={audioRef} src={introMusic} onEnded={terminarIntroePassarAoMenu}></audio>
             <audio ref={hoverAudioRef} src={hoverSfx}></audio>
