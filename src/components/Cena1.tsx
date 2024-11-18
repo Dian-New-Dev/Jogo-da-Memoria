@@ -6,12 +6,13 @@ import painel2Img from '../assets/images/cena1/painel2.jpg';
 import painel3Img from '../assets/images/cena1/painel3.jpeg';
 
 interface Cean1Props {
+    language: number;
     setComecarCena1: React.Dispatch<React.SetStateAction<boolean>>;
     setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
     setRenderizarGameLogic: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual, setRenderizarGameLogic }) => {
+const Cena1: React.FC<Cean1Props> = ({ language, setComecarCena1, setFaseAtual, setRenderizarGameLogic }) => {
 
     const [cena1Comecou, setCena1Comecou] = useState <boolean> (false)
     const [aparecerTexto, setAparecerTexto] = useState <boolean> (false)
@@ -103,51 +104,105 @@ const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual, setRenderi
         <div className={`w-full h-screen relative transicao-opacidade ${fadeOut ? 'transicao-out' : 'trasicao-in'} `}>
 
             <div onTransitionEnd={comecarApresentacao} className={`z-0 grid place-items-center w-full h-screen absolute top-0 left-0 fonte-headline text-amber-400 text-5xl transicao-opacidade ${cena1Comecou ? 'transicao-out' : ''} `}>
-                <p>Capítulo 1</p>
+                <p>
+                    <>
+                        {language === 0 ? 
+                        'Capítulo 1'
+                        :
+                        'Chapter 1'
+                        }
+                    </>   
+                </p>
             </div>
 
             <div id='paineis-container' className='w-full h-screen relative fonte-papyrus text-gray-800 text-lg font-bold'>
 
-                <div onTransitionEnd={comecarAparecerTexto} className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : 'transicao-in'}`}>
-                    {aparecerTexto &&
+                <>
+                {
+                    language === 0 ?
+                        <div onTransitionEnd={comecarAparecerTexto} className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : 'transicao-in'}`}>
+                            {aparecerTexto &&
 
-                        <TypingAnimator
-                            textArray={[
-                                    'Por quatro dias você caminhou sob o tórrido sol do deserto.',
-                                    'O pouco de água e os três calangos que a comitiva real lhe forneceu antes de sua saída se esgotaram pela manhã.',
-                                    'Atrás de si, o reino já não é mais visível. Adiante, somente o infinito deserto.',
-                                    'Quente.',
-                                    'Cruel.',
-                                    'Vazio.',
-                                    'Seus limites estão próximos. Sua esperança de ser o escolhido pelos deuses a salvar o reino e honrar seu faraó, a um fio de se romper, junto com suas forças de continuar.',
-                                    'É quando você vê.',
-                                    'Impossível não ver. Desponta, quase brilha, em meio à mesmice enlouquecedora da paisagem.',
-                                    'Um púlpito de pedra, cravado na areia. Inscrições estranhas em seu relevo não importam. Sobre si, um livro aberto em duas páginas. A da direita, em branco. A da esquerda, com as seguintes inscrições:',
-                                    '“Eu guardo a água. Eu guardo a vida. Vença meu desafio, e viva mais um dia para continuar sua busca.”',
-                                    '',
-                                    '',
-                            ]}
-                            cursorColor="#ffffff00"
-                            textColor="#555"
-                            fontSize="20px"
-                            loop={false}
-                            typingSpeed={60}
-                            delaySpeed={2000}
-                            backspace={false}
-                            height="auto"
-                            dynamicDelay={false}
-                            style={{
-                                textAlign: 'center',
-                                fontFamily: 'Papyrus',
-                                fontWeight: 'bold',
-                                marginTop: '10px',
-                                caretColor: 'transparent',
-                                width: '600px',
-                            }}
-                        />
+                                <TypingAnimator
+                                    textArray={[
+                                            'Por quatro dias você caminhou sob o tórrido sol do deserto.',
+                                            'O pouco de água e os três calangos que a comitiva real lhe forneceu antes de sua saída se esgotaram pela manhã.',
+                                            'Atrás de si, o reino já não é mais visível. Adiante, somente o infinito deserto.',
+                                            'Quente.',
+                                            'Cruel.',
+                                            'Vazio.',
+                                            'Seus limites estão próximos. Sua esperança de ser o escolhido pelos deuses a salvar o reino e honrar seu faraó, a um fio de se romper, junto com suas forças de continuar.',
+                                            'É quando você vê.',
+                                            'Impossível não ver. Desponta, quase brilha, em meio à mesmice enlouquecedora da paisagem.',
+                                            'Um púlpito de pedra, cravado na areia. Inscrições estranhas em seu relevo não importam. Sobre si, um livro aberto em duas páginas. A da direita, em branco. A da esquerda, com as seguintes inscrições:',
+                                            '“Eu guardo a água. Eu guardo a vida. Vença meu desafio, e viva mais um dia para continuar sua busca.”',
+                                            '',
+                                            '',
+                                    ]}
+                                    cursorColor="#ffffff00"
+                                    textColor="#555"
+                                    fontSize="20px"
+                                    loop={false}
+                                    typingSpeed={60}
+                                    delaySpeed={2000}
+                                    backspace={false}
+                                    height="auto"
+                                    dynamicDelay={false}
+                                    style={{
+                                        textAlign: 'center',
+                                        fontFamily: 'Papyrus',
+                                        fontWeight: 'bold',
+                                        marginTop: '10px',
+                                        caretColor: 'transparent',
+                                        width: '600px',
+                                    }}
+                                />
 
-                    }
-                </div>
+                            }
+                        </div>
+                    :
+                        <div onTransitionEnd={comecarAparecerTexto} className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : 'transicao-in'}`}>
+                        {aparecerTexto &&
+
+                            <TypingAnimator
+                                textArray={[
+                                        'For four days you walked under the scorching sun of the desert.',
+                                        'The water and three lizards that the royal entourage provided you before your departure ran out by the morning.',
+                                        'Behind you, the kingdom is no longer visible. Ahead, only the endless desert.',
+                                        'Hot.',
+                                        'Cruel.',
+                                        'Lonely.',
+                                        'Your limits draw near. Your hope of being the one chosen by the gods to save the Kingdom and honor your Pharaoh is hanging by a thread, along with your strength to continue.',
+                                        "That's when you see it.",
+                                        "It's impossible not to see. It rises, almost shining, amidst the maddening monotony of the landscape.",
+                                        'A stone pulpit, embedded in the sand. Strange inscriptions on its shape do not matter. Above it, lies an open book. The right page, blank. The left page, with the following inscriptions:',
+                                        '“I keep the water. I keep life. Overcome my challenge, and live one more day to continue your quest.”',
+                                        '',
+                                        '',
+                                ]}
+                                cursorColor="#ffffff00"
+                                textColor="#555"
+                                fontSize="20px"
+                                loop={false}
+                                typingSpeed={60}
+                                delaySpeed={2000}
+                                backspace={false}
+                                height="auto"
+                                dynamicDelay={false}
+                                style={{
+                                    textAlign: 'center',
+                                    fontFamily: 'Papyrus',
+                                    fontWeight: 'bold',
+                                    marginTop: '10px',
+                                    caretColor: 'transparent',
+                                    width: '600px',
+                                }}
+                            />
+
+                        }
+                        </div>
+                }
+                </>
 
 
 
@@ -167,7 +222,17 @@ const Cena1: React.FC<Cean1Props> = ({ setComecarCena1, setFaseAtual, setRenderi
             </div>
 
             <div className='absolute bottom-5 right-5 z-50 pointer-events-auto'>
-                <button onClick={pularCena1} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold pointer-events-auto opacity-20 border border-black hover:opacity-100'>PULAR</button>
+                <button onClick={pularCena1} className='z-50 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold pointer-events-auto opacity-20 border border-black hover:opacity-100'>
+                    <>
+                    {
+                        language === 0 ?
+                        'PULAR'
+                        :
+                        'SKIP'
+                    }
+                    </>
+                
+                </button>
             </div>
             
         </div>

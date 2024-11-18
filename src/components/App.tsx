@@ -14,11 +14,7 @@ const App: React.FC = () => {
     
     //logica idioma
     const [menuIdiomas, setMenuIdiomas] = useState<boolean>(true) // padrao: true
-    const [language, setLanguage] = useState<number>(); // 0 = pt / 1 = en
-
-    useEffect(() => {
-        console.log('lingua mudou para: ' + language)
-    }, [language])
+    const [language, setLanguage] = useState<number>(0); // 0 = pt / 1 = en
 
 
 
@@ -63,21 +59,21 @@ const App: React.FC = () => {
             </div>
 
             <div id="menu-outer-container" className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${mostrarIntroSequence ? 'hidden' : 'visible'} `}>
-                {!mostrarIntroSequence && !comecarCena1 && faseAtual === 0 && !menuIdiomas && <Menu setComecarCena1={setComecarCena1} />}
+                {!mostrarIntroSequence && !comecarCena1 && faseAtual === 0 && !menuIdiomas && <Menu setComecarCena1={setComecarCena1} language={language} />}
             </div>
 
             <audio ref={ventoRef} src={ventoAudio} onEnded={tocarVento}></audio>
 
             <div className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${comecarCena1 ? 'visible' : 'hidden'} `}>
-                {comecarCena1 && <Cena1 setComecarCena1={setComecarCena1} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} />}
+                {comecarCena1 && <Cena1 language={language} setComecarCena1={setComecarCena1} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} />}
             </div>
 
             <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${faseAtual !== 0 ? 'visible' : 'hidden'} `}>
-                {faseAtual !== 0 && renderizarGameLogic && <GameLogic faseAtual={faseAtual} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} setIndexA={setIndexA} setIndexB={setIndexB} />}
+                {faseAtual !== 0 && renderizarGameLogic && <GameLogic language={language} faseAtual={faseAtual} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} setIndexA={setIndexA} setIndexB={setIndexB} />}
             </div>
 
             <div className={`z-50 absolute top-0 left-0 w-full h-screen text-white ${renderizarDescricaoDasCartas ? 'visible' : 'hidden'} `}>
-                {renderizarDescricaoDasCartas && <DescricaoDasCartas faseAtual={faseAtual} indexA={indexA} indexB={indexB} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} setRenderizarGameLogic={setRenderizarGameLogic} />}
+                {renderizarDescricaoDasCartas && <DescricaoDasCartas language={language} faseAtual={faseAtual} indexA={indexA} indexB={indexB} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} setRenderizarGameLogic={setRenderizarGameLogic} />}
             </div>
         </div>
     );

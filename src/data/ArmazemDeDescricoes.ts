@@ -24,7 +24,7 @@ const descricoesDasCartas: string[] = [
     //nobreza
     'A nobreza duraria mais do que o povo. Tinham estoques de água e comida e seus números diminutos lhes permitiam coordenar esforços de racionamento impossíveis às masssas. Mas eles esqueceram que diante da fome, da sede e do medo da morte, as massas esquecem das leis e retornam ao estado bárbaro dos primeiros homens do deserto. Esquecidos pelos deuses e pelo Faraó, quem trouxe para seu palácio toda a guarda da cidade, os nobres só puderam assistir em horror o povo faminto escalando as paredes e sacadas de suas residências.',
     //guardiao
-    'Os guardiões também foram abandonados à própria sorte pelo Faraó, mas sua lealdade sempre ateve-se aos deuses. Sede, fome, violência e horror não lhes chacoalhou. Como nos dias prósperos, os guardiões mantiveram guarda na porta de seus templos mesmo nos dias finais. Seus cadáveres, desnutridos e ressecados pela sede, não parecem muito diferente dos inifnitos cadáveres comuns que se amontoam nas ruas e apodrecem os ares do reino.',
+    'Eles guardam os templos dos deuses, bem como as imensas riquezas depositadas dentro dos mesmos. Matariam ladrões e negariam uma única moeda a um morador de rua passando fome. Pois hoje, dia em que o ouro torna a ser apenas um pedaço de metal, os guardiões passam tanta forme quanto os mendigos.',
     //rainha
     'Outrora tida como a mulher mais bela de todo o Egito, hoje nossa Rainha parece tão moribunda quanto o mais pobre dos súditos. Ela chora a morte de seu povo. Chora a morte de seus filhos. Chora o apodrecimento de seu marido. Ela chora tanto que não há mais lágrimas em seu corpo. De seus olhos ardentes, escorre sangue quente quando ela, uma vez mais, torna a chorar.',
     //faraó

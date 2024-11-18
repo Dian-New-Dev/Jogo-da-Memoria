@@ -123,7 +123,7 @@ const Disclaimer: React.FC<setMostrarIntroSequenceProp> = ({ setMostrarIntroSequ
             </div>
 
             <div id='intro' onTransitionEnd={PassarPropParaIntro} className={`absolute top-0 left-0 w-full h-screen grid place-items-center transicao-opacidade opacity-0 pointer-events-none ${aparecerIntro ? 'transicao-in' : 'transicao-out'}`}>
-                <Intro propParaIntro={propParaIntro}/>
+                <Intro language={language} propParaIntro={propParaIntro}/>
             </div>
 
             <button onClick={terminarIntroePassarAoMenu} className={`${clicouEmJogar ? 'opacity-[0.3]' : 'opacity-[0]'} z-30 text-white absolute bottom-20 right-20 fonte-papyrus bg-amber-600 p-4 rounded-lg font-bold hover:opacity-100`}>Skip</button>

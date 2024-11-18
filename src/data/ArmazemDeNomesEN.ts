@@ -1,0 +1,25 @@
+const nomeDasCartasEN: string[] = [
+    'The Peasant',
+    'The Vizier',
+    'The Priestess of Isis',
+    'The General',
+    'The Artisan',
+    'The Scribe',
+    'The Daughter',
+    'The Guard',
+    'The Priest',
+    'The Child',
+    'The Slaves',
+    'The Nobility',
+    'The Guardian',
+    'The Queen',
+    'The Pharaoh',
+    'The Engineer',
+    'The Embalmer',
+    'The Ritualist',
+    'The Fools',
+    'The Astronomer',
+    'The Devotee',
+]
+
+export default nomeDasCartasEN;

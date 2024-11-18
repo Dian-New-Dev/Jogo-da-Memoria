@@ -11,6 +11,7 @@ import fase1Music from '../assets/audio/music/fase1.mp3';
 import hoverAudio from '../assets/audio/sfx/hover.mp3';
 
 interface GameLogicProps {
+    language: number;
     faseAtual: number;
     setFaseAtual: React.Dispatch<React.SetStateAction<number>>;
     setRenderizarGameLogic: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,7 +22,7 @@ interface GameLogicProps {
 
 const cartasArrayOriginal: string[] = ArmazemDeCartas;
 
-const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas, setIndexA, setIndexB}) => {
+const GameLogic: React.FC <GameLogicProps> = ({ language, faseAtual, setFaseAtual, setRenderizarGameLogic, setRenderizarDescricaoDasCartas, setIndexA, setIndexB}) => {
 
     useEffect(() => {
         if (faseAtual === 1) {
@@ -153,11 +154,37 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
             <audio ref={gameplayMusic1} src={fase1Music} onEnded={gameplayMusic1Play}></audio>
 
             <div className={`p-8 fonte-headline relative w-full h-screen flex flex-col justify-center items-center gap-8 ${jogadorPreparado ? 'hidden' : 'visible'} `}>
-                <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>Desafio {faseAtual}</p>
-                <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto text-center'>
-                    {fase1 ? "Duas novas cartas surgem sobre o livro." : "Um novo par de cartas surge sobre o livro."} 
+                <p className='text-[64px] contorno-de-texto text-outline underline text-red-700 font-bold'>
+                    {language === 0 ? 
+                        `Desafio ${faseAtual}`
+                        :
+                        `Challenge ${faseAtual}`
+                    
+                    }
                 </p>
-                <button onMouseEnter={playhoverSound} onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>Preparado?</button>
+                
+                <>
+                {
+                    language === 0 ?
+                    <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto text-center'>
+                        {fase1 ? "Duas novas cartas surgem sobre o livro." : "Um novo par de cartas surge sobre o livro."} 
+                    </p>
+                    :
+                    <p className='fonte-papyrus text-5xl text-amber-600 contorno-de-texto text-center'>
+                        {fase1 ? "Two new cards appear on the book." : "A new pair of cards appears on the book."} 
+                    </p>
+                }
+                </>
+
+                
+                <button onMouseEnter={playhoverSound} onClick={iniciarJogo} className='text-3xl contorno-de-texto w-32 mx-auto m-2 p-2 bg-amber-600/75 hover:bg-amber-700 rounded-sm border border-black'>
+                    {language === 0 ?
+                    'Preparado?'
+                    :
+                    'Ready?'
+                    }    
+                </button>
+                
                 <p className={`fonte-papyrus text-5xl text-red-700 opacity-0 contorno-de-texto font-bold ${mostrarContagem321 ? 'opacity-100' : ''} `}>
                     {contagem321}
                 </p>
@@ -179,7 +206,7 @@ const GameLogic: React.FC <GameLogicProps> = ({faseAtual, setFaseAtual, setRende
                     <CartasAnom faseAtual={faseAtual} estiloDasDivsDasCartas={estiloDasDivsDasCartas} numeroDeCartas={numeroDeCartas} cartasEmbaralhadas={cartasEmbaralhadas} setVenceuDesafioAtual={setVenceuDesafioAtual} srcAnom={srcAnom} estilosDasFases={estilosDasFases} />
                 </div>
             
-                {venceuDesafioAtual && <PosDesafio tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
+                {venceuDesafioAtual && <PosDesafio language={language} tempoFinalDoDesafio={tempoFinalDoDesafio} setFaseAtual={setFaseAtual} setRenderizarGameLogic={setRenderizarGameLogic} setRenderizarDescricaoDasCartas={setRenderizarDescricaoDasCartas} />}
             </div>
             <audio ref={hoverAudioRef} src={hoverAudio}></audio>
         </div>

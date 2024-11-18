@@ -1,7 +1,10 @@
 import React, {useEffect, useState, useRef} from 'react';
 import cartasOriginal from '../data/ArmazemDeCartas';
 import nomeDasCartas from '../data/ArmazemDeNomes';
+import nomeDasCartasEN from '../data/ArmazemDeNomesEN';
+
 import descricoesDasCartas from '../data/ArmazemDeDescricoes';
+import descricoesDasCartasEN from '../data/ArmazemDeDescricoesEN';
 
 import descricaoMusic from '../assets/audio/music/descricao.mp3'
 import viraCartaAudio from '../assets/audio/sfx/vira-carta.mp3';
@@ -10,6 +13,7 @@ import finalizarDescAudio from '../assets/audio/sfx/finalizar-desc.mp3'
 import cartaAnom from '../assets/images/cartas/anom.jpg'
 
 interface DescricaoDasCartasProps {
+    language: number;
     faseAtual: number;
     indexA: number;
     indexB: number;
@@ -19,7 +23,7 @@ interface DescricaoDasCartasProps {
 
 
 
-const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, indexA, indexB, setRenderizarDescricaoDasCartas, setRenderizarGameLogic }) => {
+const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ language, faseAtual, indexA, indexB, setRenderizarDescricaoDasCartas, setRenderizarGameLogic }) => {
        
     const [fase1, setFase1] = useState <boolean> (false);
     const [descABlock, setDescABlock] = useState <boolean> (false);
@@ -122,8 +126,23 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                         <div className='w-full h-screen flex flex-col items-center gap-8'>
 
                         <div className='p-4 relative z-50 text-amber-400 text-center flex flex-col gap-2 fonte-headline text-2xl pointer-events-none'>
-                            <p>O alívio da vitória lhe clareia a mente.</p>
-                            <p>As cartas no livro vão ficando familiares...</p>
+                            <p>
+                                {language === 0 ? 
+                                'O alívio da vitória lhe clareia a mente.'
+                                :
+                                'The relief of victory clears your mind.'
+                                }
+                                
+                            </p>
+
+                            <p>
+                            {language === 0 ? 
+                                'As cartas no livro vão ficando familiares...'
+                                :
+                                'The cards on the book are becoming familiar...'
+                                }
+                                
+                            </p>
                         </div>
             
                         <div className='relative z-40 w-full h-full'>
@@ -135,20 +154,60 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                                 <div className={`relative w-full lg:w-1/2 h-full ${descABlock ? 'block' : 'hidden'}`}>
                                     <div className='fonte-papyrus p-16 flex flex-col justify-center gap-4 w-full h-full'>
                                         
-                                            <p className='text-amber-600 font-bold text-2xl xl:text-4xl contorno-de-texto'>{nomeDasCartas[indexA]}</p>
-                                            <p className='text-gray-800 font-bold text-xl xl:text-2xl'>{descricoesDasCartas[indexA]}</p>
+                                            <p className='text-amber-600 font-bold text-2xl xl:text-4xl contorno-de-texto'>
+                                                
+                                                
+                                                {language === 0 ? 
+                                                    `${nomeDasCartas[indexA]}`
+                                                    :
+                                                    `${nomeDasCartasEN[indexA]}`
+                                                }
+                                                
+                                                
+                                                
+                                            </p>
+                                            
+                                            <p className='text-gray-800 font-bold text-xl xl:text-2xl'>
+                                                {language === 0 ? 
+                                                    `${descricoesDasCartas[indexA]}`
+                                                    :
+                                                    `${descricoesDasCartasEN[indexA]}`
+                                                }
+                                                
+                                                
+                                            </p>
                                             <div className='mt-4 w-full'>
-                                                <button onClick={fecharDescricoes} className='mx-auto w-[200px] font-bold text-gray-900 underline'>Voltar</button>
+                                                <button onClick={fecharDescricoes} className='mx-auto w-[200px] font-bold text-gray-900 underline'>
+                                                    {language === 0 ? 'Voltar' : 'Return'}
+                                                    
+                                                    
+                                                </button>
                                             </div>        
                                     </div>
                                 </div>
             
                                 <div className={`relative w-full lg:p-8 xl:p-0 lg:w-1/2  h-full ${descBBlock ? 'block' : 'hidden'}`}>
                                     <div className='fonte-papyrus p-16 flex flex-col justify-center gap-4 w-full h-full'>
-                                        <p className='text-amber-600 font-bold text-2xl xl:text-4xl contorno-de-texto'>{nomeDasCartas[indexB]}</p>
-                                        <p className='text-gray-800 font-bold text-xl xl:text-2xl'>{descricoesDasCartas[indexB]}</p>
+                                        <p className='text-amber-600 font-bold text-2xl xl:text-4xl contorno-de-texto'>
+                                                {language === 0 ? 
+                                                    `${nomeDasCartas[indexB]}`
+                                                    :
+                                                    `${nomeDasCartasEN[indexB]}`
+                                                }
+                                        </p>
+                                        
+                                        <p className='text-gray-800 font-bold text-xl xl:text-2xl'>
+                                                {language === 0 ? 
+                                                    `${descricoesDasCartas[indexB]}`
+                                                    :
+                                                    `${descricoesDasCartasEN[indexB]}`
+                                                }
+                                        </p>
+                                        
                                         <div className='mt-4 w-full'>
-                                            <button onClick={fecharDescricoes} className='mx-auto w-[200px] font-bold text-gray-900 underline'>Voltar</button>
+                                            <button onClick={fecharDescricoes} className='mx-auto w-[200px] font-bold text-gray-900 underline'>
+                                                {language === 0 ? 'Voltar' : 'Return'}
+                                            </button>
                                         </div>        
                                     </div>
                                 </div>
@@ -161,7 +220,9 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                                 
                             </div>
                             <div className={`absolute inset-0 flex items-center justify-center bg-red-70 fonte-headline text-3xl ${mostrarBotaoAvancar ? 'block': 'hidden'} ` }>
-                                <button onClick={terminarComponente} className={`fonte-headline text-3xl p-2 border bg-amber-600 border-amber-700 rounded-md text-amber-950`}>Finalizar</button>
+                                <button onClick={terminarComponente} className={`fonte-headline text-3xl p-2 border bg-amber-600 border-amber-700 rounded-md text-amber-950`}>
+                                    {language === 0 ? 'Finalizar' : 'Finish'}
+                                </button>
                             </div>
             
                             
@@ -175,8 +236,25 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                 <div className='w-full h-full flex flex-col items-center 2xl:gap-8'>
 
                     <div className='p-4 relative z-50 text-amber-400 text-center flex flex-col gap-2 fonte-headline text-2xl pointer-events-none'>
-                        <p>O alívio da vitória lhe clareia a mente.</p>
-                        <p>A nova carta lhe parece familiar...</p>
+                        
+                        
+                            <p>
+                                {language === 0 ? 
+                                'O alívio da vitória lhe clareia a mente.'
+                                :
+                                'The relief of victory clears your mind.'
+                                }
+                                
+                            </p>
+
+                            <p>
+                            {language === 0 ? 
+                                'A nova carta vai ficando familiar...'
+                                :
+                                'The new card starts to become familiar...'
+                                }
+                                
+                            </p>
                     </div>
     
                     <div className='relative z-40 w-full h-full'>
@@ -188,10 +266,18 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                             <div className={`relative w-full text-center lg:text-start lg:w-1/2 h-full ${descBBlock ? 'block' : 'hidden'}`}>
                                 <div className=' fonte-papyrus  p-16 lg:p-0 flex flex-col justify-center xl:gap-4 w-full h-full'>
                                     
-                                        <p className='text-amber-600 font-bold text-2xl lg:text-xl xl:text-4xl contorno-de-texto'>{nomeDasCartas[indexB]}</p>
-                                        <p className='text-gray-800 font-bold text-xl lg:text-lg xl:text-2xl'>{descricoesDasCartas[indexB]}</p>
+                                        <p className='text-amber-600 font-bold text-2xl lg:text-xl xl:text-4xl contorno-de-texto'>
+                                            {language === 0 ? `${nomeDasCartas[indexB]}` : `${nomeDasCartasEN[indexB]}`}
+                                            
+                                        </p>
+                                        <p className='text-gray-800 font-bold text-xl lg:text-lg xl:text-2xl'>
+                                            {language === 0 ? `${descricoesDasCartas[indexB]}` : `${descricoesDasCartasEN[indexB]}`}
+                                            
+                                        </p>
                                         <div className='mt-4 w-full'>
-                                            <button onClick={terminarComponente} className='mx-auto w-[200px] font-bold text-gray-900 underline'>Finalizar</button>
+                                            <button onClick={terminarComponente} className='mx-auto w-[200px] font-bold text-gray-900 underline'>
+                                                {language === 0 ? 'Finalizar' : 'Finish'} 
+                                            </button>
                                         </div>        
                                 </div>
                             </div>
@@ -199,7 +285,9 @@ const DescricaoDasCartas: React.FC <DescricaoDasCartasProps> = ({ faseAtual, ind
                         </div>
 
                         <div className={`absolute inset-0 flex items-center justify-center bg-red-70 fonte-headline text-3xl ${mostrarBotaoAvancar ? 'block': 'hidden'} ` }>
-                            <button onClick={terminarComponente} className={`fonte-headline text-3xl p-2 border bg-amber-600 border-amber-700 rounded-md text-amber-950`}>Finalizar</button>
+                            <button onClick={terminarComponente} className={`fonte-headline text-3xl p-2 border bg-amber-600 border-amber-700 rounded-md text-amber-950`}>
+                                {language === 0 ? 'Finalizar' : 'Finish'} 
+                            </button>
                         </div>
         
                         

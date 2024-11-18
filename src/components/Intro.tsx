@@ -9,9 +9,10 @@ import painel5ap from '../assets/images/intro/painel5ap.jpg';
 
 interface IntroProps {
     propParaIntro: boolean;
+    language: number;
 }
 
-const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
+const Intro: React.FC<IntroProps> = ({propParaIntro, language}) => {
 
     //começar a intro e aparecer primeiro texto
     const [comecarIntro, setComecarIntro] = useState <number> (-1)
@@ -106,14 +107,10 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
     return (
     
         <div id='paineis-container' className='w-full h-screen relative fonte-papyrus text-gray-800 text-lg font-bold'>
-
+            <>
+            {
+                language === 0 ?
                 <div id="fundo-pergaminho" className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : ''}`}>
-                    {/* <p 
-                    className={`w-[600px] text-center transicao-opacidade ${textoIndex !== 0 ? '' : ''}`}>
-                        
-                        
-                        {textoIntro[textoIndex]}
-                        </p> */}
 
                     {aparecerTexto &&
 
@@ -151,6 +148,47 @@ const Intro: React.FC<IntroProps> = ({propParaIntro}) => {
 
                 }
                 </div>
+                :
+                <div id="fundo-pergaminho" className={`z-50 absolute bottom-0 grid place-items-center fundo-de-pergaminho w-full h-[300px] transicao-opacidade ${sumirCaixaDeTexto ? 'transicao-out' : ''}`}>
+
+                {aparecerTexto &&
+
+                    <TypingAnimator
+                    textArray={[
+                            'The Kingdom suffers.',
+                            'Once the beating heart of our civilization, today it rots away under the indifferent gaze of the gods.',
+                            'Without water to quench their thirst or to cultivate daily sustenance, the skeletal and emaciated people gather around the palace. Their bodies die second by second, leaning only on the hope that the Pharaoh will convince the gods to return the Nile to them.',
+                            'But even in the palace corridors, hunger and thirst walk hand in hand with the reaper. Death after death, the royal court disintegrates. Even strong generals can barely stand on thin legs and the most brilliant scribes have to battle against madness.',                            
+                            'With no options, the Sun-God tries one last time. Choosing you from the crowd below, with no criteria other than trusting the gods, the Pharaoh entrusts you with the noblest of missions and the most perverse of sentences.',
+                            'Nineteen others tried before you, none returned. But where they resisted, terrified, you accepted with pride.',
+                            'Chosen by the gods, you brave the desert in search of water.',
+                            'For the Kingdom.',
+                            'For the Pahraoh.',
+                            'You are the Twentieth. The last hope of your people.'
+                    ]}
+                    cursorColor="#ffffff00"
+                    textColor="#555"
+                    fontSize="20px"
+                    loop={false}
+                    typingSpeed={60}
+                    delaySpeed={3000}
+                    backspace={false}
+                    height="auto"
+                    dynamicDelay={false}
+                    style={{
+                        textAlign: 'center',
+                        fontFamily: 'Papyrus',
+                        fontWeight: 'bold',
+                        marginTop: '10px',
+                        caretColor: 'transparent',
+                        width: '600px',
+                      }}
+                />
+
+            }
+                </div>
+            }
+            </>
                 
                 
 
