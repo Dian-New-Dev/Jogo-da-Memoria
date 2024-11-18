@@ -27,7 +27,7 @@ const MenuIdiomas: React.FC<MenuIdiomaProps> = ( {setLanguage, setMenuIdiomas} )
                     <img className='w-[50px] opacity-[0.5] hover:opacity-[1] hover:scale-[1.1]' src={brasilIcon} alt="Ícone de bandeira do Brasil" />
                 </button>
 
-                <button onClick={() => idioma('pt')}>
+                <button onClick={() => idioma('en')}>
                     <img className='w-[50px] opacity-[0.5] hover:opacity-[1] hover:scale-[1.1]' src={ukIcon} alt="Ícone de bandeira do Brasil" />
                 </button>
 

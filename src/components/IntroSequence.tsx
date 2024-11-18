@@ -3,16 +3,17 @@ import Disclaimer from './Disclaimer';
 
 interface setMostrarIntroSequenceProp {
     setMostrarIntroSequence: React.Dispatch<React.SetStateAction<boolean>>;
+    language: number;
 }
 
-const IntroSequence: React.FC<setMostrarIntroSequenceProp> = ({setMostrarIntroSequence}) => {
+const IntroSequence: React.FC<setMostrarIntroSequenceProp> = ({setMostrarIntroSequence, language}) => {
         
     return (
     
         <div>
 
             <div>
-                <Disclaimer setMostrarIntroSequence={setMostrarIntroSequence} />
+                <Disclaimer language={language} setMostrarIntroSequence={setMostrarIntroSequence} />
             </div>
 
         </div>

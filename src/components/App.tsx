@@ -14,7 +14,11 @@ const App: React.FC = () => {
     
     //logica idioma
     const [menuIdiomas, setMenuIdiomas] = useState<boolean>(true) // padrao: true
-    const [language, setLanguage] = useState<number>(0); // 0 = pt / 1 = en
+    const [language, setLanguage] = useState<number>(); // 0 = pt / 1 = en
+
+    useEffect(() => {
+        console.log('lingua mudou para: ' + language)
+    }, [language])
 
 
 
@@ -55,7 +59,7 @@ const App: React.FC = () => {
             {menuIdiomas && <MenuIdiomas setLanguage={setLanguage} setMenuIdiomas={setMenuIdiomas} />}
 
             <div id='intro' className={`text-white absolute top-0 left-0 w-full h-screen ${mostrarIntroSequence ? 'visible' : 'hidden'} `}>
-                {mostrarIntroSequence && <IntroSequence setMostrarIntroSequence={setMostrarIntroSequence}/>}
+                {mostrarIntroSequence && <IntroSequence language={language} setMostrarIntroSequence={setMostrarIntroSequence}/>}
             </div>
 
             <div id="menu-outer-container" className={`z-0 absolute top-0 left-0 w-full h-screen text-white ${mostrarIntroSequence ? 'hidden' : 'visible'} `}>
