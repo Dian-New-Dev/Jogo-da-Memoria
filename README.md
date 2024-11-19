@@ -1,4 +1,4 @@
-# Projeto Web-Game: O Vigésimo
+# Projeto Web-Game: O Vigésimo / The Twentieth
 
 ## Descrição
 
